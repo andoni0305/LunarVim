@@ -5,13 +5,10 @@ Formatters and linters should be
 filled in as strings with either
 a global executable or a path to
 an executable
-]]
-
-
--- general
+]] -- general
 O.auto_complete = true
-O.auto_close_tree = 0
 O.colorscheme = 'aurora'
+O.auto_close_tree = 0
 
 -- python
 -- add things like O.python.formatter.yapf.exec_path
@@ -30,5 +27,5 @@ O.lua.formatter = 'lua-format'
 
 -- javascript
 O.tsserver.formatter = 'prettier'
-O.tsserver.linter = nil
-O.tsserver.autoformat = false
+O.tsserver.linter = 'eslint'
+O.tsserver.autoformat = true

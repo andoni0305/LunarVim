@@ -41,8 +41,9 @@ return require('packer').startup(function(use)
     use 'hrsh7th/vim-vsnip'
     use 'ChristianChiarulli/java-snippets'
 	use "rafamadriz/friendly-snippets"
-    -- use 'xabikos/vscode-javascript'
-    -- use 'dsznajder/vscode-es7-javascript-react-snippets'
+    use 'xabikos/vscode-javascript'
+    use 'dsznajder/vscode-es7-javascript-react-snippets'
+    use 'SirVer/ultisnips'
     -- use 'golang/vscode-go'
     -- use 'rust-lang/vscode-rust'
     -- use 'ChristianChiarulli/html-snippets'
