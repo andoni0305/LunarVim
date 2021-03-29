@@ -17,15 +17,22 @@ O.auto_close_tree = 0
 O.python.formatter = 'yapf'
 O.python.linter = 'flake8'
 O.python.isort = true
-O.python.autoformat = false
+O.python.autoformat = true
 O.python.diagnostics.virtual_text = true
 O.python.diagnostics.signs = true
 O.python.diagnostics.underline = true
 
 -- lua
 O.lua.formatter = 'lua-format'
+-- O.lua.formatter = 'lua-format'
+O.lua.autoformat = true
 
 -- javascript
 O.tsserver.formatter = 'prettier'
 O.tsserver.linter = 'eslint'
 O.tsserver.autoformat = true
+
+-- json
+O.json.autoformat = true
+
+-- create custom autocommand field (This would be easy with lua)
