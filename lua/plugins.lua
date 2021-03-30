@@ -40,7 +40,7 @@ return require('packer').startup(function(use)
     use 'mattn/emmet-vim'
     use 'hrsh7th/vim-vsnip'
     use 'ChristianChiarulli/java-snippets'
-	use "rafamadriz/friendly-snippets"
+    use "rafamadriz/friendly-snippets"
     use 'xabikos/vscode-javascript'
     use 'dsznajder/vscode-es7-javascript-react-snippets'
     use 'SirVer/ultisnips'
@@ -103,6 +103,9 @@ return require('packer').startup(function(use)
     use 'unblevable/quick-scope'
     use 'phaazon/hop.nvim'
     use 'kevinhwang91/rnvimr'
+
+    -- tmux integration
+    use 'christoomey/vim-tmux-navigator'
 
     -- General Plugins
     use 'liuchengxu/vim-which-key'
