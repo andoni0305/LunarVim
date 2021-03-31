@@ -38,13 +38,11 @@ return require('packer').startup(function(use)
     -- Autocomplete
     use 'hrsh7th/nvim-compe'
     use 'mattn/emmet-vim'
-    use 'hrsh7th/vim-vsnip'
-    use 'ChristianChiarulli/java-snippets'
     use 'ChristianChiarulli/html-snippets'
     use "rafamadriz/friendly-snippets"
     use 'xabikos/vscode-javascript'
     use 'dsznajder/vscode-es7-javascript-react-snippets'
-    use 'SirVer/ultisnips'
+    use 'hrsh7th/vim-vsnip'
 
     -- Treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
@@ -119,6 +117,7 @@ return require('packer').startup(function(use)
     use 'andymass/vim-matchup'
     use 'MattesGroeger/vim-bookmarks'
     use 'windwp/nvim-autopairs'
+    use 'blackcauldron7/surround.nvim'
 
     -- TODO put this back when stable for indent lines
     -- vim.g.indent_blankline_space_char = ''
@@ -140,7 +139,6 @@ return require('packer').startup(function(use)
     -- vim.g.UltiSnipsExpandTrigger="<CR>"
     -- vim.g.UltiSnipsJumpForwardTrigger="<Tab>"
     -- vim.g.UltiSnipsJumpBackwardTrigger="<S-Tab>"
-    -- use 'blackcauldron7/surround.nvim'
     -- use 'ChristianChiarulli/java-snippets'
     -- use 'xabikos/vscode-javascript'
     -- use 'dsznajder/vscode-es7-javascript-react-snippets'
