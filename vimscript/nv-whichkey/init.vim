@@ -31,7 +31,7 @@ let g:which_key_map['f'] = [ ':Telescope find_files'                           ,
 let g:which_key_map['h'] = [ '<C-W>s'                                          , 'split below']
 let g:which_key_map['M'] = [ ':MarkdownPreviewToggle'                          , 'markdown preview']
 let g:which_key_map['h'] = [ ':let @/ = ""'                                    , 'no highlight' ]
-" let g:which_key_map['r'] = [ ':RnvimrToggle'                                   , 'ranger' ]
+let g:which_key_map['r'] = [ ':FloatermNew vifm'                                   , 'vifm' ]
 " TODO create entire treesitter section
 let g:which_key_map['T'] = [ ':TSHighlightCapturesUnderCursor'                 , 'treesitter highlight' ]
 let g:which_key_map['v'] = [ '<C-W>v'                                          , 'split right']
@@ -133,6 +133,8 @@ let g:which_key_map.s = {
       \ 'd' : [':Telescope lsp_document_diagnostics'    , 'document_diagnostics'],
       \ 'D' : [':Telescope lsp_workspace_diagnostics'   , 'workspace_diagnostics'],
       \ 'f' : [':Telescope find_files'                  , 'files'],
+      \ 'g' : [':Telescope git_files'                  	, 'git files'],
+      \ 'b' : [':Telescope buffers'                  	, 'buffers'],
       \ 'h' : [':Telescope command_history'             , 'history'],
       \ 'i' : [':Telescope media_files'                 , 'media files'],
       \ 'm' : [':Telescope marks'                       , 'marks'],
@@ -211,7 +213,7 @@ let g:which_key_map.t = {
       \ 'name' : '+terminal' ,
       \ ';' : [':FloatermNew --wintype=normal --height=6'       , 'terminal'],
       \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
-      \ 'g' : [':FloatermNew lazygit'                           , 'git'],
+      \ 'g' : [':FloatermNew tig'                           , 'git'],
       \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
       \ 'n' : [':FloatermNew node'                              , 'node'],
       \ 'N' : [':FloatermNew nnn'                               , 'nnn'],

@@ -90,7 +90,7 @@ return require('packer').startup(function(use)
     -- use 'turbio/bracey.vim'
 
     -- Flutter
-    use 'thosakwe/vim-flutter'
+    -- use 'thosakwe/vim-flutter'
 
     -- Registers
     -- use 'gennaro-tedesco/nvim-peekup'
@@ -118,6 +118,7 @@ return require('packer').startup(function(use)
     use 'MattesGroeger/vim-bookmarks'
     use 'windwp/nvim-autopairs'
     use 'blackcauldron7/surround.nvim'
+    -- use 'tpope/vim-surround'
 
     -- TODO put this back when stable for indent lines
     -- vim.g.indent_blankline_space_char = ''
