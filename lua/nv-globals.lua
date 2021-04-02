@@ -2,6 +2,9 @@ O = {
     auto_close_tree = 0,
     auto_complete = true,
     colorscheme = 'nvcode',
+    hidden_files = true,
+    wrap_lines = true,
+    number = true,
     relative_number = true,
     shell = 'bash',
     database = {
@@ -45,6 +48,12 @@ O = {
         -- @usage can be 'prettier'
         formatter = '',
         autoformat = false,
+        diagnostics = {virtual_text = true, signs = true, underline = true}
+    },
+    tailwindls = {
+        filetypes = {'html', 'css', 'scss', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact'}
+    },
+    clang = {
         diagnostics = {virtual_text = true, signs = true, underline = true}
     }
     -- css = {formatter = '', autoformat = false, virtual_text = true},
