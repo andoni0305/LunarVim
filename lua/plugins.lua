@@ -90,8 +90,14 @@ return require('packer').startup(function(use)
     -- use 'gennaro-tedesco/nvim-jqx'
     -- use 'turbio/bracey.vim'
 
+    -- Php
+    use 'phpactor/phpactor'
+
     -- Flutter
     -- use 'thosakwe/vim-flutter'
+
+    -- Dependency assistent
+    use 'akinsho/dependency-assist.nvim'
 
     -- Registers
     -- use 'gennaro-tedesco/nvim-peekup'
@@ -119,7 +125,7 @@ return require('packer').startup(function(use)
     use 'MattesGroeger/vim-bookmarks'
     use 'windwp/nvim-autopairs'
     use 'blackcauldron7/surround.nvim'
-    -- use 'tpope/vim-surround'
+    use 'mbbill/undotree'
 
     -- Database
     -- use 'tpope/vim-dadbod'
@@ -127,7 +133,7 @@ return require('packer').startup(function(use)
     -- use 'kristijanhusak/vim-dadbod-completion'
 
     -- Documentation Generator 
-    -- use {'kkoomen/vim-doge', run = ':call doge#install()'}
+    use {'kkoomen/vim-doge', run = ':call doge#install()'}
 
     -- TODO put this back when stable for indent lines
     -- vim.g.indent_blankline_space_char = ''
