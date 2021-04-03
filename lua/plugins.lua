@@ -105,7 +105,7 @@ return require('packer').startup(function(use)
     -- Navigation
     use 'unblevable/quick-scope' -- hop may replace you
     use 'phaazon/hop.nvim'
-    use 'kevinhwang91/rnvimr' -- telescope may fully replace you
+    -- use 'kevinhwang91/rnvimr' -- telescope may fully replace you
 
     -- tmux integration
     use 'christoomey/vim-tmux-navigator'

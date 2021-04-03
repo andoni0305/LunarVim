@@ -7,9 +7,16 @@ a global executable or a path to
 an executable
 ]] -- general
 O.auto_complete = true
-O.colorscheme = 'aurora'
+O.colorscheme = 'palenight'
 O.auto_close_tree = 0
 O.wrap_lines = false
+
+-- @usage pass a table with your desired languages
+O.treesitter.ensure_installed = "all"
+O.treesitter.ignore_install = {"haskell"}
+O.treesitter.highlight.enabled = true
+O.treesitter.playground.enabled = true
+O.treesitter.rainbow.enabled = false
 
 O.clang.diagnostics.virtual_text = false
 O.clang.diagnostics.signs = false
