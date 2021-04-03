@@ -30,7 +30,7 @@ let g:which_key_map['e'] = [ ':NvimTreeToggle'                                 ,
 let g:which_key_map['f'] = [ ':Telescope find_files'                           , 'find files' ]
 let g:which_key_map['h'] = [ '<C-W>s'                                          , 'split below']
 let g:which_key_map['M'] = [ ':MarkdownPreviewToggle'                          , 'markdown preview']
-let g:which_key_map['h'] = [ ':let @/ = ""'                                    , 'no highlight' ]
+let g:which_key_map['H'] = [ ':let @/ = ""'                                    , 'no highlight' ]
 let g:which_key_map['r'] = [ ':FloatermNew vifm'                                   , 'vifm' ]
 let g:which_key_map['*'] = [ ':DogeGenerate'                                   , 'documentation generator' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'                                 , 'undo tree' ]
@@ -129,8 +129,8 @@ let g:which_key_map.F = {
 " m is for mark
 " I'd rather use regular marks but they never clear
 let g:which_key_map.m = {
-    \ 'name': '+fold',
-    \ 't' : [':BookmarkToggle'   , 'toggle'],
+    \ 'name': '+bookmark',
+    \ 'm' : [':BookmarkToggle'   , 'toggle'],
     \ 'j' : [':BookmarkNext'   , 'next mark'],
     \ 'k' : [':BookmarkPrev'   , 'prev mark']
     \ }
