@@ -129,8 +129,8 @@ let g:which_key_map.F = {
 " m is for mark
 " I'd rather use regular marks but they never clear
 let g:which_key_map.m = {
-    \ 'name': '+fold',
-    \ 't' : [':BookmarkToggle'   , 'toggle'],
+    \ 'name': '+bookmark',
+    \ 'm' : [':BookmarkToggle'   , 'toggle'],
     \ 'j' : [':BookmarkNext'   , 'next mark'],
     \ 'k' : [':BookmarkPrev'   , 'prev mark']
     \ }
