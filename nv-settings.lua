@@ -11,7 +11,6 @@ O.colorscheme = 'palenight'
 O.auto_close_tree = 0
 O.wrap_lines = false
 
--- @usage pass a table with your desired languages
 O.treesitter.ensure_installed = "all"
 O.treesitter.ignore_install = {"haskell"}
 O.treesitter.highlight.enabled = true
