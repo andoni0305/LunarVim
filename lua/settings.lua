@@ -4,7 +4,7 @@ vim.cmd('set inccommand=split') -- Make substitution work in realtime
 vim.o.hidden = O.hidden_files -- Required to keep multiple buffers open multiple buffers
 vim.o.title = true
 -- vim.o.titlestring = "filename nvim"
-vim.o.titlestring="%<%F%=%l/%L - nvim"
+vim.o.titlestring = "%<%F%=%l/%L - nvim"
 vim.wo.wrap = O.wrap_lines -- Display long lines as just one line
 vim.cmd('set whichwrap+=<,>,[,],h,l') -- move to next line with theses keys
 vim.cmd('syntax on') -- move to next line with theses keys
@@ -36,3 +36,4 @@ vim.o.clipboard = "unnamedplus" -- Copy paste between vim and everything else
 vim.o.guifont = "JetBrainsMono\\ Nerd\\ Font\\ Mono:h18"
 vim.cmd('set ignorecase') -- set ignorecase; easier to find commands
 vim.cmd('set noswapfile') -- Don't create swapfile
+vim.cmd('set shell=/usr/local/bin/zsh') -- set zsh as shell for vim term
