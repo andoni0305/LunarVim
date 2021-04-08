@@ -129,6 +129,7 @@ return require('packer').startup(function(use)
     use 'windwp/nvim-autopairs'
     use 'blackcauldron7/surround.nvim'
     use 'mbbill/undotree'
+	use 'nacro90/numb.nvim'
 
     -- Database
     -- use 'tpope/vim-dadbod'
