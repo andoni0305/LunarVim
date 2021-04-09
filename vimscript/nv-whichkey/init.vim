@@ -31,7 +31,7 @@ let g:which_key_map['f'] = [ ':Telescope find_files'                           ,
 let g:which_key_map['h'] = [ '<C-W>s'                                          , 'split below']
 let g:which_key_map['M'] = [ ':MarkdownPreviewToggle'                          , 'markdown preview']
 let g:which_key_map['H'] = [ ':let @/ = ""'                                    , 'no highlight' ]
-let g:which_key_map['r'] = [ ':FloatermNew vifm'                                   , 'vifm' ]
+let g:which_key_map['r'] = [ ':RnvimrToggle'                                   , 'ranger' ]
 let g:which_key_map['*'] = [ ':DogeGenerate'                                   , 'documentation generator' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'                                 , 'undo tree' ]
 " TODO create entire treesitter section

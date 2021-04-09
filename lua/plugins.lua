@@ -9,7 +9,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
     execute 'packadd packer.nvim'
 end
 
-local my = function(file) require(file) end
+local my = function(file)
+    require(file)
+end
 
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
 
@@ -59,7 +61,7 @@ return require('packer').startup(function(use)
     use 'ryanoasis/vim-devicons'
 
     -- Status Line and Bufferline
-    use { 'glepnir/galaxyline.nvim', config = my('nv-galaxyline') }
+    use {'glepnir/galaxyline.nvim', config = my('nv-galaxyline')}
     -- use { 'glepnir/galaxyline.nvim', config = function() require'nv-galaxyline' end } -- inline fn alternative
     use 'romgrk/barbar.nvim'
 
@@ -108,7 +110,7 @@ return require('packer').startup(function(use)
     -- Navigation
     use 'unblevable/quick-scope' -- hop may replace you
     use 'phaazon/hop.nvim'
-    -- use 'kevinhwang91/rnvimr' -- telescope may fully replace you
+    use 'kevinhwang91/rnvimr' -- telescope may fully replace you
 
     -- tmux integration
     use 'christoomey/vim-tmux-navigator'
@@ -129,7 +131,7 @@ return require('packer').startup(function(use)
     use 'windwp/nvim-autopairs'
     use 'blackcauldron7/surround.nvim'
     use 'mbbill/undotree'
-	use 'nacro90/numb.nvim'
+    use 'nacro90/numb.nvim'
 
     -- Database
     -- use 'tpope/vim-dadbod'
