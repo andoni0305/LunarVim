@@ -1,18 +1,18 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
-    execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
-    execute 'packadd packer.nvim'
+    execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
+    execute "packadd packer.nvim"
 end
 
 --- Check if a file or directory exists in this path
 local function require_plugin(plugin)
-    local plugin_prefix = fn.stdpath('data') .. '/site/pack/packer/opt/'
+    local plugin_prefix = fn.stdpath("data") .. "/site/pack/packer/opt/"
 
-    local plugin_path = plugin_prefix .. plugin .. '/'
+    local plugin_path = plugin_prefix .. plugin .. "/"
     --	print('test '..plugin_path)
     local ok, err, code = os.rename(plugin_path, plugin_path)
     if not ok then
@@ -22,7 +22,9 @@ local function require_plugin(plugin)
         end
     end
     --	print(ok, err, code)
-    if ok then vim.cmd('packadd ' .. plugin) end
+    if ok then
+        vim.cmd("packadd " .. plugin)
+    end
     return ok, err, code
 end
 
@@ -35,7 +37,6 @@ return require('packer').startup(function(use)
     -- TODO refactor all of this (for now it works, but yes I know it could be wrapped in a simpler function)
     use {'neovim/nvim-lspconfig', opt = true}
     use {'glepnir/lspsaga.nvim', opt = true}
-    use {'onsails/lspkind-nvim', opt = true}
     use {'kabouzeid/nvim-lspinstall', opt = true}
 
     -- Tlescope
@@ -86,7 +87,6 @@ return require('packer').startup(function(use)
 
     require_plugin('nvim-lspconfig')
     require_plugin('lspsaga.nvim')
-    require_plugin('lspkind-nvim')
     require_plugin('nvim-lspinstall')
     require_plugin('popup.nvim')
     require_plugin('plenary.nvim')
@@ -106,6 +106,7 @@ return require('packer').startup(function(use)
     require_plugin('nvim-web-devicons')
     require_plugin('galaxyline.nvim')
     require_plugin('barbar.nvim')
+    -- extras
     require_plugin('hop.nvim')
     require_plugin('vim-surround')
     require_plugin('vscode-javascript')
