@@ -1,3 +1,1 @@
--- vim.api.nvim_set_keymap('n', 's', ":HopChar2<cr>", {silent = true})
-vim.api.nvim_set_keymap('n', 'S', ":HopWord<cr>", {silent = true})
-vim.api.nvim_set_keymap('v', 'S', ":HopWord<cr>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 's', ":HopWord<cr>", {noremap = true, silent = true})

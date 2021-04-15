@@ -59,19 +59,19 @@ let g:which_key_map.d = {
       \ }
 
 " F is for fold
-let g:which_key_map.F = {
-    \ 'name': '+fold',
-    \ 'O' : [':set foldlevel=20'  , 'open all'],
-    \ 'C' : [':set foldlevel=0'   , 'close all'],
-    \ 'c' : [':foldclose'         , 'close'],
-    \ 'o' : [':foldopen'          , 'open'],
-    \ '1' : [':set foldlevel=1'   , 'level1'],
-    \ '2' : [':set foldlevel=2'   , 'level2'],
-    \ '3' : [':set foldlevel=3'   , 'level3'],
-    \ '4' : [':set foldlevel=4'   , 'level4'],
-    \ '5' : [':set foldlevel=5'   , 'level5'],
-    \ '6' : [':set foldlevel=6'   , 'level6']
-    \ }
+" let g:which_key_map.F = {
+"     \ 'name': '+fold',
+"     \ 'O' : [':set foldlevel=20'  , 'open all'],
+"     \ 'C' : [':set foldlevel=0'   , 'close all'],
+"     \ 'c' : [':foldclose'         , 'close'],
+"     \ 'o' : [':foldopen'          , 'open'],
+"     \ '1' : [':set foldlevel=1'   , 'level1'],
+"     \ '2' : [':set foldlevel=2'   , 'level2'],
+"     \ '3' : [':set foldlevel=3'   , 'level3'],
+"     \ '4' : [':set foldlevel=4'   , 'level4'],
+"     \ '5' : [':set foldlevel=5'   , 'level5'],
+"     \ '6' : [':set foldlevel=6'   , 'level6']
+"     \ }
 
 " s is for search powered by telescope
 let g:which_key_map.s = {
@@ -104,19 +104,18 @@ let g:which_key_map.S = {
 " g is for git
 let g:which_key_map.g = {
       \ 'name' : '+git' ,
-      \ 'b' : [':GitBlameToggle'                   , 'blame'],
-      \ 'B' : [':GBrowse'                          , 'browse'],
-      \ 'd' : [':Git diff'                         , 'diff'],
-      \ 'j' : [':NextHunk'                         , 'next hunk'],
-      \ 'k' : [':PrevHunk'                         , 'prev hunk'],
-      \ 'l' : [':Git log'                          , 'log'],
-      \ 'p' : [':PreviewHunk'                      , 'preview hunk'],
-      \ 'r' : [':ResetHunk'                        , 'reset hunk'],
-      \ 'R' : [':ResetBuffer'                      , 'reset buffer'],
-      \ 's' : [':StageHunk'                        , 'stage hunk'],
-      \ 'S' : [':Gstatus'                          , 'status'],
-      \ 'u' : [':UndoStageHunk'                    , 'undo stage hunk'],
+	  \ 'b' : [':Gitsigns blame_line'                , 'blame'],
+	  \ 'j' : [':Gitsigns next_hunk'                 , 'next hunk'],
+	  \ 'k' : [':Gitsigns prev_hunk'                 , 'prev hunk'],
+	  \ 'p' : [':Gitsigns preview_hunk_hunk'         , 'preview hunk'],
+	  \ 'r' : [':Gitsigns reset_hunk'                , 'reset hunk'],
+	  \ 'R' : [':ResetBuffer'                        , 'reset buffer'],
+	  \ 's' : [':Gitsigns stage_hunk'                , 'stage hunk'],
+	  \ 'u' : [':Gitsigns undo_stage_hunk'           , 'undo stage hunk'],
       \ }
+      " \ 'B' : [':GBrowse'                          , 'browse'],
+      " \ 'd' : [':Git diff'                         , 'diff'],
+      " \ 'S' : [':Gstatus'                          , 'status'],
 
 " l is for language server protocol
 let g:which_key_map.l = {

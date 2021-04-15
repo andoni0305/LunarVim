@@ -33,42 +33,43 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- TODO refactor all of this (for now it works, but yes I know it could be wrapped in a simpler function)
-    use {'neovim/nvim-lspconfig', opt=true}
-    use {'glepnir/lspsaga.nvim', opt=true}
-    use {'onsails/lspkind-nvim', opt=true}
-    use {'kabouzeid/nvim-lspinstall', opt=true}
+    use {'neovim/nvim-lspconfig', opt = true}
+    use {'glepnir/lspsaga.nvim', opt = true}
+    use {'onsails/lspkind-nvim', opt = true}
+    use {'kabouzeid/nvim-lspinstall', opt = true}
 
     -- Tlescope
-    use {'nvim-lua/popup.nvim', opt=true}
-    use {'nvim-lua/plenary.nvim', opt=true}
-    use {'nvim-telescope/telescope.nvim', opt=true}
+    use {'nvim-lua/popup.nvim', opt = true}
+    use {'nvim-lua/plenary.nvim', opt = true}
+    use {'nvim-telescope/telescope.nvim', opt = true}
 
     -- Dbugging
-    use {'mfussenegger/nvim-dap', opt=true}
+    use {'mfussenegger/nvim-dap', opt = true}
 
     -- Atocomplete
-    use {'xabikos/vscode-javascript', opt=true}
-    use {'dsznajder/vscode-es7-javascript-react-snippets', opt=true}
-    use {'hrsh7th/nvim-compe', opt=true}
-    use {'hrsh7th/vim-vsnip', opt=true}
-    use {"rafamadriz/friendly-snippets", opt=true}
+    use {'hrsh7th/nvim-compe', opt = true}
+    use {'xabikos/vscode-javascript', opt = true}
+    use {'dsznajder/vscode-es7-javascript-react-snippets', opt = true}
+    use {"rafamadriz/friendly-snippets", opt = true}
+    use {'hrsh7th/vim-vsnip', opt = true}
 
     -- Teesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-    use {'windwp/nvim-ts-autotag', opt=true}
+    use {'windwp/nvim-ts-autotag', opt = true}
 
     -- Eplorer
     use 'kyazdani42/nvim-tree.lua'
     -- TODO remove when open on dir is supported by nvimtree
     use 'kevinhwang91/rnvimr'
 
--- use {'lukas-reineke/indent-blankline.nvim', opt=true, branch = 'lua'}
+    -- use {'lukas-reineke/indent-blankline.nvim', opt=true, branch = 'lua'}
     use {'lewis6991/gitsigns.nvim', opt = true}
     use {'liuchengxu/vim-which-key', opt = true}
     use {'ChristianChiarulli/dashboard-nvim', opt = true}
     use {'windwp/nvim-autopairs', opt = true}
     use {'terrortylor/nvim-comment', opt = true}
     use {'kevinhwang91/nvim-bqf', opt = true}
+    use {'tpope/vim-surround', opt = true}
 
     -- Color
     use {'christianchiarulli/nvcode-color-schemes.vim', opt = true}
@@ -80,6 +81,9 @@ return require('packer').startup(function(use)
     use {'glepnir/galaxyline.nvim', opt = true}
     use {'romgrk/barbar.nvim', opt = true}
 
+    -- Motions
+    use {'phaazon/hop.nvim', opt = true}
+
     require_plugin('nvim-lspconfig')
     require_plugin('lspsaga.nvim')
     require_plugin('lspkind-nvim')
@@ -89,7 +93,6 @@ return require('packer').startup(function(use)
     require_plugin('telescope.nvim')
     require_plugin('nvim-dap')
     require_plugin('nvim-compe')
-    require_plugin('vim-vsnip')
     require_plugin('nvim-treesitter')
     require_plugin('nvim-ts-autotag')
     require_plugin('nvim-tree.lua')
@@ -103,5 +106,11 @@ return require('packer').startup(function(use)
     require_plugin('nvim-web-devicons')
     require_plugin('galaxyline.nvim')
     require_plugin('barbar.nvim')
+    require_plugin('hop.nvim')
+    require_plugin('vim-surround')
+    require_plugin('vscode-javascript')
+    require_plugin('vscode-es7-javascript-react-snippets')
+    require_plugin('friendly-snippets')
+    require_plugin('vim-vsnip')
 end)
 
