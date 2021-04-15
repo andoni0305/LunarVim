@@ -16,18 +16,16 @@
 -- '     `-...-\'    ███████  ██████  ██   ████ ██   ██ ██   ██   ████   ██ ██      ██ ',
 --
 -- }
-
 vim.g.dashboard_custom_header = {
 
-'                 _..._                                                                           ',
-'               .\'   (_`.    _                         __     ___           ',
-'              :  .      :  | |   _   _ _ __   __ _ _ _\\ \\   / (_)_ __ ___  ',
-'              :)    ()  :  | |  | | | | \'_ \\ / _` | \'__\\ \\ / /| | \'_ ` _ \\ ',
-'              `.   .   .\'  | |__| |_| | | | | (_| | |   \\ V / | | | | | | |',
-'                `-...-\'    |_____\\__,_|_| |_|\\__,_|_|    \\_/  |_|_| |_| |_|',
+    '                 _..._                                                                           ',
+    '               .\'   (_`.    _                         __     ___           ',
+    '              :  .      :  | |   _   _ _ __   __ _ _ _\\ \\   / (_)_ __ ___  ',
+    '              :)    ()  :  | |  | | | | \'_ \\ / _` | \'__\\ \\ / /| | \'_ ` _ \\ ',
+    '              `.   .   .\'  | |__| |_| | | | | (_| | |   \\ V / | | | | | | |',
+    '                `-...-\'    |_____\\__,_|_| |_|\\__,_|_|    \\_/  |_|_| |_| |_|'
 
 }
-
 
 vim.g.dashboard_default_executive = 'telescope'
 
@@ -36,7 +34,7 @@ vim.g.dashboard_custom_section = {
     b = {description = {'  Recently Used Files'}, command = 'Telescope oldfiles'},
     c = {description = {'  Load Last Session  '}, command = 'SessionLoad'},
     d = {description = {'  Find Word          '}, command = 'Telescope live_grep'},
-    e = {description = {'  Settings           '}, command = ':e ~/.config/nvim/nv-settings.lua'}
+    e = {description = {'  Settings           '}, command = ':e ~/.config/nvim/lv-settings.lua'}
     -- e = {description = {'  Marks              '}, command = 'Telescope marks'}
 }
 
