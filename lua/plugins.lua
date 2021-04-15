@@ -22,9 +22,7 @@ local function require_plugin(plugin)
         end
     end
     --	print(ok, err, code)
-    if ok then
-        vim.cmd("packadd " .. plugin)
-    end
+    if ok then vim.cmd("packadd " .. plugin) end
     return ok, err, code
 end
 
@@ -85,6 +83,9 @@ return require('packer').startup(function(use)
     -- Motions
     use {'phaazon/hop.nvim', opt = true}
 
+    -- Tmux integration
+    use 'christoomey/vim-tmux-navigator'
+
     require_plugin('nvim-lspconfig')
     require_plugin('lspsaga.nvim')
     require_plugin('nvim-lspinstall')
@@ -92,6 +93,7 @@ return require('packer').startup(function(use)
     require_plugin('plenary.nvim')
     require_plugin('telescope.nvim')
     require_plugin('nvim-dap')
+    require_plugin('vim-vsnip')
     require_plugin('nvim-compe')
     require_plugin('nvim-treesitter')
     require_plugin('nvim-ts-autotag')
@@ -112,6 +114,5 @@ return require('packer').startup(function(use)
     require_plugin('vscode-javascript')
     require_plugin('vscode-es7-javascript-react-snippets')
     require_plugin('friendly-snippets')
-    require_plugin('vim-vsnip')
 end)
 
