@@ -86,6 +86,9 @@ return require('packer').startup(function(use)
     -- Tmux integration
     use 'christoomey/vim-tmux-navigator'
 
+    -- Markdown
+    use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}
+
     require_plugin('nvim-lspconfig')
     require_plugin('lspsaga.nvim')
     require_plugin('nvim-lspinstall')
