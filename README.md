@@ -45,7 +45,7 @@ sudo rm -r neovim
 ```
 or if you are on Arch you can get it from the AUR
 ```bash
-yay -S neovim-nightly-git
+yay -S neovim-git
 ```
 
 
@@ -56,13 +56,13 @@ yay -S neovim-nightly-git
 - Ubuntu
 
     ```bash
-    sudo apt install xsel
+    sudo apt install xclip
     ```
 
 - Arch
 
     ```bash
-    sudo pacman -S xsel
+    sudo pacman -S xclip
     ```
 
 - WSL2
