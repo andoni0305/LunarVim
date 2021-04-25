@@ -28,10 +28,12 @@ require'compe'.setup {
         -- snippets_nvim = {kind = "  "},
         -- ultisnips = {kind = "  "},
         -- treesitter = {kind = "  "},
-        emoji = {kind = " ﲃ ", filetypes={"markdown", "text"}}
+        emoji = {kind = " ﲃ ", filetypes = {"markdown", "text"}}
         -- for emoji press : (idk if that in compe tho)
     }
 }
+
+vim.api.nvim_set_keymap('i', '<C-Space>', "compe#confirm('<CR>')", {expr = true, noremap = true})
 
 -- 
 -- 
