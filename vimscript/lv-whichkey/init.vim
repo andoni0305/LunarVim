@@ -108,7 +108,7 @@ let g:which_key_map.g = {
 	  \ 'b' : [':Gitsigns blame_line'                , 'blame'],
 	  \ 'j' : [':Gitsigns next_hunk'                 , 'next hunk'],
 	  \ 'k' : [':Gitsigns prev_hunk'                 , 'prev hunk'],
-	  \ 'p' : [':Gitsigns preview_hunk_hunk'         , 'preview hunk'],
+	  \ 'p' : [':Gitsigns preview_hunk'         , 'preview hunk'],
 	  \ 'r' : [':Gitsigns reset_hunk'                , 'reset hunk'],
 	  \ 'R' : [':ResetBuffer'                        , 'reset buffer'],
 	  \ 's' : [':Gitsigns stage_hunk'                , 'stage hunk'],
