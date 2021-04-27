@@ -36,8 +36,8 @@ vim.o.updatetime = 300 -- Faster completion
 vim.o.clipboard = "unnamedplus" -- Copy paste between vim and everything else
 -- vim.o.guifont = "JetBrainsMono\\ Nerd\\ Font\\ Mono:h18"
 -- vim.o.guifont = "Hack\\ Nerd\\ Font\\ Mono"
--- vim.o.guifont = "SauceCodePro Nerd Font:h17"
-vim.o.guifont = "FiraCode Nerd Font:h17"
+vim.o.guifont = "SauceCodePro Nerd Font:h17"
+-- vim.o.guifont = "FiraCode Nerd Font:h17"
 vim.cmd('set ignorecase') -- set ignorecase; easier to find commands
 vim.cmd('set noswapfile') -- Don't create swapfile
-vim.cmd('set shell=/usr/local/bin/zsh') -- set zsh as shell for vim term
+-- vim.cmd('set shell=/usr/local/bin/zsh') -- set zsh as shell for vim term
