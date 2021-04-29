@@ -1,4 +1,5 @@
--- require('nvim-autopairs').setup()
+require('nvim-autopairs').setup()
+
 -- local npairs = require('nvim-autopairs')
 -- local function imap(lhs, rhs, opts)
 --     local options = {noremap = false}
