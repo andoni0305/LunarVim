@@ -51,5 +51,5 @@ O.ruby.autoformat = true
 -- create custom autocommand field (This would be easy with lua)
 
 -- number options
-O.number = true
+O.number = false
 O.relative_number = false
