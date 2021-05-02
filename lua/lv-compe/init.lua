@@ -33,7 +33,7 @@ require'compe'.setup {
   }
 }
 
-vim.api.nvim_set_keymap('i', '<C-Space>', "compe#confirm('<CR>')", {expr = true, noremap = true})
+-- vim.api.nvim_set_keymap('i', '<C-Space>', "compe#confirm('<CR>')", {expr = true, noremap = true})
 
 -- 
 -- 
