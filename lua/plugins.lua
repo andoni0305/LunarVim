@@ -41,6 +41,7 @@ return require('packer').startup(function(use)
   use {'nvim-lua/popup.nvim', opt = true}
   use {'nvim-lua/plenary.nvim', opt = true}
   use {'nvim-telescope/telescope.nvim', opt = true}
+  use {"nvim-telescope/telescope-fzy-native.nvim", opt = true}
 
   -- Dbugging
   use {'mfussenegger/nvim-dap', opt = true}
