@@ -117,13 +117,13 @@ local mappings = {
 
   s = {
     name = "+Search",
-    B = {"<cmd>Telescope git_branches<cr>", "File"},
+    B = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
     c = {"<cmd>Telescope colorscheme<cr>", "Colorscheme"},
     d = {"<cmd>Telescope lsp_document_diagnostics<cr>", "Document Diagnostics"},
     D = {"<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics"},
     f = {"<cmd>Telescope find_files<cr>", "Find File"},
-    g = {"<cmd>Telescope git_files<cr>", "Find File"},
-    b = {"<cmd>Telescope buffers<cr>", "File"},
+    g = {"<cmd>Telescope git_files<cr>", "Find Git File"},
+    b = {"<cmd>Telescope buffers<cr>", "Buffers"},
     m = {"<cmd>Telescope marks<cr>", "Marks"},
     M = {"<cmd>Telescope man_pages<cr>", "Man Pages"},
     r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
