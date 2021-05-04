@@ -25,8 +25,14 @@ if O.json.autoformat then table.insert(auto_formatters, json_format) end
 local ruby_format = {'BufWritePre', '*.rb', 'lua vim.lsp.buf.formatting_sync(nil,1000)'}
 if O.ruby.autoformat then table.insert(auto_formatters, ruby_format) end
 
-local styles_format = {'BufWritePre', '*.json', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'}
-if O.styles.autoformat then table.insert(auto_formatters, styles_format) end
+local css_autoformat = {'BufWritePre', '*.css', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'}
+if O.styles.autoformat then table.insert(auto_formatters, css_autoformat) end
+
+local scss_autoformat = {'BufWritePre', '*.scss', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'}
+if O.styles.autoformat then table.insert(auto_formatters, scss_autoformat) end
+
+local less_autoformat = {'BufWritePre', '*.less', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'}
+if O.styles.autoformat then table.insert(auto_formatters, less_autoformat) end
 
 utils.define_augroups({
   _general_settings = {
