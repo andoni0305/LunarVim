@@ -57,8 +57,8 @@ return require('packer').startup(function(use)
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'windwp/nvim-ts-autotag', opt = true}
 
-  -- Eplorer
-  use 'kyazdani42/nvim-tree.lua'
+  -- Explorer
+  use {"kyazdani42/nvim-tree.lua", opt = true}
   -- TODO remove when open on dir is supported by nvimtree
   use 'kevinhwang91/rnvimr'
 
