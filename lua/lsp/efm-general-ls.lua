@@ -110,12 +110,6 @@ require"lspconfig".efm.setup {
       json = {prettier},
       yaml = {prettier},
       markdown = {markdownPandocFormat}
-      -- javascriptreact = {prettier, eslint},
-      -- javascript = {prettier, eslint},
-      -- markdown = {markdownPandocFormat, markdownlint},
     }
   }
 }
-
--- Also find way to toggle format on save
--- maybe this will help: https://superuser.com/questions/439078/how-to-disable-autocmd-or-augroup-in-vim
