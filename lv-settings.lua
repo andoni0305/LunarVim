@@ -7,7 +7,7 @@ a global executable or a path to
 an executable
 ]] -- general
 O.auto_complete = true
-O.colorscheme = 'lunar'
+O.colorscheme = 'palenight'
 O.auto_close_tree = 0
 O.wrap_lines = false
 
@@ -49,10 +49,13 @@ O.tsserver.autoformat = true
 -- json
 O.json.autoformat = true
 
+-- styles
+O.styles.autoformat = true
+
 -- ruby
 O.ruby.autoformat = true
 -- create custom autocommand field (This would be easy with lua)
 
 -- number options
-O.number = false
+O.number = true
 O.relative_number = false
