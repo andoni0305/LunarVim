@@ -7,7 +7,8 @@ a global executable or a path to
 an executable
 ]] -- general
 O.auto_complete = true
-O.colorscheme = 'palenight'
+-- O.colorscheme = 'lunar'
+-- O.transparent_bg = true
 O.auto_close_tree = 0
 O.wrap_lines = false
 
