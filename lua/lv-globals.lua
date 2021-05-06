@@ -8,7 +8,7 @@ O = {
   number = true,
   relative_number = true,
   shell = 'zsh',
-	timeoutlen = 100,
+  timeoutlen = 100,
 
   -- @usage pass a table with your desired languages
   treesitter = {
@@ -69,15 +69,15 @@ O = {
     diagnostics = {virtual_text = {spacing = 0, prefix = ""}, signs = true, underline = true}
   },
   dashboard = {
-	  custom_header = {
-		  '                 _..._                                                                           ',
-		  '               .\'   (_`.    _                         __     ___           ',
-		  '              :  .      :  | |   _   _ _ __   __ _ _ _\\ \\   / (_)_ __ ___  ',
-		  '              :)    ()  :  | |  | | | | \'_ \\ / _` | \'__\\ \\ / /| | \'_ ` _ \\ ',
-		  '              `.   .   .\'  | |__| |_| | | | | (_| | |   \\ V / | | | | | | |',
-		  '                `-...-\'    |_____\\__,_|_| |_|\\__,_|_|    \\_/  |_|_| |_| |_|',
-	  },
-	  footer= {'chrisatmachine.com'}
+    custom_header = {
+      '                 _..._                                                                           ',
+      '               .\'   (_`.    _                         __     ___           ',
+      '              :  .      :  | |   _   _ _ __   __ _ _ _\\ \\   / (_)_ __ ___  ',
+      '              :)    ()  :  | |  | | | | \'_ \\ / _` | \'__\\ \\ / /| | \'_ ` _ \\ ',
+      '              `.   .   .\'  | |__| |_| | | | | (_| | |   \\ V / | | | | | | |',
+      '                `-...-\'    |_____\\__,_|_| |_|\\__,_|_|    \\_/  |_|_| |_| |_|'
+    },
+    footer = {'chrisatmachine.com'}
   }
 }
 
