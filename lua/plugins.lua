@@ -91,6 +91,9 @@ return require('packer').startup(function(use)
   -- Markdown
   use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}
 
+  -- Syntax Hightlighting
+  use 'StanAngeloff/php.vim'
+
   require_plugin('nvim-lspconfig')
   require_plugin('lspsaga.nvim')
   require_plugin('nvim-lspinstall')
