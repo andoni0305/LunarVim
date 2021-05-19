@@ -6,7 +6,7 @@ require('lv-utils')
 require('lv-autocommands')
 require('keymappings')
 require('lv-nvimtree') -- This plugin must be required somewhere before colorscheme.  Placing it after will break navigation keymappings
-require('colorscheme') -- This plugin must be required somewhere after nvimtree. Placing it before will break navigation keymappings 
+require('colorscheme') -- This plugin must be required somewhere after nvimtree. Placing it before will break navigation keymappings
 require('lv-galaxyline')
 require('lv-comment')
 require('lv-compe')
@@ -52,4 +52,5 @@ require('lsp.terraform-ls')
 require('lsp.vim-ls')
 require('lsp.vue-ls')
 require('lsp.yaml-ls')
+require('lsp.elixir-ls')
 
