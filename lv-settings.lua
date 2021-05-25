@@ -77,6 +77,9 @@ O.styles.autoformat = true
 
 -- ruby
 O.ruby.autoformat = true
+
+-- go
+O.go.autoformat = true
 -- create custom autocommand field (This would be easy with lua)
 
 -- sh

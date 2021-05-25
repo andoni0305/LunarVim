@@ -69,6 +69,7 @@ O = {
     autoformat = false,
     diagnostics = {virtual_text = {spacing = 0, prefix = ""}, signs = true, underline = true}
   },
+  go = {},
   dashboard = {
     custom_header = {
       '                 _..._                                                                           ',
