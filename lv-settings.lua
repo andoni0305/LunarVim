@@ -11,7 +11,7 @@ O.auto_complete = true
 -- O.transparent_bg = true
 O.auto_close_tree = 0
 O.wrap_lines = false
-O.timeoutlen = 100
+O.timeoutlen = 300
 O.document_highlight = true
 
 -- dashboard
