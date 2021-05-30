@@ -36,41 +36,45 @@ return require('packer').startup(function(use)
   use {'neovim/nvim-lspconfig', opt = true}
   use {'glepnir/lspsaga.nvim', opt = true}
   use {'kabouzeid/nvim-lspinstall', opt = true}
+  use {"folke/trouble.nvim", opt = true}
 
-  -- Tlescope
+  -- Telescope
   use {'nvim-lua/popup.nvim', opt = true}
   use {'nvim-lua/plenary.nvim', opt = true}
   use {'nvim-telescope/telescope.nvim', opt = true}
   use {"nvim-telescope/telescope-fzy-native.nvim", opt = true}
+  use {"nvim-telescope/telescope-project.nvim", opt = true}
 
   -- Dbugging
   use {'mfussenegger/nvim-dap', opt = true}
 
   -- Atocomplete
   use {'hrsh7th/nvim-compe', opt = true}
-  use {'xabikos/vscode-javascript', opt = true}
-  use {'dsznajder/vscode-es7-javascript-react-snippets', opt = true}
   use {"rafamadriz/friendly-snippets", opt = true}
   use {'hrsh7th/vim-vsnip', opt = true}
 
   -- Teesitter
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'windwp/nvim-ts-autotag', opt = true}
+  use {'andymass/vim-matchup', opt = true}
 
   -- Explorer
   use {"kyazdani42/nvim-tree.lua", opt = true}
+  use {"ahmedkhalf/lsp-rooter.nvim", opt = true} -- with this nvim-tree will follow you
   -- TODO remove when open on dir is supported by nvimtree
   use 'kevinhwang91/rnvimr'
 
   -- use {'lukas-reineke/indent-blankline.nvim', opt=true, branch = 'lua'}
   use {'lewis6991/gitsigns.nvim', opt = true}
-  -- use {'liuchengxu/vim-which-key', opt = true}
+  use {'f-person/git-blame.nvim', opt = true}
   use {"folke/which-key.nvim", opt = true}
   use {'ChristianChiarulli/dashboard-nvim', opt = true}
   use {'windwp/nvim-autopairs', opt = true}
-  use {'terrortylor/nvim-comment', opt = true}
   use {'kevinhwang91/nvim-bqf', opt = true}
-  use {'tpope/vim-surround', opt = true}
+
+  -- Comments
+  use {"terrortylor/nvim-comment", opt = true}
+  use {'JoosepAlviste/nvim-ts-context-commentstring', opt = true}
 
   -- Color
   use {'christianchiarulli/nvcode-color-schemes.vim', opt = true}
@@ -83,14 +87,11 @@ return require('packer').startup(function(use)
   use {'glepnir/galaxyline.nvim', opt = true}
   use {'romgrk/barbar.nvim', opt = true}
 
-  -- Motions
-  use {'phaazon/hop.nvim', opt = true}
+  -- Zen Mode
+  use {"Pocco81/TrueZen.nvim", opt = true}
 
   -- Tmux integration
   use 'christoomey/vim-tmux-navigator'
-
-  -- Markdown
-  use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}
 
   -- Syntax Hightlighting
   use 'StanAngeloff/php.vim'
@@ -118,10 +119,45 @@ return require('packer').startup(function(use)
   require_plugin('nvim-web-devicons')
   require_plugin('galaxyline.nvim')
   require_plugin('barbar.nvim')
-  -- extras
-  require_plugin('hop.nvim')
-  require_plugin('vim-surround')
-  require_plugin('vscode-javascript')
-  require_plugin('vscode-es7-javascript-react-snippets')
-  require_plugin('markdown-preview')
+  -- Extras
+  if O.extras then
+	  use {'metakirby5/codi.vim', opt = true}
+	  require_plugin('codi.vim')
+	  use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install', opt = true}
+	  require_plugin('markdown-preview.nvim')
+	  use {'numToStr/FTerm.nvim', opt = true}
+	  require_plugin('numToStr/FTerm.nvim')
+	  use {'monaqa/dial.nvim', opt = true}
+	  require_plugin('dial.nvim')
+	  use {'nacro90/numb.nvim', opt = true}
+	  require_plugin('numb.nvim')
+	  use {'turbio/bracey.vim', opt = true}
+	  require_plugin('bracey.vim')
+	  use {'phaazon/hop.nvim', opt = true}
+	  require_plugin('hop.nvim')
+	  use {'norcalli/nvim-colorizer.lua', opt = true}
+	  require_plugin('nvim-colorizer.lua')
+	  use {'windwp/nvim-spectre', opt = true}
+	  require_plugin('windwp/nvim-spectre')
+	  use {'tpope/vim-surround', opt = true}
+	  require_plugin('vim-surround')
+	  use {'xabikos/vscode-javascript', opt = true}
+	  require_plugin('vscode-javascript')
+	  use {'dsznajder/vscode-es7-javascript-react-snippets', opt = true}
+	  require_plugin('vscode-es7-javascript-react-snippets')
+	  -- folke/todo-comments.nvim
+	  -- gennaro-tedesco/nvim-jqx
+	  -- TimUntersberger/neogit
+	  -- folke/lsp-colors.nvim
+	  -- simrat39/symbols-outline.nvim
+
+	  -- Git
+	  -- use {'tpope/vim-fugitive', opt = true}
+	  -- use {'tpope/vim-rhubarb', opt = true}
+	  -- pwntester/octo.nvim
+
+	  -- Easily Create Gists
+	  -- use {'mattn/vim-gist', opt = true}
+	  -- use {'mattn/webapi-vim', opt = true}
+  end
 end)

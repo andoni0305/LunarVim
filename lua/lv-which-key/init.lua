@@ -66,6 +66,8 @@ vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>", {noremap = true,
 -- close buffer
 vim.api.nvim_set_keymap("n", "<leader>c", ":BufferClose<CR>", {noremap = true, silent = true})
 
+-- open projects
+vim.api.nvim_set_keymap('n', '<leader>p', ":lua require'telescope'.extensions.project.project{}<CR>",
 -- Markdown preview toggle
 vim.api.nvim_set_keymap("n", "<leader>M", ":MarkdownPreviewToggle<CR>", {noremap = true, silent = true})
 
@@ -77,7 +79,17 @@ local mappings = {
   ["e"] = "Explorer",
   ["f"] = "Find File",
   ["h"] = "No Highlight",
+  ["p"] = "Projects",
   d = {
+	  name = "+Diagnostics",
+	  t = {"<cmd>TroubleToggle<cr>", "trouble"},
+	  w = {"<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "workspace"},
+	  d = {"<cmd>TroubleToggle lsp_document_diagnostics<cr>", "document"},
+	  q = {"<cmd>TroubleToggle quickfix<cr>", "quickfix"},
+	  l = {"<cmd>TroubleToggle loclist<cr>", "loclist"},
+	  r = {"<cmd>TroubleToggle lsp_references<cr>", "references"},
+  },
+  D = {
     name = "+Debug",
     b = {"<cmd>DebugToggleBreakpoint<cr>", "Toggle Breakpoint"},
     c = {"<cmd>DebugContinue<cr>", "Continue"},
