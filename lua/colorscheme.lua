@@ -8,7 +8,11 @@ vim.g.moonlight_contrast = true
 vim.g.moonlight_borders = true
 vim.g.moonlight_disable_background = false
 
-vim.cmd('colorscheme ' .. O.colorscheme)
+if O.colorscheme == 'moonlight' then
+  require(O.colorscheme).set()
+else
+  vim.cmd('colorscheme ' .. O.colorscheme)
+end
 -- background transparency
 if O.transparent_bg then
   vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
