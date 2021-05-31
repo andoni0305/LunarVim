@@ -148,7 +148,14 @@ local mappings = {
     R = {"<cmd>Telescope registers<cr>", "Registers"},
     t = {"<cmd>Telescope live_grep<cr>", "Text"}
   },
-  S = {name = "+Session", s = {"<cmd>SessionSave<cr>", "Save Session"}, l = {"<cmd>SessionLoad<cr>", "Load Session"}}
+  S = {name = "+Session", s = {"<cmd>SessionSave<cr>", "Save Session"}, l = {"<cmd>SessionLoad<cr>", "Load Session"}},
+  -- extras
+  z = {
+    name = "+Zen",
+    s = {"<cmd>TZBottom<cr>", "toggle status line"},
+    t = {"<cmd>TZTop<cr>", "toggle tab bar"},
+    z = {"<cmd>TZAtaraxis<cr>", "toggle zen"}
+  }
 }
 
 local wk = require("which-key")
