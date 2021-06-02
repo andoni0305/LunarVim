@@ -167,7 +167,8 @@ return require("packer").startup(function(use)
       require('colorscheme')
     end
   }
-  use {"shaunsingh/moonlight.nvim", event = "BufEnter"}
+
+  use "shaunsingh/moonlight.nvim"
 
   -- Status Line and Bufferline
   use {
