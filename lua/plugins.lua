@@ -214,7 +214,7 @@ return require("packer").startup(function(use)
     require_plugin('numb.nvim')
     use {'turbio/bracey.vim', opt = true}
     require_plugin('bracey.vim')
-    use {'phaazon/hop.nvim', opt = true}
+    use {'phaazon/hop.nvim', commit = '3655626906859f572b8c4ce9dd9d69e2e1e43b81', opt = true}
     require_plugin('hop.nvim')
     use {'norcalli/nvim-colorizer.lua', opt = true}
     require_plugin('nvim-colorizer.lua')
