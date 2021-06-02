@@ -168,8 +168,6 @@ return require("packer").startup(function(use)
     end
   }
 
-  use "shaunsingh/moonlight.nvim"
-
   -- Status Line and Bufferline
   use {
     "glepnir/galaxyline.nvim",
@@ -233,6 +231,9 @@ return require("packer").startup(function(use)
 
     -- Syntax Hightlighting
     use 'StanAngeloff/php.vim'
+
+    -- Color
+    use "shaunsingh/moonlight.nvim"
     -- folke/todo-comments.nvim
     -- gennaro-tedesco/nvim-jqx
     -- TimUntersberger/neogit
