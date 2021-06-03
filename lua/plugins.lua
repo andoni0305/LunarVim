@@ -212,7 +212,7 @@ return require("packer").startup(function(use)
     require_plugin('dial.nvim')
     use {'nacro90/numb.nvim', opt = true}
     require_plugin('numb.nvim')
-    use {'turbio/bracey.vim', opt = true}
+        use {'turbio/bracey.vim', run = 'npm install --prefix server', opt = true}
     require_plugin('bracey.vim')
     use {'phaazon/hop.nvim', commit = '3655626906859f572b8c4ce9dd9d69e2e1e43b81', opt = true}
     require_plugin('hop.nvim')
@@ -220,8 +220,14 @@ return require("packer").startup(function(use)
     require_plugin('nvim-colorizer.lua')
     use {'windwp/nvim-spectre', opt = true}
     require_plugin('windwp/nvim-spectre')
+    use {'simrat39/symbols-outline.nvim', opt = true}
+    require_plugin('symbols-outline.nvim')
+    use {'nvim-treesitter/playground', opt = true}
+    require_plugin('playground')
+    -- Utility
     use {'tpope/vim-surround', opt = true}
     require_plugin('vim-surround')
+    -- Snippets
     use {'xabikos/vscode-javascript', opt = true}
     require_plugin('vscode-javascript')
     use {'dsznajder/vscode-es7-javascript-react-snippets', opt = true}
