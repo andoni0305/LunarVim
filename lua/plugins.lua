@@ -8,7 +8,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute "packadd packer.nvim"
 end
 
---- Check if a file or directory exists in this path
+--- Check if a file or directory exists in this aath
 local function require_plugin(plugin)
   local plugin_prefix = fn.stdpath("data") .. "/site/pack/packer/opt/"
 
@@ -212,10 +212,16 @@ return require("packer").startup(function(use)
     require_plugin('dial.nvim')
     use {'nacro90/numb.nvim', opt = true}
     require_plugin('numb.nvim')
-        use {'turbio/bracey.vim', run = 'npm install --prefix server', opt = true}
+    use {'turbio/bracey.vim', run = 'npm install --prefix server', opt = true}
     require_plugin('bracey.vim')
-    use {'phaazon/hop.nvim', commit = '3655626906859f572b8c4ce9dd9d69e2e1e43b81', opt = true}
-    require_plugin('hop.nvim')
+    use {
+      'phaazon/hop.nvim',
+      as = 'hop',
+      config = function()
+        require'hop'.setup {keys = 'etovxqpdygfblzhckisuran'}
+        vim.api.nvim_set_keymap('n', 's', ":HopWord<cr>", {noremap = true, silent = true})
+      end
+    }
     use {'norcalli/nvim-colorizer.lua', opt = true}
     require_plugin('nvim-colorizer.lua')
     use {'windwp/nvim-spectre', opt = true}
