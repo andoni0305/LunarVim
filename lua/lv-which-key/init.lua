@@ -72,6 +72,9 @@ vim.api.nvim_set_keymap('n', '<leader>p', ":lua require'telescope'.extensions.pr
 -- Markdown preview toggle
 vim.api.nvim_set_keymap("n", "<leader>M", ":MarkdownPreviewToggle<CR>", {noremap = true, silent = true})
 
+-- Symbol Outline
+vim.api.nvim_set_keymap("n", "<leader>*", ":SymbolsOutline<CR>", {noremap = true, silent = true})
+
 -- TODO create entire treesitter section
 
 local mappings = {
@@ -81,6 +84,7 @@ local mappings = {
   ["f"] = "Find File",
   ["h"] = "No Highlight",
   ["p"] = "Projects",
+  ["*"] = "Symbols Outline",
   d = {
     name = "+Diagnostics",
     t = {"<cmd>TroubleToggle<cr>", "trouble"},
