@@ -129,8 +129,8 @@ return require("packer").startup(function(use)
       -- run = 'call mkdp#util#install()', -- use this line if the above doesn't work for you
       ft = "markdown"
     }
-    use {'numToStr/FTerm.nvim', opt = true}
-    require_plugin('numToStr/FTerm.nvim')
+    -- use {'numToStr/FTerm.nvim', opt = true}
+    -- require_plugin('FTerm.nvim')
     use {'monaqa/dial.nvim', opt = true}
     require_plugin('dial.nvim')
     use {'nacro90/numb.nvim', opt = true}
