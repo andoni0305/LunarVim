@@ -67,7 +67,7 @@ vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>", {noremap = true,
 vim.api.nvim_set_keymap("n", "<leader>c", ":BufferClose<CR>", {noremap = true, silent = true})
 
 -- open projects
-vim.api.nvim_set_keymap('n', '<leader>p', ":lua require'telescope'.extensions.project.project{}<CR>",
+vim.api.nvim_set_keymap('n', '<leader>P', ":lua require'telescope'.extensions.project.project{}<CR>",
                         {noremap = true, silent = true})
 -- Markdown preview toggle
 vim.api.nvim_set_keymap("n", "<leader>M", ":MarkdownPreviewToggle<CR>", {noremap = true, silent = true})
