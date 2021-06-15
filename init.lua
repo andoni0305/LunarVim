@@ -30,6 +30,7 @@ if O.extras then
   require('lv-hop')
   require('lv-colorizer')
   require('lv-symbols-outline')
+  require('lv-miniyank')
 end
 
 -- TODO is there a way to do this without vimscript

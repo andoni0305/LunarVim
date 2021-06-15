@@ -161,6 +161,10 @@ return require("packer").startup(function(use)
     -- Syntax Hightlighting
     use 'StanAngeloff/php.vim'
 
+    -- Miniyank
+    use {'bfredl/nvim-miniyank', opt = true}
+    require_plugin('nvim-miniyank')
+
     -- Color
     -- use "shaunsingh/moonlight.nvim"
     -- folke/todo-comments.nvim
