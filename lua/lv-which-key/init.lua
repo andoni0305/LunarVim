@@ -78,12 +78,13 @@ vim.api.nvim_set_keymap("n", "<leader>*", ":SymbolsOutline<CR>", {noremap = true
 -- TODO create entire treesitter section
 
 local mappings = {
+<<<<<<< HEAD
   ["/"] = "Comment",
   ["c"] = "Close Buffer",
   ["e"] = "Explorer",
   ["f"] = "Find File",
   ["h"] = "No Highlight",
-  ["p"] = "Projects",
+  ["P"] = "Projects",
   ["*"] = "Symbols Outline",
   d = {
     name = "+Diagnostics",
@@ -134,9 +135,8 @@ local mappings = {
     t = {"<cmd>LspTypeDefinition<cr>", "Type Definition"},
     x = {"<cmd>cclose<cr>", "Close Quickfix"},
     s = {"<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols"},
-    S = {"<cmd>Telescope lsp_workspace_symbols<cr>", "Workspace Symbols"}
+    S = {"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols"}
   },
-
   s = {
     name = "+Search",
     B = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},

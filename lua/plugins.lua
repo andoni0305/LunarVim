@@ -89,6 +89,9 @@ return require("packer").startup(function(use)
   -- Zen Mode
   use {"Pocco81/TrueZen.nvim", opt = true}
 
+  -- Sane gx for netrw_gx bug
+  use {"felipec/vim-sanegx"}
+
   require_plugin("nvim-lspconfig")
   require_plugin("lspsaga.nvim")
   require_plugin("nvim-lspinstall")
@@ -164,22 +167,5 @@ return require("packer").startup(function(use)
     -- Miniyank
     use {'bfredl/nvim-miniyank', opt = true}
     require_plugin('nvim-miniyank')
-
-    -- Color
-    -- use "shaunsingh/moonlight.nvim"
-    -- folke/todo-comments.nvim
-    -- gennaro-tedesco/nvim-jqx
-    -- TimUntersberger/neogit
-    -- folke/lsp-colors.nvim
-    -- simrat39/symbols-outline.nvim
-
-    -- Git
-    -- use {'tpope/vim-fugitive', opt = true}
-    -- use {'tpope/vim-rhubarb', opt = true}
-    -- pwntester/octo.nvim
-
-    -- Easily Create Gists
-    -- use {'mattn/vim-gist', opt = true}
-    -- use {'mattn/webapi-vim', opt = true}
-  end
+    end
 end)
