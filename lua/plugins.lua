@@ -167,5 +167,5 @@ return require("packer").startup(function(use)
     -- Miniyank
     use {'bfredl/nvim-miniyank', opt = true}
     require_plugin('nvim-miniyank')
-    end
+  end
 end)
