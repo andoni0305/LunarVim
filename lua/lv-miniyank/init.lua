@@ -7,7 +7,7 @@ map <leader>p <Plug>(miniyank-startput)
 map <leader>n <Plug>(miniyank-cycle)
 map <leader>N <Plug>(miniyank-cycleback)
 
-map <Leader>c <Plug>(miniyank-tochar)
+map <Leader>C <Plug>(miniyank-tochar)
 map <Leader>l <Plug>(miniyank-toline)
 map <Leader>b <Plug>(miniyank-toblock)
 ]]
