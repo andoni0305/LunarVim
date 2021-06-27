@@ -11,9 +11,10 @@ O = {
   wrap_lines = false,
   number = true,
   relative_number = true,
+  cursorline = true,
   shell = 'zsh',
   timeoutlen = 100,
-  nvim_tree_disable_netrw = 0, -- "1 by default, disables netrw (must be set before plugin's packadd)
+    nvim_tree_disable_netrw = 0,
   extras = false,
 
   -- @usage pass a table with your desired languages

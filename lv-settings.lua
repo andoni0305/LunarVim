@@ -14,6 +14,7 @@ O.wrap_lines = false
 O.timeoutlen = 300
 O.document_highlight = true
 O.extras = true
+O.leader_key = ' '
 
 -- dashboard
 O.dashboard.custom_header = {
@@ -90,3 +91,6 @@ O.sh.linter = 'shellcheck'
 -- number options
 O.number = true
 O.relative_number = false
+
+-- Turn off cursorline
+-- O.cursorline = false
