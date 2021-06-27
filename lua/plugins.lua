@@ -11,20 +11,20 @@ end
 
 --- Check if a file or directory exists in this aath
 local function require_plugin(plugin)
-  local plugin_prefix = fn.stdpath("data") .. "/site/pack/packer/opt/"
+    local plugin_prefix = fn.stdpath("data") .. "/site/pack/packer/opt/"
 
-  local plugin_path = plugin_prefix .. plugin .. "/"
-  --	print('test '..plugin_path)
-  local ok, err, code = os.rename(plugin_path, plugin_path)
-  if not ok then
-    if code == 13 then
-      -- Permission denied, but it exists
-      return true
+    local plugin_path = plugin_prefix .. plugin .. "/"
+    --	print('test '..plugin_path)
+    local ok, err, code = os.rename(plugin_path, plugin_path)
+    if not ok then
+        if code == 13 then
+            -- Permission denied, but it exists
+            return true
+        end
     end
-  end
-  --	print(ok, err, code)
-  if ok then vim.cmd("packadd " .. plugin) end
-  return ok, err, code
+    --	print(ok, err, code)
+    if ok then vim.cmd("packadd " .. plugin) end
+    return ok, err, code
 end
 
 vim.cmd "autocmd BufWritePost plugins.lua PackerCompile" -- Auto compile when there are changes in plugins.lua
@@ -203,23 +203,23 @@ return require("packer").startup(function(use)
         use {"windwp/nvim-ts-autotag", opt = true}
         require_plugin("nvim-ts-autotag")
 
-    -- Utility
-    use {'tpope/vim-surround', opt = true}
-    require_plugin('vim-surround')
-    -- Snippets
-    use {'xabikos/vscode-javascript', opt = true}
-    require_plugin('vscode-javascript')
-    use {'dsznajder/vscode-es7-javascript-react-snippets', opt = true}
-    require_plugin('vscode-es7-javascript-react-snippets')
-    -- Tmux integration
-    use 'christoomey/vim-tmux-navigator'
+        -- Utility
+        use {'tpope/vim-surround', opt = true}
+        require_plugin('vim-surround')
+        -- Snippets
+        use {'xabikos/vscode-javascript', opt = true}
+        require_plugin('vscode-javascript')
+        use {'dsznajder/vscode-es7-javascript-react-snippets', opt = true}
+        require_plugin('vscode-es7-javascript-react-snippets')
+        -- Tmux integration
+        use 'christoomey/vim-tmux-navigator'
 
-    -- Syntax Hightlighting
-    use 'StanAngeloff/php.vim'
+        -- Syntax Hightlighting
+        use 'StanAngeloff/php.vim'
 
-    -- Miniyank
-    use {'bfredl/nvim-miniyank', opt = true}
-    require_plugin('nvim-miniyank')
+        -- Miniyank
+        use {'bfredl/nvim-miniyank', opt = true}
+        require_plugin('nvim-miniyank')
         -- folke/todo-comments.nvim
         -- gennaro-tedesco/nvim-jqx
         -- TimUntersberger/neogit

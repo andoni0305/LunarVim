@@ -5,7 +5,10 @@ local actions = require('telescope.actions')
 -- '--color=never',
 require('telescope').setup {
     defaults = {
-        find_command = {'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
+        find_command = {
+            'rg', '--no-heading', '--with-filename', '--line-number',
+            '--column', '--smart-case'
+        },
         prompt_position = "bottom",
         -- prompt_prefix = " ",
         prompt_prefix = " ",
@@ -15,7 +18,10 @@ require('telescope').setup {
         selection_strategy = "reset",
         sorting_strategy = "descending",
         layout_strategy = "horizontal",
-        layout_defaults = {horizontal = {mirror = false}, vertical = {mirror = false}},
+        layout_defaults = {
+            horizontal = {mirror = false},
+            vertical = {mirror = false}
+        },
         file_sorter = require'telescope.sorters'.get_fzy_sorter,
         file_ignore_patterns = {},
         generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
@@ -48,11 +54,11 @@ require('telescope').setup {
                 -- ["<c-x>"] = false,
                 -- ["<esc>"] = actions.close,
 
-        -- Otherwise, just set the mapping to the function that you want it to be.
-        -- ["<C-i>"] = actions.select_horizontal,
+                -- Otherwise, just set the mapping to the function that you want it to be.
+                -- ["<C-i>"] = actions.select_horizontal,
 
-        -- Add up multiple actions
-        ["<CR>"] = actions.select_default + actions.center
+                -- Add up multiple actions
+                ["<CR>"] = actions.select_default + actions.center
 
                 -- You can perform as many actions in a row as you like
                 -- ["<CR>"] = actions.select_default + actions.center + my_cool_custom_action,
@@ -66,7 +72,12 @@ require('telescope').setup {
             }
         }
     },
-    extensions = {fzy_native = {override_generic_sorter = false, override_file_sorter = true}}
+    extensions = {
+        fzy_native = {
+            override_generic_sorter = false,
+            override_file_sorter = true
+        }
+    }
 }
 
 -- require'telescope'.load_extension('project')
