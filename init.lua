@@ -1,6 +1,5 @@
 require('lv-globals')
-vim.cmd('luafile '..CONFIG_PATH..'/lv-settings.lua')
-
+vim.cmd('luafile ' .. CONFIG_PATH .. '/lv-settings.lua')
 
 require('settings')
 require('lv-gitblame')
@@ -27,14 +26,14 @@ require('lv-zen')
 
 -- extras
 if O.extras then
-	require('lv-numb')
-	require('lv-dial')
-	require('lv-hop')
-	require('lv-colorizer')
-	require('lv-spectre')
-	require('lv-symbols-outline')
-	require('lv-vimtex')
-	require('lv-miniyank')
+  require('lv-numb')
+  require('lv-dial')
+  require('lv-hop')
+  require('lv-colorizer')
+  require('lv-spectre')
+  require('lv-symbols-outline')
+  require('lv-vimtex')
+  require('lv-miniyank')
 end
 
 -- TODO is there a way to do this without vimscript
