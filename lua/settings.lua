@@ -22,6 +22,7 @@ vim.o.conceallevel = 0 -- So that I can see `` in markdown files
 vim.cmd('set ts=2') -- Insert 2 spaces for a tab
 vim.cmd('set sw=2') -- Change the number of space characters inserted for indentation
 vim.cmd('set expandtab') -- Converts tabs to spaces
+vim.o.completeopt = "menuone,noselect"
 vim.bo.smartindent = true -- Makes indenting smart
 vim.wo.number = O.number -- set numbered lines
 vim.wo.relativenumber = O.relative_number -- set relative number
@@ -43,6 +44,7 @@ vim.cmd('filetype plugin on') -- filetype detection
 -- vim.o.guifont = "Hack\\ Nerd\\ Font\\ Mono"
 -- vim.o.guifont = "SauceCodePro Nerd Font:h17"
 vim.o.guifont = "FiraCode Nerd Font:h17"
-vim.cmd('set ignorecase') -- set ignorecase; easier to find commands
-vim.cmd('set noswapfile') -- Don't create swapfile
--- vim.cmd('set shell=/usr/local/bin/zsh') -- set zsh as shell for vim term
+
+-- vim.o.guifont = "JetBrains\\ Mono\\ Regular\\ Nerd\\ Font\\ Complete"
+vim.o.ignorecase = O.ignore_case
+vim.o.smartcase = O.smart_case

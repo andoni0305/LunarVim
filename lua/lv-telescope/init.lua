@@ -1,5 +1,7 @@
 local actions = require('telescope.actions')
--- local trouble = require("trouble.providers.telescope")
+-- if O.plugin.trouble.active then
+--     local trouble = require("trouble.providers.telescope")
+-- end
 -- Global remapping
 ------------------------------
 -- '--color=never',
@@ -10,7 +12,6 @@ require('telescope').setup {
             '--column', '--smart-case'
         },
         prompt_position = "bottom",
-        -- prompt_prefix = " ",
         prompt_prefix = " ",
         selection_caret = " ",
         entry_prefix = "  ",

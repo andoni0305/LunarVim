@@ -1,5 +1,7 @@
-local hop = require('hop')
+local M = {}
 
-hop.setup({})
+M.config = function()
+    vim.api.nvim_set_keymap('n', 's', ":HopWord<cr>", {silent = true})
+end
 
-vim.api.nvim_set_keymap('n', 's', ":HopWord<cr>", {noremap = true, silent = true})
+return M
