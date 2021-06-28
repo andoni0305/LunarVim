@@ -40,7 +40,7 @@ return require("packer").startup(function(use)
     -- Telescope
     use {"nvim-lua/popup.nvim", opt = true}
     use {"nvim-lua/plenary.nvim", opt = true}
-    use {"nvim-telescope/telescope.nvim", cmd = "Telescope", opt = true}
+    use {"nvim-telescope/telescope.nvim", opt = true}
 
     -- Autocomplete
     use {"hrsh7th/nvim-compe", event = "InsertEnter", opt = true}
@@ -66,12 +66,7 @@ return require("packer").startup(function(use)
     use {"windwp/nvim-autopairs", event = "InsertEnter", opt = true}
 
     -- Comments
-    use {
-        "terrortylor/nvim-comment",
-        cmd = "CommentToggle",
-        config = require_plugin("nvim-comment"),
-        opt = true
-    }
+    use {"terrortylor/nvim-comment", opt = true}
 
     -- Color
     use {
@@ -113,6 +108,7 @@ return require("packer").startup(function(use)
     require_plugin("gitsigns.nvim")
     require_plugin("which-key.nvim")
     require_plugin("nvim-autopairs")
+    require_plugin("nvim-comment")
 
     -- Extras
     if O.extras then

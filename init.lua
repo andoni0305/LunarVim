@@ -19,7 +19,7 @@ require('lv-which-key')
 
 -- extras
 if O.extras then
-    require('lv-rnvimr')
+    -- require('lv-rnvimr')
     require('lv-gitblame')
     require('lv-matchup')
     require('lv-numb')
