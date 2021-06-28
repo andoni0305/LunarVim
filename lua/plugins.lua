@@ -374,13 +374,10 @@ return require("packer").startup(function(use)
 
     -- EXTRA - personal
         -- Utility
-        use {'tpope/vim-surround', opt = true}
-        require_plugin('vim-surround')
+        use {'tpope/vim-surround'}
         -- Snippets
-        use {'xabikos/vscode-javascript', opt = true}
-        require_plugin('vscode-javascript')
-        use {'dsznajder/vscode-es7-javascript-react-snippets', opt = true}
-        require_plugin('vscode-es7-javascript-react-snippets')
+        use {'xabikos/vscode-javascript'}
+        use {'dsznajder/vscode-es7-javascript-react-snippets'}
         -- Tmux integration
         use 'christoomey/vim-tmux-navigator'
 end)

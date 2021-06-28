@@ -26,13 +26,13 @@ local ruby_format = {'BufWritePre', '*.rb', 'lua vim.lsp.buf.formatting_sync(nil
 if O.lang.ruby.autoformat then table.insert(auto_formatters, ruby_format) end
 
 local css_autoformat = {'BufWritePre', '*.css', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'}
-if O.styles.autoformat then table.insert(auto_formatters, css_autoformat) end
+if O.lang.css.autoformat then table.insert(auto_formatters, css_autoformat) end
 
 local scss_autoformat = {'BufWritePre', '*.scss', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'}
-if O.styles.autoformat then table.insert(auto_formatters, scss_autoformat) end
+if O.lang.css.autoformat then table.insert(auto_formatters, scss_autoformat) end
 
 local less_autoformat = {'BufWritePre', '*.less', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'}
-if O.styles.autoformat then table.insert(auto_formatters, less_autoformat) end
+if O.lang.css.autoformat then table.insert(auto_formatters, less_autoformat) end
 local go_format = {'BufWritePre', '*.go', 'lua vim.lsp.buf.formatting_sync(nil,1000)'}
 if O.lang.go.autoformat then table.insert(auto_formatters, go_format) end
 
