@@ -186,9 +186,8 @@ return require("packer").startup(function(use)
             vim.g.indentLine_enabled = 1
             vim.g.indent_blankline_char = "▏"
 
-            vim.g.indent_blankline_filetype_exclude = {
-                "help", "terminal", "dashboard"
-            }
+            vim.g.indent_blankline_filetype_exclude =
+                {"help", "terminal", "dashboard"}
             vim.g.indent_blankline_buftype_exclude = {"terminal"}
 
             vim.g.indent_blankline_show_trailing_blankline_indent = false
@@ -324,11 +323,9 @@ return require("packer").startup(function(use)
                     mappings = "<leader>gy"
                 }
             })
-
         end,
         disable = not O.plugin.gitlinker.active,
         requires = 'nvim-lua/plenary.nvim'
-
     }
     -- Lazygit
     use {
@@ -366,18 +363,38 @@ return require("packer").startup(function(use)
     -- LANGUAGE SPECIFIC GOES HERE
 
     -- Latex TODO what filetypes should this be active for?
-    use {
-        "lervag/vimtex",
-        ft = "latex",
-        disable = not O.lang.latex.active
-    }
+    use {"lervag/vimtex", ft = "latex", disable = not O.lang.latex.active}
 
     -- EXTRA - personal
-        -- Utility
-        use {'tpope/vim-surround'}
-        -- Snippets
-        use {'xabikos/vscode-javascript'}
-        use {'dsznajder/vscode-es7-javascript-react-snippets'}
-        -- Tmux integration
-        use 'christoomey/vim-tmux-navigator'
+    -- Utility
+    use {'tpope/vim-surround'}
+    -- Snippets
+    use {'xabikos/vscode-javascript'}
+    use {'dsznajder/vscode-es7-javascript-react-snippets'}
+    -- Tmux integration
+    use 'christoomey/vim-tmux-navigator'
+
+    -- Syntax Hightlighting
+    use 'StanAngeloff/php.vim'
+
+    -- Miniyank
+    use {
+        'bfredl/nvim-miniyank',
+        config = function()
+            vim.cmd [[
+map p <Plug>(miniyank-autoput)
+map P <Plug>(miniyank-autoPut)
+
+map <leader>p <Plug>(miniyank-startput)
+
+map <leader>n <Plug>(miniyank-cycle)
+map <leader>N <Plug>(miniyank-cycleback)
+
+map <Leader>C <Plug>(miniyank-tochar)
+map <Leader>l <Plug>(miniyank-toline)
+map <Leader>b <Plug>(miniyank-toblock)
+]]
+            -- map <leader>P <Plug>(miniyank-startPut)
+        end
+    }
 end)
