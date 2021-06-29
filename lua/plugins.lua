@@ -325,6 +325,12 @@ return require("packer").startup(function(use)
         disable = not O.plugin.gitlinker.active,
         requires = 'nvim-lua/plenary.nvim'
     }
+    -- Rust tools
+    -- TODO: use lazy loading maybe?
+    use {
+        "simrat39/rust-tools.nvim",
+        disable = not O.lang.rust.active
+    }
     -- Lazygit
     use {
         "kdheepak/lazygit.nvim",

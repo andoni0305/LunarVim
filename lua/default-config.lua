@@ -161,11 +161,21 @@ O = {
             filetypes = {'rb', 'erb', 'rakefile'}
         },
         go = {active = false},
-        elixer = {active = false},
+        elixir = {active = false},
         vim = {active = true},
         yaml = {active = true},
         terraform = {active = false},
-        rust = {active = false},
+        rust = {
+            active = false,
+            linter = '',
+            formatter = '',
+            autoformat = false,
+            diagnostics = {
+                virtual_text = {spacing = 0, prefix = ""},
+                signs = true,
+                underline = true
+            }
+        },
         svelte = {active = false},
         php = {active = true},
         latex = {active = false},
