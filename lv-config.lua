@@ -68,7 +68,7 @@ O.lang.lua.autoformat = true
 
 -- javascript
 O.lang.tsserver.formatter = 'prettier'
-O.lang.tsserver.linter = true
+O.lang.tsserver.linter = 'eslint'
 O.lang.tsserver.autoformat = true
 
 -- javascript
