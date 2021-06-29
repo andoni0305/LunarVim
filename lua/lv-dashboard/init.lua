@@ -31,18 +31,22 @@ M.config = function()
             command = 'Telescope find_files'
         },
         b = {
+            description = {'  Projects           '},
+            command = 'Telescope project'
+        },
+        c = {
             description = {'  Recently Used Files'},
             command = 'Telescope oldfiles'
         },
-        c = {
+        d = {
             description = {'  Load Last Session  '},
             command = 'SessionLoad'
         },
-        d = {
+        e = {
             description = {'  Find Word          '},
             command = 'Telescope live_grep'
         },
-        e = {
+        f = {
             description = {'  Settings           '},
             command = ':e ' .. CONFIG_PATH .. '/lv-config.lua'
         }

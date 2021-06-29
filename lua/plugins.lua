@@ -82,7 +82,6 @@ return require("packer").startup(function(use)
 
     use {
         "romgrk/barbar.nvim",
-
         config = function()
             vim.api.nvim_set_keymap('n', '<TAB>', ':BufferNext<CR>',
                                     {noremap = true, silent = true})
@@ -92,7 +91,6 @@ return require("packer").startup(function(use)
                                     {noremap = true, silent = true})
         end,
         event = "BufRead"
-
     }
 
     -- Extras, these do not load by default
@@ -382,18 +380,18 @@ return require("packer").startup(function(use)
         'bfredl/nvim-miniyank',
         config = function()
             vim.cmd [[
-map p <Plug>(miniyank-autoput)
-map P <Plug>(miniyank-autoPut)
+              map p <Plug>(miniyank-autoput)
+              map P <Plug>(miniyank-autoPut)
 
-map <leader>p <Plug>(miniyank-startput)
+              map <leader>p <Plug>(miniyank-startput)
 
-map <leader>n <Plug>(miniyank-cycle)
-map <leader>N <Plug>(miniyank-cycleback)
+              map <leader>n <Plug>(miniyank-cycle)
+              map <leader>N <Plug>(miniyank-cycleback)
 
-map <Leader>C <Plug>(miniyank-tochar)
-map <Leader>l <Plug>(miniyank-toline)
-map <Leader>b <Plug>(miniyank-toblock)
-]]
+              map <Leader>C <Plug>(miniyank-tochar)
+              map <Leader>l <Plug>(miniyank-toline)
+              map <Leader>b <Plug>(miniyank-toblock)
+            ]]
             -- map <leader>P <Plug>(miniyank-startPut)
         end
     }

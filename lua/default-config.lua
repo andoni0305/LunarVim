@@ -3,18 +3,20 @@ DATA_PATH = vim.fn.stdpath('data')
 CACHE_PATH = vim.fn.stdpath('cache')
 
 O = {
+    leader_key = ' ',
+    document_highlight = true,
     auto_close_tree = 0,
     auto_complete = true,
     colorscheme = 'lunar',
     hidden_files = true,
     wrap_lines = false,
     number = true,
-    relative_number = true,
+    relative_number = false,
     cursorline = true,
     shell = 'bash',
     timeoutlen = 100,
     nvim_tree_disable_netrw = 0,
-    extras = false,
+    extras = true,
     ignore_case = true,
     smart_case = true,
 
@@ -23,54 +25,54 @@ O = {
         ensure_installed = "all",
         ignore_install = {"haskell"},
         highlight = {enabled = true},
-        rainbow = {enabled = false}
+        rainbow = {enabled = true}
     },
 
     database = {save_location = '~/.config/nvcode_db', auto_execute = 1},
 
     plugin = {
-        hop = {active = false},
-        dial = {active = false},
-        dashboard = {active = false},
-        matchup = {active = false},
-        colorizer = {active = false},
-        numb = {active = false},
-        zen = {active = false},
+        hop = {active = true},
+        dial = {active = true},
+        dashboard = {active = true},
+        matchup = {active = true},
+        colorizer = {active = true},
+        numb = {active = true},
+        zen = {active = true},
         ts_playground = {active = false},
         indent_line = {active = false},
-        ts_context_commentstring = {active = false},
-        symbol_outline = {active = false},
+        ts_context_commentstring = {active = true},
+        symbol_outline = {active = true},
         debug = {active = false},
         bqf = {active = false},
-        trouble = {active = false},
-        floatterm = {active = false},
-        spectre = {active = false},
-        lsp_rooter = {active = false},
-        markdown_preview = {active = false},
-        codi = {active = false},
-        telescope_fzy = {active = false},
-        sanegx = {active = false},
-        todo_comments = {active = false},
-        lsp_colors = {active = false},
-        git_blame = {active = false},
+        trouble = {active = true},
+        floatterm = {active = true},
+        spectre = {active = true},
+        lsp_rooter = {active = true},
+        markdown_preview = {active = true},
+        codi = {active = true},
+        telescope_fzy = {active = true},
+        sanegx = {active = true},
+        todo_comments = {active = true},
+        lsp_colors = {active = true},
+        git_blame = {active = true},
         gist = {active = false},
         gitlinker = {active = false},
         lazygit = {active = false},
         octo = {active = false},
         diffview = {active = false},
-        bracey = {active = false},
-        telescope_project = {active = false}
+        bracey = {active = true},
+        telescope_project = {active = true}
 
     },
 
     lang = {
         python = {
-            active = false,
-            linter = '',
+            active = true,
+            linter = 'flake8',
             -- @usage can be 'yapf', 'black'
-            formatter = '',
-            autoformat = false,
-            isort = false,
+            formatter = 'yapf',
+            autoformat = true,
+            isort = true,
             diagnostics = {
                 virtual_text = {spacing = 0, prefix = ""},
                 signs = true,
@@ -87,10 +89,10 @@ O = {
             sdk_path = '/usr/lib/dart/bin/snapshots/analysis_server.dart.snapshot'
         },
         lua = {
-            active = false,
+            active = true,
             -- @usage can be 'lua-format'
-            formatter = '',
-            autoformat = false,
+            formatter = 'lua-format',
+            autoformat = true,
             diagnostics = {
                 virtual_text = {spacing = 0, prefix = ""},
                 signs = true,
@@ -98,12 +100,12 @@ O = {
             }
         },
         sh = {
-            active = false,
+            active = true,
             -- @usage can be 'shellcheck'
-            linter = '',
+            linter = 'shellcheck',
             -- @usage can be 'shfmt'
-            formatter = '',
-            autoformat = false,
+            formatter = 'shfmt',
+            autoformat = true,
             diagnostics = {
                 virtual_text = {spacing = 0, prefix = ""},
                 signs = true,
@@ -111,12 +113,12 @@ O = {
             }
         },
         tsserver = {
-            active = false,
+            active = true,
             -- @usage can be 'eslint'
-            linter = '',
+            linter = 'eslint',
             -- @usage can be 'prettier'
-            formatter = '',
-            autoformat = false,
+            formatter = 'prettier',
+            autoformat = true,
             diagnostics = {
                 virtual_text = {spacing = 0, prefix = ""},
                 signs = true,
@@ -124,10 +126,10 @@ O = {
             }
         },
         json = {
-            active = false,
+            active = true,
             -- @usage can be 'prettier'
-            formatter = '',
-            autoformat = false,
+            formatter = 'prettier',
+            autoformat = true,
             diagnostics = {
                 virtual_text = {spacing = 0, prefix = ""},
                 signs = true,
@@ -150,7 +152,7 @@ O = {
             }
         },
         ruby = {
-            active = false,
+            active = true,
             diagnostics = {
                 virtualtext = {spacing = 0, prefix = ""},
                 signs = true,
@@ -160,27 +162,27 @@ O = {
         },
         go = {active = false},
         elixer = {active = false},
-        vim = {active = false},
-        yaml = {active = false},
+        vim = {active = true},
+        yaml = {active = true},
         terraform = {active = false},
         rust = {active = false},
         svelte = {active = false},
-        php = {active = false},
+        php = {active = true},
         latex = {active = false},
         kotlin = {active = false},
-        html = {active = false},
-        elm = {active = false},
+        html = {active = true},
+        elm = {active = true},
         emmet = {active = false},
         graphql = {active = false},
         efm = {active = true},
-        docker = {active = false},
+        docker = {active = true},
         cmake = {active = false},
         java = {active = false},
         css = {
-            active = false,
+            active = true,
 
             formatter = '',
-            autoformat = false,
+            autoformat = true,
             virtual_text = true
         }
 
@@ -188,14 +190,24 @@ O = {
 
     dashboard = {
         custom_header = {
-            '                 _..._                                                                           ',
-            '               .\'   (_`.    _                         __     ___           ',
-            '              :  .      :  | |   _   _ _ __   __ _ _ _\\ \\   / (_)_ __ ___  ',
-            '              :)    ()  :  | |  | | | | \'_ \\ / _` | \'__\\ \\ / /| | \'_ ` _ \\ ',
-            '              `.   .   .\'  | |__| |_| | | | | (_| | |   \\ V / | | | | | | |',
-            '                `-...-\'    |_____\\__,_|_| |_|\\__,_|_|    \\_/  |_|_| |_| |_|'
+            '              ^                      ', --
+            '             /|\\                    ', --
+            '            //|\\\\                  ', --
+            '           ///|\\\\\\                ', --
+            '          ////|\\\\\\\\              ', --
+            '         /////|\\\\\\\\\\            ', --
+            '        //////|\\\\\\\\\\\\          ', --
+            '       ///////|\\\\\\\\\\\\\\        ', --
+            '      ////////|\\\\\\\\\\\\\\\\      ', --
+            '     /////////|\\\\\\\\\\\\\\\\\\    ', --
+            '    //////////|\\\\\\\\\\\\\\\\\\\\  ', --
+            '     \'////////|\\\\\\\\\\\\\\\\\'   ', --
+            '       \'//////|\\\\\\\\\\\\\'       ', --
+            '         \'////|\\\\\\\\\'           ', --
+            '           \'//|\\\\\'               ', --
+            '             \'|\'                   ' --
         },
-        footer = {'chrisatmachine.com'}
+        footer = {'all good...'}
     }
 }
 
