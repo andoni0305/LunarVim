@@ -1,18 +1,6 @@
--- vim.cmd('let g:nvcode_termcolors=256')
+-- TODO is there a lua native way to do this?
+vim.cmd('colorscheme ' .. O.colorscheme)
 
-vim.g.moonlight_italic_comments = true
-vim.g.moonlight_italic_keywords = true
--- vim.g.moonlight_italic_functions = true
--- vim.g.moonlight_italic_variables = true
-vim.g.moonlight_contrast = true
-vim.g.moonlight_borders = true
-vim.g.moonlight_disable_background = false
-
-if O.colorscheme == 'moonlight' then
-  require(O.colorscheme).set()
-else
-  vim.cmd('colorscheme ' .. O.colorscheme)
-end
 -- background transparency
 if O.transparent_bg then
   vim.cmd('hi Normal guibg=NONE ctermbg=NONE')

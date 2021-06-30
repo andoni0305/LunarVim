@@ -136,6 +136,16 @@ return require("packer").startup(function(use)
         end,
         disable = not O.plugin.zen.active
     }
+    -- Ranger
+    use {
+        "kevinhwang91/rnvimr",
+        cmd = "Rnvimr",
+        config = function()
+            require('lv-rnvimr').config()
+        end,
+        disable = not O.plugin.ranger.active
+    }
+
     -- matchup
     use {
         'andymass/vim-matchup',
@@ -325,12 +335,6 @@ return require("packer").startup(function(use)
         disable = not O.plugin.gitlinker.active,
         requires = 'nvim-lua/plenary.nvim'
     }
-    -- Rust tools
-    -- TODO: use lazy loading maybe?
-    use {
-        "simrat39/rust-tools.nvim",
-        disable = not O.lang.rust.active
-    }
     -- Lazygit
     use {
         "kdheepak/lazygit.nvim",
@@ -369,6 +373,16 @@ return require("packer").startup(function(use)
     -- Latex TODO what filetypes should this be active for?
     use {"lervag/vimtex", ft = "latex", disable = not O.lang.latex.active}
 
+    -- Rust tools
+    -- TODO: use lazy loading maybe?
+    use {"simrat39/rust-tools.nvim", disable = not O.lang.rust.active}
+
+    -- Elixir
+    use {"elixir-editors/vim-elixir",
+        ft = {"elixir", "eelixir"},
+        disable = not O.lang.elixir.active
+    }
+
     -- EXTRA - personal
     -- Utility
     use {'tpope/vim-surround'}
@@ -400,5 +414,5 @@ return require("packer").startup(function(use)
             ]]
             -- map <leader>P <Plug>(miniyank-startPut)
         end
-    }
+}
 end)
