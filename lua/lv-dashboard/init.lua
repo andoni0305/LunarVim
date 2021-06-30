@@ -31,26 +31,22 @@ M.config = function()
             command = 'Telescope find_files'
         },
         b = {
-            description = {'  Projects           '},
-            command = 'Telescope project'
-        },
-        c = {
             description = {'  Recently Used Files'},
             command = 'Telescope oldfiles'
         },
-        d = {
+        c = {
             description = {'  Load Last Session  '},
             command = 'SessionLoad'
         },
-        e = {
+        d = {
             description = {'  Find Word          '},
             command = 'Telescope live_grep'
         },
-        f = {
+        e = {
             description = {'  Settings           '},
             command = ':e ' .. CONFIG_PATH .. '/lv-config.lua'
         },
-        g = {
+        f = {
             description = {'  Neovim Config Files'},
             command = 'lua require(\'telescope.builtin\').find_files({search_dirs = {"~/.config/nvim"}})'
         }
