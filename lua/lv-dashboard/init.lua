@@ -50,7 +50,7 @@ M.config = function()
             description = {'  Settings           '},
             command = ':e ' .. CONFIG_PATH .. '/lv-config.lua'
         },
-        f = {
+        g = {
             description = {'  Neovim Config Files'},
             command = 'lua require(\'telescope.builtin\').find_files({search_dirs = {"~/.config/nvim"}})'
         }
