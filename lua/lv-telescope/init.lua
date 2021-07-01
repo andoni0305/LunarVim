@@ -19,12 +19,11 @@ require('telescope').setup {
         sorting_strategy = "descending",
         layout_strategy = "horizontal",
         layout_config = {
-            -- horizontal = {mirror = false},
-            -- vertical = {mirror = false},
+            width = 0.75,
+            prompt_position = "bottom",
             preview_cutoff = 120,
-            -- height = 1,
-            -- width = 0.75,
-            prompt_position = "bottom"
+            horizontal = {mirror = false},
+            vertical = {mirror = false}
         },
         file_sorter = require'telescope.sorters'.get_fzy_sorter,
         file_ignore_patterns = {},
