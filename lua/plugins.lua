@@ -435,10 +435,10 @@ return require("packer").startup(function(use)
               map <leader>n <Plug>(miniyank-cycle)
               map <leader>N <Plug>(miniyank-cycleback)
 
-              map <Leader>C <Plug>(miniyank-tochar)
-              map <Leader>l <Plug>(miniyank-toline)
-              map <Leader>b <Plug>(miniyank-toblock)
             ]]
+            -- map <Leader>C <Plug>(miniyank-tochar)
+            -- map <Leader>l <Plug>(miniyank-toline)
+            -- map <Leader>b <Plug>(miniyank-toblock)
             -- map <leader>P <Plug>(miniyank-startPut)
         end
 }
