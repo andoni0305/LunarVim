@@ -64,13 +64,12 @@ O = {
         diffview = {active = false},
         bracey = {active = true},
         telescope_project = {active = false}
+        dap_install = {active = false}
 
     },
 
     lang = {
         python = {
-            active = true,
-            linter = 'flake8',
             -- @usage can be 'yapf', 'black'
             formatter = 'yapf',
             autoformat = true,
@@ -87,11 +86,9 @@ O = {
             }
         },
         dart = {
-            active = false,
             sdk_path = '/usr/lib/dart/bin/snapshots/analysis_server.dart.snapshot'
         },
         lua = {
-            active = true,
             -- @usage can be 'lua-format'
             formatter = 'lua-format',
             autoformat = true,
@@ -102,7 +99,6 @@ O = {
             }
         },
         sh = {
-            active = true,
             -- @usage can be 'shellcheck'
             linter = 'shellcheck',
             -- @usage can be 'shfmt'
@@ -115,7 +111,6 @@ O = {
             }
         },
         tsserver = {
-            active = true,
             -- @usage can be 'eslint'
             linter = 'eslint',
             -- @usage can be 'prettier'
@@ -128,7 +123,6 @@ O = {
             }
         },
         json = {
-            active = true,
             -- @usage can be 'prettier'
             formatter = 'prettier',
             autoformat = true,
@@ -139,14 +133,12 @@ O = {
             }
         },
         tailwindcss = {
-            active = false,
             filetypes = {
                 'html', 'css', 'scss', 'javascript', 'javascriptreact',
                 'typescript', 'typescriptreact'
             }
         },
         clang = {
-            active = false,
             diagnostics = {
                 virtual_text = {spacing = 0, prefix = ""},
                 signs = true,
@@ -154,7 +146,6 @@ O = {
             }
         },
         ruby = {
-            active = true,
             diagnostics = {
                 virtualtext = {spacing = 0, prefix = ""},
                 signs = true,
@@ -162,13 +153,12 @@ O = {
             },
             filetypes = {'rb', 'erb', 'rakefile'}
         },
-        go = {active = false},
-        elixir = {active = false},
-        vim = {active = true},
-        yaml = {active = true},
-        terraform = {active = false},
+        go = {},
+        elixir = {},
+        vim = {},
+        yaml = {},
+        terraform = {},
         rust = {
-            active = false,
             linter = '',
             formatter = '',
             autoformat = false,
@@ -178,21 +168,19 @@ O = {
                 underline = true
             }
         },
-        svelte = {active = false},
-        php = {active = true},
-        latex = {active = false},
-        kotlin = {active = false},
-        html = {active = true},
-        elm = {active = true},
-        emmet = {active = false},
-        graphql = {active = false},
-        efm = {active = true},
-        docker = {active = true},
-        cmake = {active = false},
-        java = {active = false},
+        svelte = {},
+        php = {},
+        latex = {},
+        kotlin = {},
+        html = {},
+        elm = {},
+        emmet = {active = true},
+        graphql = {},
+        efm = {},
+        docker = {},
+        cmake = {},
+        java = {},
         css = {
-            active = true,
-
             formatter = '',
             autoformat = true,
             virtual_text = true
