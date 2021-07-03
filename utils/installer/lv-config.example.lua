@@ -7,7 +7,9 @@ a global executable or a path to
 an executable
 ]] -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 -- general
-O.colorscheme = 'palenight'
+O.auto_complete = true
+O.colorscheme = 'spacegray'
+O.auto_close_tree = 0
 O.timeoutlen = 100
 O.leader_key = ' '
 
