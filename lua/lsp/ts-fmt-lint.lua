@@ -42,7 +42,7 @@ M.setup = function()
         init_options = {documentFormatting = true, codeAction = false},
         filetypes = {
             "javascriptreact", "javascript", "typescript", "typescriptreact",
-            "html", "css", "yaml", "vue"
+            "html", "css", "less", "scss", "yaml", "vue"
         },
         settings = {
             rootMarkers = {".git/", "package.json"},
@@ -53,6 +53,8 @@ M.setup = function()
                 typescriptreact = tsserver_args,
                 html = {prettier},
                 css = {prettier},
+                less = {prettier},
+                scss = {prettier},
                 json = {prettier},
                 yaml = {prettier}
                 -- javascriptreact = {prettier, eslint},

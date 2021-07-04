@@ -50,43 +50,4 @@ if O.lang.tsserver.autoformat then
 end
 vim.cmd("setl ts=2 sw=2")
 
-local prettier = {
-    formatCommand = "./node_modules/.bin/prettier --stdin-filepath ${INPUT}",
-    formatStdin = true
-}
-
-local eslint = {
-    lintCommand = "./node_modules/.bin/eslint -f unix --stdin --stdin-filename ${INPUT}",
-    lintIgnoreExitCode = true,
-    lintStdin = true,
-    lintFormats = {"%f:%l:%c: %m"},
-    formatCommand = "./node_modules/.bin/eslint --fix-to-stdout --stdin --stdin-filename=${INPUT}",
-    formatStdin = true
-}
-
-local tsserver_args = {}
-
-if O.lang.tsserver.formatter == 'prettier' then
-    table.insert(tsserver_args, prettier)
-end
-
-if O.lang.tsserver.linter == 'eslint' then table.insert(tsserver_args, eslint) end
-
--- local markdownlint = {
---     -- TODO default to global lintrc
---     -- lintcommand = 'markdownlint -s -c ./markdownlintrc',
---     lintCommand = 'markdownlint -s',
---     lintStdin = true,
---     lintFormats = {'%f:%l %m', '%f:%l:%c %m', '%f: %l: %m'}
--- }
-
-require"lspconfig".efm.setup {
-    -- init_options = {initializationOptions},
-    cmd = {DATA_PATH .. "/lspinstall/efm/efm-langserver"},
-    init_options = {documentFormatting = true, codeAction = false},
-    filetypes = {"javascriptreact"},
-    settings = {
-        rootMarkers = {".git/"},
-        languages = {javascriptreact = tsserver_args}
-    }
-}
+vim.cmd("setl ts=2 sw=2")
