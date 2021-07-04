@@ -66,7 +66,7 @@ O = {
         lazygit = {active = false},
         octo = {active = false},
         lush = {active = false},
-        diffview = {active = false},
+        diffview = {active = true},
         bracey = {active = true},
         telescope_project = {active = false},
         dap_install = {active = false}
