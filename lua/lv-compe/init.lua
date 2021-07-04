@@ -1,19 +1,25 @@
+--if not package.loaded['compe'] then
+--   return
+-- end
+
 local M = {}
 
+vim.g.vsnip_snippet_dir = O.vnsip_dir
+
 M.config = function()
-require'compe'.setup {
-  enabled = O.auto_complete,
-  autocomplete = true,
-  debug = false,
-  min_length = 1,
-  preselect = 'enable',
-  throttle_time = 80,
-  source_timeout = 200,
-  incomplete_delay = 400,
-  max_abbr_width = 100,
-  max_kind_width = 100,
-  max_menu_width = 100,
-  documentation = true,
+opt = {
+    enabled = O.auto_complete,
+    autocomplete = true,
+    debug = false,
+    min_length = 1,
+    preselect = 'enable',
+    throttle_time = 80,
+    source_timeout = 200,
+    incomplete_delay = 400,
+    max_abbr_width = 100,
+    max_kind_width = 100,
+    max_menu_width = 100,
+    documentation = true,
 
   source = {
     path = {kind = "   (Path)"},
@@ -33,6 +39,12 @@ require'compe'.setup {
     -- for emoji press : (idk if that in compe tho)
   }
 }
+
+if O.plugin.tabnine.active then
+    opt.source.tabnine = {kind = " ", priority=200, max_reslts=6}
+end
+
+require'compe'.setup(opt)
 
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
