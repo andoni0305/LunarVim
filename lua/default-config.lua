@@ -4,7 +4,6 @@ CACHE_PATH = vim.fn.stdpath('cache')
 TERMINAL = vim.fn.expand('$TERMINAL')
 
 O = {
-    leader_key = ' ',
     document_highlight = true,
     auto_close_tree = 0,
     auto_complete = true,
@@ -22,8 +21,8 @@ O = {
     smart_case = true,
     lushmode = false,
     hl_search = false,
-    transparent_window = false;
-    leader_key = "space";
+    transparent_window = false,
+    leader_key = "space",
 
     -- @usage pass a table with your desired languages
     treesitter = {
@@ -148,11 +147,11 @@ O = {
             diagnostics = {
                 virtual_text = {spacing = 0, prefix = ""},
                 signs = true,
-                underline = true,
+                underline = true
             },
             cross_file_rename = true,
             header_insertion = 'never',
-            autoformat = false  -- update this to true for enabling autoformat
+            autoformat = false -- update this to true for enabling autoformat
         },
         ruby = {
             diagnostics = {
@@ -181,7 +180,12 @@ O = {
         php = {},
         latex = {},
         kotlin = {},
-        html = {},
+        html = {
+            linter = 'eslint',
+            formatter = 'prettier',
+            autoformat = true,
+            virtual_text = true
+        },
         elm = {},
         emmet = {active = true},
         graphql = {},
@@ -190,7 +194,8 @@ O = {
         cmake = {},
         java = {},
         css = {
-            formatter = '',
+            linter = 'eslint',
+            formatter = 'prettier',
             autoformat = true,
             virtual_text = true
         }
