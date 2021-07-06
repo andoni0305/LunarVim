@@ -24,170 +24,175 @@ O = {
     leader_key = "space",
     vnsip_dir = vim.fn.stdpath "config" .. "/snippets",
 
-  -- @usage pass a table with your desired languages
-  treesitter = {
-    ensure_installed = "all",
-    ignore_install = { "haskell" },
-    highlight = { enabled = true },
-    rainbow = { enabled = false },
-    -- The below are for treesitter-textobjects plugin
-    textobj_prefixes = {
-      goto_next = "]", -- Go to next
-      goto_previous = "[", -- Go to previous
-      inner = "i", -- Select inside
-      outer = "a", -- Selct around
-      swap = "<leader>a", -- Swap with next
+    -- @usage pass a table with your desired languages
+    treesitter = {
+        ensure_installed = "all",
+        ignore_install = { "haskell" },
+        highlight = { enabled = true },
+        rainbow = { enabled = false },
+        -- The below are for treesitter-textobjects plugin
+        textobj_prefixes = {
+            goto_next = "]", -- Go to next
+            goto_previous = "[", -- Go to previous
+            inner = "i", -- Select inside
+            outer = "a", -- Selct around
+            swap = "<leader>a", -- Swap with next
+        },
+        textobj_suffixes = {
+            -- Start and End respectively for the goto keys
+            -- for other keys it only uses the first
+            ["function"] = { "f", "F" },
+            ["class"] = { "m", "M" },
+            ["parameter"] = { "a", "A" },
+            ["block"] = { "k", "K" },
+            ["conditional"] = { "i", "I" },
+            ["call"] = { "c", "C" },
+            ["loop"] = { "l", "L" },
+            ["statement"] = { "s", "S" },
+            ["comment"] = { "/", "?" },
+        },
+        -- The below is for treesitter hint textobjects plugin
+        hint_labels = { "h", "j", "f", "d", "n", "v", "s", "l", "a" },
     },
-    textobj_suffixes = {
-      -- Start and End respectively for the goto keys
-      -- for other keys it only uses the first
-      ["function"] = { "f", "F" },
-      ["class"] = { "m", "M" },
-      ["parameter"] = { "a", "A" },
-      ["block"] = { "k", "K" },
-      ["conditional"] = { "i", "I" },
-      ["call"] = { "c", "C" },
-      ["loop"] = { "l", "L" },
-      ["statement"] = { "s", "S" },
-      ["comment"] = { "/", "?" },
+
+    lsp = { popup_border = "single" },
+
+    database = { save_location = "~/.config/nvcode_db", auto_execute = 1 },
+
+    plugin = {
+        -- TODO remove non built-ins
+        -- Builtins
+        dashboard = { active = true },
+        colorizer = { active = true },
+        zen = { active = false },
+        ts_playground = { active = false },
+        ts_context_commentstring = { active = true },
+        ts_hintobjects = { active = true },
+        ts_autotag = { active = true },
+        ts_textobjects = { active = true },
+        ts_textsubjects = { active = true },
+        ts_rainbow = { active = true },
+        telescope_fzy = { active = true },
+        telescope_project = { active = false },
+        indent_line = { active = true },
+        symbol_outline = { active = true },
+        debug = { active = false },
+        dap_install = { active = false },
+        lazygit = { active = false },
+        lush = { active = false },
+        diffview = { active = true },
+
+        database = { save_location = "~/.config/nvcode_db", auto_execute = 1 },
+
+        octo = { active = false },
+        gitlinker = { active = false },
+        todo_comments = { active = true },
+        gist = { active = false },
+        git_blame = { active = true },
+        lsp_colors = { active = true },
+        ranger = { active = false },
+        hop = { active = true },
+        dial = { active = true },
+        matchup = { active = true },
+        numb = { active = false },
+        bqf = { active = false },
+        trouble = { active = true },
+        floatterm = { active = false },
+        spectre = { active = true },
+        lsp_rooter = { active = true },
+        markdown_preview = { active = true },
+        bracey = { active = true },
+        codi = { active = false },
+        sanegx = { active = false },
+        snap = { active = false },
+        tabnine = { active = false },
     },
-    -- The below is for treesitter hint textobjects plugin
-    hint_labels = { "h", "j", "f", "d", "n", "v", "s", "l", "a" },
-  },
-
-  lsp = {
-    popup_border = "single",
-  },
-
-  database = { save_location = "~/.config/nvcode_db", auto_execute = 1 },
-
-  plugin = {
-    -- TODO remove non built-ins
-    -- Builtins
-    dashboard = { active = true },
-    colorizer = { active = true },
-    zen = { active = false },
-    ts_playground = { active = false },
-    ts_context_commentstring = { active = true },
-    ts_hintobjects = { active = true },
-    ts_autotag = { active = true },
-    ts_textobjects = { active = true },
-    ts_textsubjects = { active = true },
-    telescope_fzy = { active = true },
-    telescope_project = { active = false },
-    indent_line = { active = true },
-    symbol_outline = { active = true },
-    debug = { active = false },
-    dap_install = { active = false },
-    lazygit = { active = false },
-    lush = { active = false },
-    diffview = { active = true },
-
-    database = {save_location = "~/.config/nvcode_db", auto_execute = 1},
-
-    octo = { active = false },
-    gitlinker = { active = false },
-    todo_comments = { active = true },
-    gist = { active = false },
-    git_blame = { active = true },
-    lsp_colors = { active = true },
-    ranger = { active = false },
-    hop = { active = true },
-    dial = { active = true },
-    matchup = { active = true },
-    numb = { active = false },
-    bqf = { active = false },
-    trouble = { active = true },
-    floatterm = { active = false },
-    spectre = { active = true },
-    lsp_rooter = { active = true },
-    markdown_preview = { active = true },
-    bracey = { active = true },
-    codi = { active = false },
-    sanegx = { active = false },
-    snap = { active = false },
-    tabnine = { active = false },
-  },
 
     custom_plugins = {
         -- use lv-config.lua for this not put here
     },
 
-    user_autocommands = {{"FileType", "qf", "set nobuflisted"}},
+    user_autocommands = { { "FileType", "qf", "set nobuflisted" } },
 
     lang = {
         python = {
             linter = "",
             isort = false,
             diagnostics = {
-                virtual_text = {spacing = 0, prefix = ""},
+                virtual_text = { spacing = 0, prefix = "" },
                 signs = true,
-                underline = true
+                underline = true,
             },
             analysis = {
                 type_checking = "basic",
                 auto_search_paths = true,
-                use_library_code_types = true
-            }
+                use_library_code_types = true,
+            },
         },
         dart = {
-            sdk_path = "/usr/lib/dart/bin/snapshots/analysis_server.dart.snapshot"
+            sdk_path = "/usr/lib/dart/bin/snapshots/analysis_server.dart.snapshot",
         },
         lua = {
+            formatter = "stylua",
             diagnostics = {
-                virtual_text = {spacing = 0, prefix = ""},
+                virtual_text = { spacing = 0, prefix = "" },
                 signs = true,
-                underline = true
-            }
+                underline = true,
+            },
         },
         sh = {
             -- @usage can be 'shellcheck'
             linter = "shellcheck",
             -- @usage can be 'shfmt'
             diagnostics = {
-                virtual_text = {spacing = 0, prefix = ""},
+                virtual_text = { spacing = 0, prefix = "" },
                 signs = true,
-                underline = true
-            }
+                underline = true,
+            },
         },
         tsserver = {
             -- @usage can be 'eslint'
             linter = "eslint",
             diagnostics = {
-                virtual_text = {spacing = 0, prefix = ""},
+                virtual_text = { spacing = 0, prefix = "" },
                 signs = true,
-                underline = true
-            }
+                underline = true,
+            },
         },
         json = {
             diagnostics = {
-                virtual_text = {spacing = 0, prefix = ""},
+                virtual_text = { spacing = 0, prefix = "" },
                 signs = true,
-                underline = true
-            }
+                underline = true,
+            },
         },
         tailwindcss = {
             filetypes = {
-                "html", "css", "scss", "javascript", "javascriptreact",
-                "typescript", "typescriptreact"
-            }
+                "html",
+                "css",
+                "scss",
+                "javascript",
+                "javascriptreact",
+                "typescript",
+                "typescriptreact",
+            },
         },
         clang = {
             diagnostics = {
-                virtual_text = {spacing = 0, prefix = ""},
+                virtual_text = { spacing = 0, prefix = "" },
                 signs = true,
-                underline = true
+                underline = true,
             },
             cross_file_rename = true,
-            header_insertion = "never"
+            header_insertion = "never",
         },
         ruby = {
             diagnostics = {
-                virtualtext = {spacing = 0, prefix = ""},
+                virtualtext = { spacing = 0, prefix = "" },
                 signs = true,
-                underline = true
+                underline = true,
             },
-            filetypes = {"rb", "erb", "rakefile", "ruby"}
+            filetypes = { "rb", "erb", "rakefile", "ruby" },
         },
         go = {},
         elixir = {},
@@ -195,59 +200,59 @@ O = {
         yaml = {},
         terraform = {},
         rust = {
-            rust_tools = {active = false},
+            rust_tools = { active = false },
             linter = "",
             diagnostics = {
-                virtual_text = {spacing = 0, prefix = ""},
+                virtual_text = { spacing = 0, prefix = "" },
                 signs = true,
-                underline = true
-            }
+                underline = true,
+            },
         },
         svelte = {},
         php = {
-            environment = {php_version = "7.4"},
+            environment = { php_version = "7.4" },
             diagnostics = {
-                virtual_text = {spacing = 0, prefix = ""},
+                virtual_text = { spacing = 0, prefix = "" },
                 signs = true,
-                underline = true
+                underline = true,
             },
-            filetypes = {"php", "phtml"}
+            filetypes = { "php", "phtml" },
         },
         latex = {},
         kotlin = {},
         html = {},
         elm = {},
-        emmet = {active = true},
+        emmet = { active = true },
         graphql = {},
         efm = {},
         docker = {},
         cmake = {},
         java = {},
-        css = {virtual_text = true}
+        css = { virtual_text = true },
     },
 
     dashboard = {
 
-    custom_header = {
-      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣶⣾⠿⠿⠟⠛⠛⠛⠛⠿⠿⣿⣷⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-      "  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⡿⠋⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠿⣷⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⡿⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⢿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠒⠂⠉⠉⠉⠉⢩⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-      "⠀⠀⠀⠀⠀⠀⠀⠀⠸⡀⠀⠀⠀⠀⠀⢰⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠠⡀⠀⠀⢀⣾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠢⢀⣸⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡧⢄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠈⠁⠒⠤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣇⠀⠀⠀⠀⠀⠀⠉⠢⠤⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⡟⠈⠑⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠑⠒⠤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⡇⠀⠀⢀⣣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-      "⠀⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠒⠢⠤⠄⣀⣀⠀⠀⠀⢠⣿⡟⠀⠀⠀⣺⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-      "⠀⣿⠇⠀⠀⠀⠀⠀⣤⡄⠀⠀⢠⣤⡄⠀⢨⣭⣠⣤⣤⣤⡀⠀⠀⢀⣤⣤⣤⣤⡄⠀⠀⠀⣤⣄⣤⣤⣤⠀⠀⣿⣯⠉⠉⣿⡟⠀⠈⢩⣭⣤⣤⠀⠀⠀⠀⣠⣤⣤⣤⣄⣤⣤",
-      "⢠⣿⠀⠀⠀⠀⠀⠀⣿⠃⠀⠀⣸⣿⠁⠀⣿⣿⠉⠀⠈⣿⡇⠀⠀⠛⠋⠀⠀⢹⣿⠀⠀⠀⣿⠏⠀⠸⠿⠃⠀⣿⣿⠀⣰⡟⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⣿⡟⢸⣿⡇⢀⣿",
-      "⣸⡇⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⣿⡟⠀⢠⣿⡇⠀⠀⢰⣿⡇⠀⣰⣾⠟⠛⠛⣻⡇⠀⠀⢸⡿⠀⠀⠀⠀⠀⠀⢻⣿⢰⣿⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⢸⣿⠇⢸⣿⠀⢸⡏",
-      "⣿⣧⣤⣤⣤⡄⠀⠘⣿⣤⣤⡤⣿⠇⠀⢸⣿⠁⠀⠀⣼⣿⠀⠀⢿⣿⣤⣤⠔⣿⠃⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⢸⣿⣿⠋⠀⠀⠀⢠⣤⣤⣿⣥⣤⡄⠀⣼⣿⠀⣸⡏⠀⣿⠃",
-      "⠉⠉⠉⠉⠉⠁⠀⠀⠈⠉⠉⠀⠉⠀⠀⠈⠉⠀⠀⠀⠉⠉⠀⠀⠀⠉⠉⠁⠈⠉⠀⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠁⠀⠉⠁⠀⠉⠁⠀⠉⠀",
+        custom_header = {
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣶⣾⠿⠿⠟⠛⠛⠛⠛⠿⠿⣿⣷⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+            "  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⡿⠋⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠿⣷⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⡿⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⢿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠒⠂⠉⠉⠉⠉⢩⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠸⡀⠀⠀⠀⠀⠀⢰⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠠⡀⠀⠀⢀⣾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠢⢀⣸⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡧⢄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠈⠁⠒⠤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣇⠀⠀⠀⠀⠀⠀⠉⠢⠤⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⡟⠈⠑⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠑⠒⠤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⡇⠀⠀⢀⣣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+            "⠀⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠒⠢⠤⠄⣀⣀⠀⠀⠀⢠⣿⡟⠀⠀⠀⣺⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+            "⠀⣿⠇⠀⠀⠀⠀⠀⣤⡄⠀⠀⢠⣤⡄⠀⢨⣭⣠⣤⣤⣤⡀⠀⠀⢀⣤⣤⣤⣤⡄⠀⠀⠀⣤⣄⣤⣤⣤⠀⠀⣿⣯⠉⠉⣿⡟⠀⠈⢩⣭⣤⣤⠀⠀⠀⠀⣠⣤⣤⣤⣄⣤⣤",
+            "⢠⣿⠀⠀⠀⠀⠀⠀⣿⠃⠀⠀⣸⣿⠁⠀⣿⣿⠉⠀⠈⣿⡇⠀⠀⠛⠋⠀⠀⢹⣿⠀⠀⠀⣿⠏⠀⠸⠿⠃⠀⣿⣿⠀⣰⡟⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⣿⡟⢸⣿⡇⢀⣿",
+            "⣸⡇⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⣿⡟⠀⢠⣿⡇⠀⠀⢰⣿⡇⠀⣰⣾⠟⠛⠛⣻⡇⠀⠀⢸⡿⠀⠀⠀⠀⠀⠀⢻⣿⢰⣿⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⢸⣿⠇⢸⣿⠀⢸⡏",
+            "⣿⣧⣤⣤⣤⡄⠀⠘⣿⣤⣤⡤⣿⠇⠀⢸⣿⠁⠀⠀⣼⣿⠀⠀⢿⣿⣤⣤⠔⣿⠃⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⢸⣿⣿⠋⠀⠀⠀⢠⣤⣤⣿⣥⣤⡄⠀⣼⣿⠀⣸⡏⠀⣿⠃",
+            "⠉⠉⠉⠉⠉⠁⠀⠀⠈⠉⠉⠀⠉⠀⠀⠈⠉⠀⠀⠀⠉⠉⠀⠀⠀⠉⠉⠁⠈⠉⠀⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠁⠀⠉⠁⠀⠉⠁⠀⠉⠀",
+        },
+        footer = { "chrisatmachine.com" },
     },
-    footer = { "chrisatmachine.com" },
-  },
 }

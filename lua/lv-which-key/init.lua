@@ -82,11 +82,11 @@ end
 -- dashboard
 vim.api.nvim_set_keymap("n", "<Leader>;", ":Dashboard<CR>", { noremap = true, silent = true })
 
-    -- Markdown preview toggle
-    vim.api.nvim_set_keymap("n", "<leader>M", ":MarkdownPreviewToggle<CR>", {noremap = true, silent = true})
+-- Markdown preview toggle
+vim.api.nvim_set_keymap("n", "<leader>M", ":MarkdownPreviewToggle<CR>", { noremap = true, silent = true })
 
-    -- Symbol Outline
-    vim.api.nvim_set_keymap("n", "<leader>*", ":SymbolsOutline<CR>", {noremap = true, silent = true})
+-- Symbol Outline
+vim.api.nvim_set_keymap("n", "<leader>*", ":SymbolsOutline<CR>", { noremap = true, silent = true })
 
 -- Comments
 vim.api.nvim_set_keymap("n", "<leader>/", ":CommentToggle<CR>", { noremap = true, silent = true })
