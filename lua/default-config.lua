@@ -83,7 +83,7 @@ O = {
     dap_install = { active = false },
     lush = { active = false },
     diffview = { active = true },
-    floatterm = { active = true },
+    floatterm = { active = false },
     trouble = { active = true },
     sanegx = { active = true },
   },
