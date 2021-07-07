@@ -37,7 +37,7 @@ return require("packer").startup(function(use)
   use {
     "nvim-telescope/telescope.nvim",
     config = [[require('lv-telescope')]],
-    event = "BufEnter",
+    --event = "BufEnter",
   }
 
   -- Autocomplete
@@ -60,7 +60,9 @@ return require("packer").startup(function(use)
 
   use {
     "kyazdani42/nvim-tree.lua",
+    -- event = "BufEnter",
     -- cmd = "NvimTreeToggle",
+    commit = "fd7f60e242205ea9efc9649101c81a07d5f458bb",
     config = function()
       require("lv-nvimtree").config()
     end,
@@ -91,9 +93,14 @@ return require("packer").startup(function(use)
   -- Comments
   use {
     "terrortylor/nvim-comment",
-    cmd = "CommentToggle",
+    event = "BufRead",
+    -- cmd = "CommentToggle",
     config = function()
-      require("nvim_comment").setup()
+      local status_ok, nvim_comment = pcall(require, "nvim_comment")
+      if not status_ok then
+        return
+      end
+      nvim_comment.setup()
     end,
   }
 
@@ -121,13 +128,13 @@ return require("packer").startup(function(use)
   -- Dashboard
   use {
     "ChristianChiarulli/dashboard-nvim",
-    event = "BufWinEnter",
-    cmd = { "Dashboard", "DashboardNewFile", "DashboardJumpMarks" },
-    config = function()
-      require("lv-dashboard").config()
-    end,
+    -- event = "BufWinEnter",
+    -- cmd = { "Dashboard", "DashboardNewFile", "DashboardJumpMarks" },
+    -- config = function()
+    --   require("lv-dashboard").config()
+    -- end,
     disable = not O.plugin.dashboard.active,
-    opt = true,
+    -- opt = true,
   }
   -- Zen Mode
   use {
@@ -144,8 +151,8 @@ return require("packer").startup(function(use)
     "norcalli/nvim-colorizer.lua",
     event = "BufRead",
     config = function()
-      require("colorizer").setup()
-      vim.cmd "ColorizerReloadAllBuffers"
+      require "lv-colorizer"
+      -- vim.cmd "ColorizerReloadAllBuffers"
     end,
     disable = not O.plugin.colorizer.active,
   }
@@ -350,7 +357,7 @@ return require("packer").startup(function(use)
     disable = not O.plugin.ts_hintobjects.active,
   }
 
-  for _, plugin in pairs(O.custom_plugins) do
+  for _, plugin in pairs(O.user_plugins) do
     packer.use(plugin)
   end
 end)
