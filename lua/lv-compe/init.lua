@@ -30,7 +30,7 @@ M.config = function()
       nvim_lua = false,
       spell = { kind = "   (Spell)" },
       tags = false,
-      vim_dadbod_completion = true,
+      -- vim_dadbod_completion = true,
       -- snippets_nvim = {kind = "  "},
       -- ultisnips = {kind = "  "},
       -- treesitter = {kind = "  "},
@@ -38,10 +38,6 @@ M.config = function()
       -- for emoji press : (idk if that in compe tho)
     },
   }
-
-  if O.plugin.tabnine.active then
-    opt.source.tabnine = { kind = " ", priority = 200, max_reslts = 6 }
-  end
 
   require("compe").setup(opt)
 

@@ -4,255 +4,240 @@ CACHE_PATH = vim.fn.stdpath "cache"
 TERMINAL = vim.fn.expand "$TERMINAL"
 
 O = {
-    format_on_save = true,
-    auto_close_tree = 0,
-    auto_complete = true,
-    colorscheme = "lunar",
-    hidden_files = true,
-    wrap_lines = false,
-    number = true,
-    relative_number = true,
-    cursorline = true,
-    shell = "bash",
-    timeoutlen = 100,
-    nvim_tree_disable_netrw = 0,
-    ignore_case = true,
-    smart_case = true,
-    lushmode = false,
-    hl_search = false,
-    transparent_window = false,
-    leader_key = "space",
-    vnsip_dir = vim.fn.stdpath "config" .. "/snippets",
+  format_on_save = true,
+  auto_close_tree = 0,
+  auto_complete = true,
+  colorscheme = "lunar",
+  hidden_files = true,
+  wrap_lines = false,
+  number = true,
+  relative_number = true,
+  cursorline = true,
+  shell = "bash",
+  timeoutlen = 100,
+  nvim_tree_disable_netrw = 0,
+  ignore_case = true,
+  smart_case = true,
+  lushmode = false,
+  hl_search = false,
+  transparent_window = false,
+  leader_key = "space",
+  vnsip_dir = vim.fn.stdpath "config" .. "/snippets",
 
-    -- @usage pass a table with your desired languages
-    treesitter = {
-        ensure_installed = "all",
-        ignore_install = { "haskell" },
-        highlight = { enabled = true },
-        rainbow = { enabled = false },
-        -- The below are for treesitter-textobjects plugin
-        textobj_prefixes = {
-            goto_next = "]", -- Go to next
-            goto_previous = "[", -- Go to previous
-            inner = "i", -- Select inside
-            outer = "a", -- Selct around
-            swap = "<leader>a", -- Swap with next
-        },
-        textobj_suffixes = {
-            -- Start and End respectively for the goto keys
-            -- for other keys it only uses the first
-            ["function"] = { "f", "F" },
-            ["class"] = { "m", "M" },
-            ["parameter"] = { "a", "A" },
-            ["block"] = { "k", "K" },
-            ["conditional"] = { "i", "I" },
-            ["call"] = { "c", "C" },
-            ["loop"] = { "l", "L" },
-            ["statement"] = { "s", "S" },
-            ["comment"] = { "/", "?" },
-        },
-        -- The below is for treesitter hint textobjects plugin
-        hint_labels = { "h", "j", "f", "d", "n", "v", "s", "l", "a" },
+  -- @usage pass a table with your desired languages
+  treesitter = {
+    ensure_installed = "all",
+    ignore_install = { "haskell" },
+    highlight = { enabled = true },
+    -- The below are for treesitter-textobjects plugin
+    textobj_prefixes = {
+      goto_next = "]", -- Go to next
+      goto_previous = "[", -- Go to previous
+      inner = "i", -- Select inside
+      outer = "a", -- Selct around
+      swap = "<leader>a", -- Swap with next
     },
-
-    lsp = { popup_border = "single" },
-
-    database = { save_location = "~/.config/nvcode_db", auto_execute = 1 },
-
-    plugin = {
-        -- TODO remove non built-ins
-        -- Builtins
-        dashboard = { active = true },
-        colorizer = { active = true },
-        zen = { active = false },
-        ts_playground = { active = false },
-        ts_context_commentstring = { active = true },
-        ts_hintobjects = { active = true },
-        ts_autotag = { active = true },
-        ts_textobjects = { active = true },
-        ts_textsubjects = { active = true },
-        ts_rainbow = { active = true },
-        telescope_fzy = { active = true },
-        telescope_project = { active = false },
-        indent_line = { active = true },
-        symbol_outline = { active = true },
-        debug = { active = false },
-        dap_install = { active = false },
-        lazygit = { active = false },
-        lush = { active = false },
-        diffview = { active = true },
-
-        database = { save_location = "~/.config/nvcode_db", auto_execute = 1 },
-
-        octo = { active = false },
-        gitlinker = { active = false },
-        todo_comments = { active = true },
-        gist = { active = false },
-        git_blame = { active = true },
-        lsp_colors = { active = true },
-        ranger = { active = false },
-        hop = { active = true },
-        dial = { active = true },
-        matchup = { active = true },
-        numb = { active = false },
-        bqf = { active = false },
-        trouble = { active = true },
-        floatterm = { active = false },
-        spectre = { active = true },
-        lsp_rooter = { active = true },
-        markdown_preview = { active = true },
-        bracey = { active = true },
-        codi = { active = false },
-        sanegx = { active = false },
-        snap = { active = false },
-        tabnine = { active = false },
+    textobj_suffixes = {
+      -- Start and End respectively for the goto keys
+      -- for other keys it only uses the first
+      ["function"] = { "f", "F" },
+      ["class"] = { "m", "M" },
+      ["parameter"] = { "a", "A" },
+      ["block"] = { "k", "K" },
+      ["conditional"] = { "i", "I" },
+      ["call"] = { "c", "C" },
+      ["loop"] = { "l", "L" },
+      ["statement"] = { "s", "S" },
+      ["comment"] = { "/", "?" },
     },
+    -- The below is for treesitter hint textobjects plugin
+    hint_labels = { "h", "j", "f", "d", "n", "v", "s", "l", "a" },
+  },
 
-    custom_plugins = {
-        -- use lv-config.lua for this not put here
+  lsp = {
+    popup_border = "single",
+  },
+
+  database = { save_location = "~/.config/nvcode_db", auto_execute = 1 },
+
+  plugin = {
+    -- Builtins
+    dashboard = { active = true },
+    colorizer = { active = true },
+    zen = { active = false },
+    ts_playground = { active = false },
+    ts_context_commentstring = { active = true },
+    ts_hintobjects = { active = true },
+    ts_autotag = { active = true },
+    ts_rainbow = { active = true },
+    ts_textobjects = { active = true },
+    ts_textsubjects = { active = true },
+    telescope_fzy = { active = true },
+    telescope_project = { active = false },
+    indent_line = { active = true },
+    symbol_outline = { active = true },
+    debug = { active = false },
+    dap_install = { active = false },
+    lush = { active = false },
+    diffview = { active = true },
+    floatterm = { active = true },
+    trouble = { active = true },
+    sanegx = { active = true },
+  },
+
+  custom_plugins = {
+    -- use lv-config.lua for this not put here
+  },
+
+  user_autocommands = {
+    { "FileType", "qf", "set nobuflisted" },
+  },
+
+  lang = {
+    python = {
+      linter = "",
+      isort = false,
+      diagnostics = {
+        virtual_text = { spacing = 0, prefix = "" },
+        signs = true,
+        underline = true,
+      },
+      analysis = {
+        type_checking = "basic",
+        auto_search_paths = true,
+        use_library_code_types = true,
+      },
     },
-
-    user_autocommands = { { "FileType", "qf", "set nobuflisted" } },
-
-    lang = {
-        python = {
-            linter = "",
-            isort = false,
-            diagnostics = {
-                virtual_text = { spacing = 0, prefix = "" },
-                signs = true,
-                underline = true,
-            },
-            analysis = {
-                type_checking = "basic",
-                auto_search_paths = true,
-                use_library_code_types = true,
-            },
-        },
-        dart = {
-            sdk_path = "/usr/lib/dart/bin/snapshots/analysis_server.dart.snapshot",
-        },
-        lua = {
-            formatter = "stylua",
-            diagnostics = {
-                virtual_text = { spacing = 0, prefix = "" },
-                signs = true,
-                underline = true,
-            },
-        },
-        sh = {
-            -- @usage can be 'shellcheck'
-            linter = "shellcheck",
-            -- @usage can be 'shfmt'
-            diagnostics = {
-                virtual_text = { spacing = 0, prefix = "" },
-                signs = true,
-                underline = true,
-            },
-        },
-        tsserver = {
-            -- @usage can be 'eslint'
-            linter = "eslint",
-            diagnostics = {
-                virtual_text = { spacing = 0, prefix = "" },
-                signs = true,
-                underline = true,
-            },
-        },
-        json = {
-            diagnostics = {
-                virtual_text = { spacing = 0, prefix = "" },
-                signs = true,
-                underline = true,
-            },
-        },
-        tailwindcss = {
-            filetypes = {
-                "html",
-                "css",
-                "scss",
-                "javascript",
-                "javascriptreact",
-                "typescript",
-                "typescriptreact",
-            },
-        },
-        clang = {
-            diagnostics = {
-                virtual_text = { spacing = 0, prefix = "" },
-                signs = true,
-                underline = true,
-            },
-            cross_file_rename = true,
-            header_insertion = "never",
-        },
-        ruby = {
-            diagnostics = {
-                virtualtext = { spacing = 0, prefix = "" },
-                signs = true,
-                underline = true,
-            },
-            filetypes = { "rb", "erb", "rakefile", "ruby" },
-        },
-        go = {},
-        elixir = {},
-        vim = {},
-        yaml = {},
-        terraform = {},
-        rust = {
-            rust_tools = { active = false },
-            linter = "",
-            diagnostics = {
-                virtual_text = { spacing = 0, prefix = "" },
-                signs = true,
-                underline = true,
-            },
-        },
-        svelte = {},
-        php = {
-            environment = { php_version = "7.4" },
-            diagnostics = {
-                virtual_text = { spacing = 0, prefix = "" },
-                signs = true,
-                underline = true,
-            },
-            filetypes = { "php", "phtml" },
-        },
-        latex = {},
-        kotlin = {},
-        html = {},
-        elm = {},
-        emmet = { active = true },
-        graphql = {},
-        efm = {},
-        docker = {},
-        cmake = {},
-        java = {},
-        css = { virtual_text = true },
+    dart = {
+      sdk_path = "/usr/lib/dart/bin/snapshots/analysis_server.dart.snapshot",
     },
-
-    dashboard = {
-
-        custom_header = {
-            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣶⣾⠿⠿⠟⠛⠛⠛⠛⠿⠿⣿⣷⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-            "  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⡿⠋⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠿⣷⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⡿⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⢿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠒⠂⠉⠉⠉⠉⢩⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-            "⠀⠀⠀⠀⠀⠀⠀⠀⠸⡀⠀⠀⠀⠀⠀⢰⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠠⡀⠀⠀⢀⣾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠢⢀⣸⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡧⢄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠈⠁⠒⠤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣇⠀⠀⠀⠀⠀⠀⠉⠢⠤⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⡟⠈⠑⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-            "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠑⠒⠤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⡇⠀⠀⢀⣣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-            "⠀⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠒⠢⠤⠄⣀⣀⠀⠀⠀⢠⣿⡟⠀⠀⠀⣺⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-            "⠀⣿⠇⠀⠀⠀⠀⠀⣤⡄⠀⠀⢠⣤⡄⠀⢨⣭⣠⣤⣤⣤⡀⠀⠀⢀⣤⣤⣤⣤⡄⠀⠀⠀⣤⣄⣤⣤⣤⠀⠀⣿⣯⠉⠉⣿⡟⠀⠈⢩⣭⣤⣤⠀⠀⠀⠀⣠⣤⣤⣤⣄⣤⣤",
-            "⢠⣿⠀⠀⠀⠀⠀⠀⣿⠃⠀⠀⣸⣿⠁⠀⣿⣿⠉⠀⠈⣿⡇⠀⠀⠛⠋⠀⠀⢹⣿⠀⠀⠀⣿⠏⠀⠸⠿⠃⠀⣿⣿⠀⣰⡟⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⣿⡟⢸⣿⡇⢀⣿",
-            "⣸⡇⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⣿⡟⠀⢠⣿⡇⠀⠀⢰⣿⡇⠀⣰⣾⠟⠛⠛⣻⡇⠀⠀⢸⡿⠀⠀⠀⠀⠀⠀⢻⣿⢰⣿⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⢸⣿⠇⢸⣿⠀⢸⡏",
-            "⣿⣧⣤⣤⣤⡄⠀⠘⣿⣤⣤⡤⣿⠇⠀⢸⣿⠁⠀⠀⣼⣿⠀⠀⢿⣿⣤⣤⠔⣿⠃⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⢸⣿⣿⠋⠀⠀⠀⢠⣤⣤⣿⣥⣤⡄⠀⣼⣿⠀⣸⡏⠀⣿⠃",
-            "⠉⠉⠉⠉⠉⠁⠀⠀⠈⠉⠉⠀⠉⠀⠀⠈⠉⠀⠀⠀⠉⠉⠀⠀⠀⠉⠉⠁⠈⠉⠀⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠁⠀⠉⠁⠀⠉⠁⠀⠉⠀",
-        },
-        footer = { "chrisatmachine.com" },
+    lua = {
+      diagnostics = {
+        virtual_text = { spacing = 0, prefix = "" },
+        signs = true,
+        underline = true,
+      },
     },
+    sh = {
+      -- @usage can be 'shellcheck'
+      linter = "shellcheck",
+      -- @usage can be 'shfmt'
+      diagnostics = {
+        virtual_text = { spacing = 0, prefix = "" },
+        signs = true,
+        underline = true,
+      },
+    },
+    tsserver = {
+      -- @usage can be 'eslint'
+      linter = "eslint",
+      diagnostics = {
+        virtual_text = { spacing = 0, prefix = "" },
+        signs = true,
+        underline = true,
+      },
+    },
+    json = {
+      diagnostics = {
+        virtual_text = { spacing = 0, prefix = "" },
+        signs = true,
+        underline = true,
+      },
+    },
+    tailwindcss = {
+      active = false,
+      filetypes = {
+        "html",
+        "css",
+        "scss",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+      },
+    },
+    clang = {
+      diagnostics = {
+        virtual_text = { spacing = 0, prefix = "" },
+        signs = true,
+        underline = true,
+      },
+      cross_file_rename = true,
+      header_insertion = "never",
+    },
+    ruby = {
+      diagnostics = {
+        virtualtext = { spacing = 0, prefix = "" },
+        signs = true,
+        underline = true,
+      },
+      filetypes = { "rb", "erb", "rakefile", "ruby" },
+    },
+    go = {},
+    elixir = {},
+    vim = {},
+    yaml = {},
+    terraform = {},
+    rust = {
+      rust_tools = {
+        active = false,
+      },
+      linter = "",
+      diagnostics = {
+        virtual_text = { spacing = 0, prefix = "" },
+        signs = true,
+        underline = true,
+      },
+    },
+    svelte = {},
+    php = {
+      environment = {
+        php_version = "7.4",
+      },
+      diagnostics = {
+        virtual_text = { spacing = 0, prefix = "" },
+        signs = true,
+        underline = true,
+      },
+      filetypes = { "php", "phtml" },
+    },
+    latex = {},
+    kotlin = {},
+    html = {},
+    elm = {},
+    emmet = { active = true },
+    graphql = {},
+    efm = {},
+    docker = {},
+    cmake = {},
+    java = {},
+    css = {
+      virtual_text = true,
+    },
+  },
+
+  dashboard = {
+
+    custom_header = {
+      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣶⣾⠿⠿⠟⠛⠛⠛⠛⠿⠿⣿⣷⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⡿⠋⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠿⣷⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⡿⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⢿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠒⠂⠉⠉⠉⠉⢩⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "⠀⠀⠀⠀⠀⠀⠀⠀⠸⡀⠀⠀⠀⠀⠀⢰⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠠⡀⠀⠀⢀⣾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠢⢀⣸⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡧⢄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠈⠁⠒⠤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣇⠀⠀⠀⠀⠀⠀⠉⠢⠤⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⡟⠈⠑⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠑⠒⠤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⡇⠀⠀⢀⣣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "⠀⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠒⠢⠤⠄⣀⣀⠀⠀⠀⢠⣿⡟⠀⠀⠀⣺⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "⠀⣿⠇⠀⠀⠀⠀⠀⣤⡄⠀⠀⢠⣤⡄⠀⢨⣭⣠⣤⣤⣤⡀⠀⠀⢀⣤⣤⣤⣤⡄⠀⠀⠀⣤⣄⣤⣤⣤⠀⠀⣿⣯⠉⠉⣿⡟⠀⠈⢩⣭⣤⣤⠀⠀⠀⠀⣠⣤⣤⣤⣄⣤⣤",
+      "⢠⣿⠀⠀⠀⠀⠀⠀⣿⠃⠀⠀⣸⣿⠁⠀⣿⣿⠉⠀⠈⣿⡇⠀⠀⠛⠋⠀⠀⢹⣿⠀⠀⠀⣿⠏⠀⠸⠿⠃⠀⣿⣿⠀⣰⡟⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⣿⡟⢸⣿⡇⢀⣿",
+      "⣸⡇⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⣿⡟⠀⢠⣿⡇⠀⠀⢰⣿⡇⠀⣰⣾⠟⠛⠛⣻⡇⠀⠀⢸⡿⠀⠀⠀⠀⠀⠀⢻⣿⢰⣿⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⢸⣿⠇⢸⣿⠀⢸⡏",
+      "⣿⣧⣤⣤⣤⡄⠀⠘⣿⣤⣤⡤⣿⠇⠀⢸⣿⠁⠀⠀⣼⣿⠀⠀⢿⣿⣤⣤⠔⣿⠃⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⢸⣿⣿⠋⠀⠀⠀⢠⣤⣤⣿⣥⣤⡄⠀⣼⣿⠀⣸⡏⠀⣿⠃",
+      "⠉⠉⠉⠉⠉⠁⠀⠀⠈⠉⠉⠀⠉⠀⠀⠈⠉⠀⠀⠀⠉⠉⠀⠀⠀⠉⠉⠁⠈⠉⠀⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠁⠀⠉⠁⠀⠉⠁⠀⠉⠀",
+    },
+    footer = { "chrisatmachine.com" },
+  },
 }
