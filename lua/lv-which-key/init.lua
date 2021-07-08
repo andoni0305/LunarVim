@@ -90,6 +90,12 @@ vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>", { noremap = true
 -- close buffer
 vim.api.nvim_set_keymap("n", "<leader>c", ":BufferClose<CR>", { noremap = true, silent = true })
 
+-- Save
+vim.api.nvim_set_keymap("n", "<leader>w", ":w!<CR>", { noremap = true, silent = true })
+
+-- Quit 
+vim.api.nvim_set_keymap("n", "<leader>q", ":q!<CR>", { noremap = true, silent = true })
+
 -- open lv-config
 vim.api.nvim_set_keymap(
   "n",
@@ -99,7 +105,8 @@ vim.api.nvim_set_keymap(
 )
 
 local mappings = {
-
+  ["w"] = "Save",
+  ["q"] = "Quit",
   ["."] = "LunarConfig",
   ["/"] = "Comment",
   ["c"] = "Close Buffer",
