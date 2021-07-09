@@ -93,7 +93,6 @@ O.user_plugins = {
   --         {silent = true})
   --     end
   --   },
-  { "ggandor/lightspeed.nvim" },
   { "folke/lsp-colors.nvim" },
   { "iamcco/markdown-preview.nvim" },
   { "andymass/vim-matchup" },
@@ -110,5 +109,17 @@ O.user_plugins = {
       require("lsp_signature").on_attach()
     end,
     event = "InsertEnter",
+  },
+  { "ggandor/lightspeed.nvim" },
+  {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end,
   },
 }
