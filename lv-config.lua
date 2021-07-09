@@ -50,7 +50,6 @@ O.user_which_key = {
 
 O.user_plugins = {
   -- Utility
-  { "tpope/vim-surround" }, -- Snippets
   { "xabikos/vscode-javascript" },
   { "dsznajder/vscode-es7-javascript-react-snippets" }, -- Tmux integration
   "christoomey/vim-tmux-navigator", -- Syntax Hightlighting
@@ -120,6 +119,13 @@ O.user_plugins = {
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
       }
+    end,
+  },
+  {
+    "blackCauldron7/surround.nvim",
+    config = function()
+      vim.g.surround_prefix = "<leader>S"
+      require("surround").setup {}
     end,
   },
 }
