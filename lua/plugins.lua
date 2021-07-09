@@ -51,7 +51,7 @@ return require("packer").startup(function(use)
   use { "rafamadriz/friendly-snippets", event = "InsertEnter" }
 
   -- Treesitter
-  use { "nvim-treesitter/nvim-treesitter", run = ":silent TSUpdate" }
+  use { "nvim-treesitter/nvim-treesitter" }
 
   -- Neoformat
   use {
