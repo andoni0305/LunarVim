@@ -73,8 +73,8 @@ O = {
 
   plugin = {
     -- Builtins
-    dashboard = { active = false },
-    colorizer = { active = false },
+    dashboard = { active = true },
+    colorizer = { active = true },
     -- zen = { active = false },
     ts_playground = { active = false },
     ts_context_commentstring = { active = true },
