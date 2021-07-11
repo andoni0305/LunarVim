@@ -73,25 +73,6 @@ O.user_plugins = {
       -- map <leader>P <Plug>(miniyank-startPut)
     end,
   },
-  --   {
-  --     'phaazon/hop.nvim',
-  --     config = function()
-  --
-  --       require("hop").setup {}
-  --       vim.api.nvim_set_keymap("n", "s",
-  --         "<cmd>lua require'hop'.hint_words()<cr>",
-  --         {silent = true})
-  --       vim.api.nvim_set_keymap("v", "s",
-  --         "<cmd>lua require'hop'.hint_words()<cr>",
-  --         {silent = true})
-  --       vim.api.nvim_set_keymap("n", "f",
-  --         "<cmd>lua require'hop'.hint_char1()<cr>",
-  --         {silent = true})
-  --       vim.api.nvim_set_keymap("v", "f",
-  --         "<cmd>lua require'hop'.hint_char1()<cr>",
-  --         {silent = true})
-  --     end
-  --   },
   { "folke/lsp-colors.nvim" },
   { "iamcco/markdown-preview.nvim" },
   { "andymass/vim-matchup" },
