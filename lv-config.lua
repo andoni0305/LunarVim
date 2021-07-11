@@ -8,17 +8,28 @@ an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 -- general
-O.auto_complete = true
+   O.format_on_save = true
+O.completion.autocomplete = true
 O.colorscheme = "tokyonight"
--- O.transparent_window = true
 O.auto_close_tree = 0
-O.timeoutlen = 100
+O.default_options.wrap = true
+O.default_options.timeoutlen = 100
 O.leader_key = " "
--- O.format_on_save = false
 
-O.plugin.indent_line.active = true
+-- TODO: User Config for predefined plugins
+-- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
+O.plugin.dashboard.active = true
+O.plugin.floatterm.active = true
+O.plugin.indent_line.active = false
+O.plugin.zen.active = false
+O.plugin.zen.window.height = 0.90
 
-O.dashboard.custom_header = {
+-- if you don't want all the parsers change this to a table of the ones you want
+O.treesitter.ensure_installed = "maintained"
+O.treesitter.ignore_install = { "haskell" }
+O.treesitter.highlight.enabled = true
+
+O.plugin.dashboard.custom_header = {
   "              ^                      ", --
   "             /|\\                    ", --
   "            //|\\\\                  ", --
