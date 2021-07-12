@@ -16,7 +16,7 @@ O.timeoutlen = 100
 O.leader_key = " "
 -- O.format_on_save = false
 
-O.plugin.indent_line.active = true
+-- O.plugin.indent_line.active = true
 
 O.dashboard.custom_header = {
   "              ^                      ", --

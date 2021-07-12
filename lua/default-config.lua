@@ -85,7 +85,7 @@ O = {
     ts_textsubjects = { active = true },
     telescope_fzy = { active = true },
     telescope_project = { active = false },
-    indent_line = { active = true },
+    indent_line = { active = false },
     symbol_outline = { active = true },
     debug = { active = false },
     dap_install = { active = false },
