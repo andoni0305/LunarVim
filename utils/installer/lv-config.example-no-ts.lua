@@ -36,9 +36,21 @@ O.treesitter.highlight.enabled = true
 O.lang.python.isort = true
 O.lang.python.diagnostics.virtual_text = true
 O.lang.python.analysis.use_library_code_types = true
+-- to change default formatter from yapf to black
+-- O.lang.python.formatter.exe = "black"
+-- O.lang.python.formatter.args = {"-"}
+
+-- go
+-- to change default formatter from gofmt to goimports
+-- O.lang.formatter.go.exe = "goimports"
 
 -- javascript
 O.lang.tsserver.linter = nil
+
+-- latex
+-- O.lang.latex.auto_save = false
+-- O.lang.latex.ignore_errors = { }
+
 
 -- Additional Plugins
 -- O.user_plugins = {
