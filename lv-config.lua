@@ -8,13 +8,16 @@ an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 -- general
-   O.format_on_save = true
+O.format_on_save = true
 O.completion.autocomplete = true
 O.colorscheme = "tokyonight"
 O.auto_close_tree = 0
 O.default_options.wrap = true
 O.default_options.timeoutlen = 100
 O.leader_key = " "
+
+O.lang.lua.autoformat = true
+O.lang.tsserver.autoformat = true
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -84,25 +87,6 @@ O.user_plugins = {
       -- map <leader>P <Plug>(miniyank-startPut)
     end,
   },
-  --   {
-  --     'phaazon/hop.nvim',
-  --     config = function()
-  --
-  --       require("hop").setup {}
-  --       vim.api.nvim_set_keymap("n", "s",
-  --         "<cmd>lua require'hop'.hint_words()<cr>",
-  --         {silent = true})
-  --       vim.api.nvim_set_keymap("v", "s",
-  --         "<cmd>lua require'hop'.hint_words()<cr>",
-  --         {silent = true})
-  --       vim.api.nvim_set_keymap("n", "f",
-  --         "<cmd>lua require'hop'.hint_char1()<cr>",
-  --         {silent = true})
-  --       vim.api.nvim_set_keymap("v", "f",
-  --         "<cmd>lua require'hop'.hint_char1()<cr>",
-  --         {silent = true})
-  --     end
-  --   },
   { "folke/lsp-colors.nvim" },
   { "iamcco/markdown-preview.nvim" },
   { "andymass/vim-matchup" },
