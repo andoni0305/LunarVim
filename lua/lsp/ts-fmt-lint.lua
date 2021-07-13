@@ -30,6 +30,9 @@ M.setup = function()
       "typescriptreact",
       "javascript.jsx",
       "typescript.tsx",
+      "css",
+      "less",
+      "scss",
     },
     settings = {
       rootMarkers = { ".git/", "package.json" },
@@ -41,6 +44,9 @@ M.setup = function()
         typescript = tsserver_args,
         ["typescript.tsx"] = tsserver_args,
         typescriptreact = tsserver_args,
+        css = tsserver_args,
+        less = tsserver_args,
+        scss = tsserver_args,
       },
     },
   }
