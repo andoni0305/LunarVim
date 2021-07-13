@@ -1,7 +1,8 @@
 vim.cmd "let proj = FindRootDirectory()"
 print(vim.api.nvim_get_var "proj")
 local root_dir = vim.api.nvim_get_var "proj"
-O.formatters.filetype["javascriptreact"] = {
+
+local Prettier = {
   -- vim.cmd "let root_dir "
   -- prettier
   function()
@@ -13,6 +14,11 @@ O.formatters.filetype["javascriptreact"] = {
     }
   end,
 }
+
+O.formatters.filetype["javascript"] = Prettier
+O.formatters.filetype["javascriptreact"] = Prettier
+O.formatters.filetype["typescript"] = Prettier
+O.formatters.filetype["typescriptreact"] = Prettier
 
 require("formatter.config").set_defaults {
   logging = false,
