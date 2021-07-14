@@ -1,3 +1,30 @@
+vim.cmd "let proj = FindRootDirectory()"
+print(vim.api.nvim_get_var "proj")
+local root_dir = vim.api.nvim_get_var "proj"
+
+local Prettier = {
+  -- vim.cmd "let root_dir "
+  -- prettier
+  function()
+    return {
+      exe = root_dir .. "/node_modules/.bin/prettier",
+      --  TODO: append to this for args don't overwrite
+      args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote" },
+      stdin = true,
+    }
+  end,
+}
+
+O.formatters.filetype["javascript"] = Prettier
+O.formatters.filetype["javascriptreact"] = Prettier
+O.formatters.filetype["typescript"] = Prettier
+O.formatters.filetype["typescriptreact"] = Prettier
+
+require("formatter.config").set_defaults {
+  logging = false,
+  filetype = O.formatters.filetype,
+}
+
 if require("lv-utils").check_lsp_client_active "tsserver" then
   return
 end

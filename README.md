@@ -33,6 +33,15 @@ If you help to develop Lunarvim, you can install a specific branch branch direct
 LVBRANCH=rolling bash <(curl -s https://raw.githubusercontent.com/ChristianChiarulli/lunarvim/rolling/utils/installer/install.sh)
 ```
 
+If your installation is stuck on `Ok to remove? [y/N]`, it means there are some leftovers, \
+you can run the script with `--overwrite` but be warned this will remove the following folder:
+- `~/.config/nvim`
+- `~/.cache/nvim`
+- `~/.local/share/nvim/site/pack/packer`
+```bash
+curl -s https://raw.githubusercontent.com/ChristianChiarulli/lunarvim/rolling/utils/installer/install.sh| LVBRANCH=rolling bash -s -- --overwrite
+```
+
 
 ## Installing LSP for your language
 
@@ -62,7 +71,6 @@ O.leader_key = ' '
 O.plugin.dashboard.active = true
 O.plugin.floatterm.active = true
 O.plugin.zen.active = true
-O.plugin.telescope_project.active = true
 
 -- if you don't want all the parsers change this to a table of the ones you want
 O.treesitter.ensure_installed = "all"
@@ -179,8 +187,8 @@ To update Neovim use your package manager
 > "My minimal config with a good amount less code than LunarVim loads 40ms slower. Time to switch."
 > - @mvllow, Potential LunarVim user.
 
-<div align="center">
+<div align="center" id="madewithlua">
 	
-[![Lua](https://img.shields.io/badge/Made%20with%20Lua-blue.svg?style=for-the-badge&logo=lua)]()
+[![Lua](https://img.shields.io/badge/Made%20with%20Lua-blue.svg?style=for-the-badge&logo=lua)](#madewithlua)
 	
 </div>

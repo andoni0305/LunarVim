@@ -23,9 +23,9 @@ O.lang.tsserver.autoformat = true
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 O.plugin.dashboard.active = true
 O.plugin.floatterm.active = true
-O.plugin.indent_line.active = false
 O.plugin.zen.active = false
 O.plugin.zen.window.height = 0.90
+O.plugin.telescope.defaults.path_display = {}
 
 -- if you don't want all the parsers change this to a table of the ones you want
 O.treesitter.ensure_installed = "maintained"
