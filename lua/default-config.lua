@@ -107,6 +107,10 @@ O = {
     },
     css = {
       virtual_text = true,
+      formatter = {
+        exe = "prettier",
+        args = {},
+      },
     },
     dart = {
       sdk_path = "/usr/lib/dart/bin/snapshots/analysis_server.dart.snapshot",
@@ -119,7 +123,13 @@ O = {
     efm = {},
     elm = {},
     emmet = { active = false },
-    elixir = {},
+    elixir = {
+      formatter = {
+        exe = "mix",
+        args = { "format" },
+        stdin = true,
+      },
+    },
     graphql = {},
     go = {
       formatter = {
@@ -150,6 +160,35 @@ O = {
     },
     kotlin = {},
     latex = {
+      filetypes = { "tex", "bib"},
+      aux_directory = nil,
+      bibtex_formatter = "texlab",
+      diagnostics_delay = 300,
+      formatter_line_length = 80,
+      latex_formatter = "latexindent",
+      build = {
+        executable = "latexmk",
+        args = {'-pdf', '-interaction=nonstopmode', '-synctex=1', '%f'},
+        on_save = false,
+        forward_search_after = false,
+      },
+      chktex = {
+        on_open_and_save = false,
+        on_edit = false,
+      },
+      forward_search = {
+        executable = nil,
+        args = {}
+      },
+      latexindent = {
+        ["local"] = nil,
+        modify_line_breaks = false
+      },
+      diagnostics = {
+        virtual_text = {spacing = 0, prefix = ""},
+        signs = true,
+        underline = true,
+      },
       auto_save = false,
       ignore_errors = {},
     },
@@ -280,7 +319,7 @@ O = {
       },
       formatter = {
         exe = "prettier",
-        args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote" },
+        args = {},
       },
     },
     vim = {},
