@@ -18,6 +18,11 @@ O.leader_key = " "
 
 O.lang.lua.autoformat = true
 O.lang.tsserver.autoformat = true
+O.lang.json.autoformat = true
+O.lang.json.formatter = {
+  exe = "prettier",
+  args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote" },
+}
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
