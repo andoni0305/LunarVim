@@ -132,6 +132,10 @@ O = {
       java_tools = {
         active = false,
       },
+      formatter = {
+        exe = "prettier",
+        args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote" },
+      },
     },
     json = {
       diagnostics = {
@@ -258,13 +262,14 @@ O = {
         "typescript",
         "typescriptreact",
       },
+    },
+    terraform = {
       formatter = {
-        exe = "prettier",
-        args = { "--write", "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote" },
+        exe = "terraform",
+        args = { "fmt" },
         stdin = false,
       },
     },
-    terraform = {},
     tsserver = {
       -- @usage can be 'eslint'
       linter = "eslint",
@@ -275,8 +280,7 @@ O = {
       },
       formatter = {
         exe = "prettier",
-        args = { "--write", "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote" },
-        stdin = false,
+        args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote" },
       },
     },
     vim = {},
