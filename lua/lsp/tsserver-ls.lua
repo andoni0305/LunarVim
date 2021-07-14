@@ -13,7 +13,8 @@ local Prettier = {
   function()
     return {
       exe = prettier_instance,
-      args = O.lang.tsserver.formatter.args,
+      -- args = O.lang.tsserver.formatter.args,
+      args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote" },
       stdin = true,
     }
   end,
