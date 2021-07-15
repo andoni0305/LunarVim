@@ -30,6 +30,7 @@ O.plugin.dashboard.active = true
 O.plugin.zen.active = false
 O.plugin.zen.window.height = 0.90
 O.plugin.telescope.defaults.path_display = {}
+O.plugin.terminal.active = true
 
 -- if you don't want all the parsers change this to a table of the ones you want
 O.treesitter.ensure_installed = "maintained"
