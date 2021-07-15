@@ -36,6 +36,10 @@ O.plugin.terminal.active = true
 O.treesitter.ensure_installed = "maintained"
 O.treesitter.ignore_install = { "haskell" }
 O.treesitter.highlight.enabled = true
+O.treesitter.rainbow.enable = true
+O.treesitter.matchup.enable = true
+O.treesitter.context_commentstring.enable = true
+O.treesitter.autotag.enable = true
 
 O.plugin.dashboard.custom_header = {
   "              ^                      ", --
@@ -69,10 +73,25 @@ O.user_which_key = {
 
 O.user_plugins = {
   -- Utility
+  { "ggandor/lightspeed.nvim" },
   { "xabikos/vscode-javascript" },
-  { "dsznajder/vscode-es7-javascript-react-snippets" }, -- Tmux integration
-  "christoomey/vim-tmux-navigator", -- Syntax Hightlighting
-  "StanAngeloff/php.vim", -- Miniyank
+  { "dsznajder/vscode-es7-javascript-react-snippets" },
+  {
+    "blackCauldron7/surround.nvim",
+    config = function()
+      vim.g.surround_prefix = "<leader>S"
+      require("surround").setup {}
+    end,
+  },
+  { "iamcco/markdown-preview.nvim" },
+
+  -- Tmux integration
+  { "christoomey/vim-tmux-navigator" },
+
+  -- Syntax Hightlighting
+  { "StanAngeloff/php.vim" },
+
+  -- Miniyank
   {
     "bfredl/nvim-miniyank",
     config = function()
@@ -80,28 +99,14 @@ O.user_plugins = {
       map p <Plug>(miniyank-autoput)
       map P <Plug>(miniyank-autoPut)
 
-
       map <leader>n <Plug>(miniyank-cycle)
       map <leader>N <Plug>(miniyank-cycleback)
-
       ]]
-      -- map <leader>p <Plug>(miniyank-startput)
-      -- map <Leader>C <Plug>(miniyank-tochar)
-      -- map <Leader>l <Plug>(miniyank-toline)
-      -- map <Leader>b <Plug>(miniyank-toblock)
-      -- map <leader>P <Plug>(miniyank-startPut)
     end,
   },
+
+  -- LSP
   { "folke/lsp-colors.nvim" },
-  { "iamcco/markdown-preview.nvim" },
-  { "andymass/vim-matchup" },
-  {
-    "windwp/nvim-spectre",
-    config = function()
-      require("spectre").setup()
-    end,
-  },
-  { "folke/tokyonight.nvim" },
   {
     "ray-x/lsp_signature.nvim",
     config = function()
@@ -109,7 +114,12 @@ O.user_plugins = {
     end,
     event = "InsertEnter",
   },
-  { "ggandor/lightspeed.nvim" },
+
+  -- Treesitter
+  { "p00f/nvim-ts-rainbow" },
+  { "andymass/vim-matchup" },
+  {'JoosepAlviste/nvim-ts-context-commentstring'},
+  {'windwp/nvim-ts-autotag'},
   {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
@@ -121,11 +131,15 @@ O.user_plugins = {
       }
     end,
   },
+
+  -- Colors
+  { "folke/tokyonight.nvim" },
+
+  -- Find and replace
   {
-    "blackCauldron7/surround.nvim",
+    "windwp/nvim-spectre",
     config = function()
-      vim.g.surround_prefix = "<leader>S"
-      require("surround").setup {}
+      require("spectre").setup()
     end,
   },
 }
