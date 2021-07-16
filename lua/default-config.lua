@@ -58,16 +58,24 @@ O = {
     sidescrolloff = 8,
   },
 
+  lsp = {
+    diagnostics = {
+      virtual_text = {
+        prefix = "",
+        spacing = 0,
+      },
+      signs = true,
+      underline = true,
+      document_highlight = true,
+      popup_border = "single",
+    },
+  },
+
   plugin = {},
 
   -- TODO: refactor for tree
   auto_close_tree = 0,
   nvim_tree_disable_netrw = 0,
-
-  lsp = {
-    document_highlight = true,
-    popup_border = "single",
-  },
 
   database = { save_location = "~/.config/lunarvim_db", auto_execute = 1 },
 
