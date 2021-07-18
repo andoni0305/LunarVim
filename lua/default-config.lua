@@ -5,11 +5,14 @@ TERMINAL = vim.fn.expand "$TERMINAL"
 USER = vim.fn.expand "$USER"
 
 O = {
-  leader_key = "space",
+  keys = {
+    leader_key = "space",
+  },
   colorscheme = "spacegray",
   line_wrap_cursor_movement = true,
   transparent_window = false,
   format_on_save = true,
+  lint_on_save = true,
   vsnip_dir = vim.fn.stdpath "config" .. "/snippets",
 
   default_options = {
@@ -66,9 +69,31 @@ O = {
       },
       signs = true,
       underline = true,
-      document_highlight = true,
-      popup_border = "single",
     },
+    document_highlight = true,
+    popup_border = "single",
+    default_keybinds = true,
+  },
+
+  disabled_built_ins = {
+    "netrw",
+    "netrwPlugin",
+    "netrwSettings",
+    "netrwFileHandlers",
+    "gzip",
+    "zip",
+    "zipPlugin",
+    "tar",
+    "tarPlugin", -- 'man',
+    "getscript",
+    "getscriptPlugin",
+    "vimball",
+    "vimballPlugin",
+    "2html_plugin",
+    "logipat",
+    "rrhelper",
+    "spellfile_plugin",
+    -- 'matchit', 'matchparen', 'shada_plugin',
   },
 
   plugin = {},
@@ -137,6 +162,7 @@ require("core.zen").config()
 require("core.telescope").config()
 require("core.treesitter").config()
 require("core.which-key").config()
+require("core.nvimtree").config()
 
 require("lang.clang").config()
 require("lang.cmake").config()
@@ -154,10 +180,16 @@ require("lang.kotlin").config()
 require("lang.lua").config()
 require("lang.php").config()
 require("lang.python").config()
+require("lang.r").config()
 require("lang.ruby").config()
 require("lang.rust").config()
 require("lang.sh").config()
+require("lang.scala").config()
+require("lang.svelte").config()
+require("lang.swift").config()
 require("lang.terraform").config()
 require("lang.tex").config()
 require("lang.vim").config()
+require("lang.vue").config()
 require("lang.yaml").config()
+require("lang.zig").config()
