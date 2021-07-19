@@ -118,8 +118,8 @@ O.user_plugins = {
   -- Treesitter
   { "p00f/nvim-ts-rainbow" },
   { "andymass/vim-matchup" },
-  {'JoosepAlviste/nvim-ts-context-commentstring'},
-  {'windwp/nvim-ts-autotag'},
+  { "JoosepAlviste/nvim-ts-context-commentstring" },
+  { "windwp/nvim-ts-autotag" },
   {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
@@ -142,4 +142,5 @@ O.user_plugins = {
       require("spectre").setup()
     end,
   },
+  { "metakirby5/codi.vim" },
 }
