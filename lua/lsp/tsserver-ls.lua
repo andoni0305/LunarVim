@@ -11,10 +11,18 @@ end
 
 local Prettier = {
   function()
+    local args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)) }
+    local extend_args = O.lang.tsserver.formatter.args
+
+    if extend_args then
+      for i = 1, #extend_args do
+        table.insert(args, extend_args[i])
+      end
+    end
+
     return {
       exe = prettier_instance,
-      -- args = O.lang.tsserver.formatter.args,
-      args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote" },
+      args = args,
       stdin = true,
     }
   end,
@@ -57,17 +65,16 @@ require("lspconfig").tsserver.setup {
     "typescript.tsx",
   },
   on_attach = require("lsp").tsserver_on_attach,
-  -- This makes sure tsserver is not used for formatting (I prefer prettier)
   -- on_attach = require'lsp'.common_on_attach,
-  root_dir = require("lspconfig/util").root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
+  -- This makes sure tsserver is not used for formatting (I prefer prettier)
   settings = { documentFormatting = false },
   handlers = {
-    ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-      virtual_text = O.lang.tsserver.diagnostics.virtual_text,
-      signs = O.lang.tsserver.diagnostics.signs,
-      underline = O.lang.tsserver.diagnostics.underline,
-      update_in_insert = true,
-    }),
+    -- ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+    --   virtual_text = O.lang.tsserver.diagnostics.virtual_text,
+    --   signs = O.lang.tsserver.diagnostics.signs,
+    --   underline = O.lang.tsserver.diagnostics.underline,
+    --   update_in_insert = true,
+    -- }),
   },
 }
-require("lsp.ts-fmt-lint").setup()
+-- require("lsp.ts-fmt-lint").setup()
