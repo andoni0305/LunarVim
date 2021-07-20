@@ -1,4 +1,4 @@
-CONFIG_PATH = vim.fn.stdpath "config"
+CONFIG_PATH = os.getenv "HOME" .. "/.local/share/lunarvim/lvim"
 DATA_PATH = vim.fn.stdpath "data"
 CACHE_PATH = vim.fn.stdpath "cache"
 TERMINAL = vim.fn.expand "$TERMINAL"
@@ -13,7 +13,7 @@ O = {
   transparent_window = false,
   format_on_save = true,
   lint_on_save = true,
-  vsnip_dir = vim.fn.stdpath "config" .. "/snippets",
+  vsnip_dir = os.getenv "HOME" .. "/.config/snippets",
 
   default_options = {
     backup = false, -- creates a backup file
@@ -73,6 +73,7 @@ O = {
     document_highlight = true,
     popup_border = "single",
     default_keybinds = true,
+    on_attach_callback = nil,
   },
 
   disabled_built_ins = {
@@ -96,7 +97,26 @@ O = {
     -- 'matchit', 'matchparen', 'shada_plugin',
   },
 
-  plugin = {},
+  plugin = {
+    lspinstall = {},
+    telescope = {},
+    compe = {},
+    autopairs = {},
+    treesitter = {},
+    formatter = {},
+    lint = {},
+    nvimtree = {},
+    gitsigns = {},
+    which_key = {},
+    comment = {},
+    rooter = {},
+    galaxyline = {},
+    bufferline = {},
+    dap = {},
+    dashboard = {},
+    terminal = {},
+    zen = {},
+  },
 
   -- TODO: refactor for tree
   auto_close_tree = 0,
@@ -165,7 +185,9 @@ require("core.which-key").config()
 require("core.nvimtree").config()
 
 require("lang.clang").config()
+require("lang.clojure").config()
 require("lang.cmake").config()
+require("lang.cs").config()
 require("lang.css").config()
 require("lang.dart").config()
 require("lang.dockerfile").config()
@@ -194,3 +216,4 @@ require("lang.vim").config()
 require("lang.vue").config()
 require("lang.yaml").config()
 require("lang.zig").config()
+require("lang.zsh").config()
