@@ -1,6 +1,6 @@
 local M = {}
 M.config = function()
-  O.plugin["terminal"] = {
+  lvim.builtin["terminal"] = {
     -- size can be a number or function which is passed the current terminal
     size = 5,
     -- open_mapping = [[<c-\>]],
@@ -26,7 +26,7 @@ M.config = function()
       border = "curved",
       -- width = <value>,
       -- height = <value>,
-      winblend = 3,
+      winblend = 0,
       highlights = {
         border = "Normal",
         background = "Normal",
@@ -47,8 +47,8 @@ M.setup = function()
     "<cmd>lua require('core.terminal')._lazygit_toggle()<CR>",
     { noremap = true, silent = true }
   )
-  O.plugin.which_key.mappings["gg"] = "LazyGit"
-  terminal.setup(O.plugin.terminal)
+  lvim.builtin.which_key.mappings["gg"] = "LazyGit"
+  terminal.setup(lvim.builtin.terminal)
 end
 
 local function is_installed(exe)

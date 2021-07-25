@@ -7,9 +7,9 @@ if not status_ok then
 end
 
 -- NOTE: if someone defines colors but doesn't have them then this will break
-local palette_status_ok, colors = pcall(require, O.colorscheme .. ".palette")
+local palette_status_ok, colors = pcall(require, lvim.colorscheme .. ".palette")
 if not palette_status_ok then
-  colors = O.plugin.galaxyline.colors
+  colors = lvim.builtin.galaxyline.colors
 end
 
 local condition = require "galaxyline.condition"
@@ -266,7 +266,11 @@ table.insert(gls.right, {
 table.insert(gls.right, {
   Tabstop = {
     provider = function()
-      return "Spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth") .. " "
+      local label = "Spaces: "
+      if not vim.api.nvim_buf_get_option(0, "expandtab") then
+        label = "Tab size: "
+      end
+      return label .. vim.api.nvim_buf_get_option(0, "shiftwidth") .. " "
     end,
     condition = condition.hide_in_width,
     separator = " ",
