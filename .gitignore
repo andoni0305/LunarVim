@@ -18,6 +18,7 @@ eclipse.jdt.ls/
 spell/
 nv-settings.lua
 lv-settings.lua
+lv-config.lua
 lua/lv-user/
 lua/lv-user-config/
 
