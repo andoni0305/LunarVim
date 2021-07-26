@@ -301,7 +301,7 @@ end
 function lsp_config.setup(lang)
   local lang_server = lvim.lang[lang].lsp
   local provider = lang_server.provider
-  if require("lv-utils").check_lsp_client_active(provider) then
+  if require("utils").check_lsp_client_active(provider) then
     return
   end
 
@@ -335,6 +335,10 @@ function lsp_config.setup(lang)
         lang_server.setup.on_attach = no_formatter_on_attach
       end
     end
+  end
+
+  if provider == "" or provider == nil then
+    return
   end
 
   require("lspconfig")[provider].setup(lang_server.setup)

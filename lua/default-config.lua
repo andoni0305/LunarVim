@@ -287,6 +287,20 @@ lvim.lang = {
     },
   },
   emmet = { active = false },
+  fish = {
+    formatter = {
+      exe = "",
+      args = {},
+    },
+    linters = {},
+    lsp = {
+      provider = "",
+      setup = {
+        on_attach = common_on_attach,
+        capabilities = common_capabilities,
+      },
+    },
+  },
   go = {
     formatter = {
       exe = "gofmt",
@@ -426,6 +440,11 @@ lvim.lang = {
     },
   },
   kotlin = {
+    formatter = {
+      exe = "",
+      args = {},
+    },
+    linters = {},
     lsp = {
       provider = "kotlin_language_server",
       setup = {
@@ -477,7 +496,7 @@ lvim.lang = {
             },
             diagnostics = {
               -- Get the language server to recognize the `vim` global
-              globals = { "vim", "O" },
+              globals = { "vim", "lvim" },
             },
             workspace = {
               -- Make the server aware of Neovim runtime files
@@ -590,15 +609,10 @@ lvim.lang = {
   -- R -e 'install.packages("readr",repos = "http://cran.us.r-project.org")'
   r = {
     formatter = {
-      exe = "R",
-      args = {
-        "--slave",
-        "--no-restore",
-        "--no-save",
-        '-e "formatR::tidy_source(text=readr::read_file(file(\\"stdin\\")), arrow=FALSE)"',
-      },
-      stdin = true,
+      exe = "",
+      args = {},
     },
+    linters = {},
     lsp = {
       provider = "r_language_server",
       setup = {
@@ -616,8 +630,7 @@ lvim.lang = {
   ruby = {
     formatter = {
       exe = "rufo",
-      args = { "-x" },
-      stdin = true,
+      args = {},
     },
     linters = { "ruby" },
     lsp = {
@@ -634,10 +647,10 @@ lvim.lang = {
   },
   rust = {
     formatter = {
-      exe = "rustfmt",
-      args = { "--emit=stdout", "--edition=2018" },
-      stdin = true,
+      exe = "",
+      args = {},
     },
+    linters = {},
     lsp = {
       provider = "rust_analyzer",
       setup = {
@@ -705,8 +718,8 @@ lvim.lang = {
     formatter = {
       exe = "swiftformat",
       args = {},
-      stdin = true,
     },
+    linters = {},
     lsp = {
       provider = "sourcekit",
       setup = {
@@ -733,10 +746,11 @@ lvim.lang = {
   },
   terraform = {
     formatter = {
-      exe = "terraform",
-      args = { "fmt" },
+      exe = "",
+      args = {},
       stdin = false,
     },
+    linters = {},
     lsp = {
       provider = "terraformls",
       setup = {
@@ -744,6 +758,22 @@ lvim.lang = {
           DATA_PATH .. "/lspinstall/terraform/terraform-ls",
           "serve",
         },
+        on_attach = common_on_attach,
+        capabilities = common_capabilities,
+      },
+    },
+  },
+  tex = {
+    formatter = {
+      exe = "latexindent",
+      args = {},
+      stdin = false,
+    },
+    linters = { "chketx" },
+    lsp = {
+      provider = "texlab",
+      setup = {
+        cmd = { DATA_PATH .. "/lspinstall/latex/texlab" },
         on_attach = common_on_attach,
         capabilities = common_capabilities,
       },
@@ -814,12 +844,9 @@ lvim.lang = {
   vue = {
     formatter = {
       exe = "prettier",
-      args = {
-        "--stdin-filepath",
-        "${FILEPATH}",
-      },
-      stdin = true,
+      args = {},
     },
+    linters = {},
     lsp = {
       provider = "vetur",
       setup = {
@@ -834,9 +861,9 @@ lvim.lang = {
   yaml = {
     formatter = {
       exe = "prettier",
-      args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote" },
-      stdin = true,
+      args = {},
     },
+    linters = {},
     lsp = {
       provider = "yamlls",
       setup = {
@@ -851,10 +878,11 @@ lvim.lang = {
   },
   zig = {
     formatter = {
-      exe = "zig",
-      args = { "fmt" },
+      exe = "",
+      args = {},
       stdin = false,
     },
+    linters = {},
     lsp = {
       provider = "zls",
       setup = {
