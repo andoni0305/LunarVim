@@ -330,7 +330,7 @@ lvim.lang = {
   },
   html = {
     formatter = {
-      exe = "",
+      exe = "prettier",
       args = {},
     },
     linters = {
@@ -649,6 +649,20 @@ lvim.lang = {
       },
     },
   },
+  scala = {
+    formatter = {
+      exe = "",
+      args = {},
+    },
+    linters = { "" },
+    lsp = {
+      provider = "metals",
+      setup = {
+        on_attach = common_on_attach,
+        capabilities = common_capabilities,
+      },
+    },
+  },
   sh = {
     -- @usage can be 'shfmt'
     formatter = {
@@ -670,6 +684,11 @@ lvim.lang = {
     },
   },
   svelte = {
+    formatter = {
+      exe = "",
+      args = {},
+    },
+    linters = {},
     lsp = {
       provider = "svelte",
       setup = {
