@@ -128,7 +128,9 @@ lvim.lang = {
       setup = {
         cmd = {
           DATA_PATH .. "/lspinstall/csharp/omnisharp/run",
-          "--stdio",
+          "--languageserver",
+          "--hostPID",
+          tostring(vim.fn.getpid()),
         },
         on_attach = common_on_attach,
         capabilities = common_capabilities,
@@ -538,6 +540,20 @@ lvim.lang = {
       },
     },
   },
+  puppet = {
+    formatter = {
+      exe = "",
+      args = {},
+    },
+    linters = {},
+    lsp = {
+      provider = "puppet",
+      setup = {
+        on_attach = require("lsp").common_on_attach,
+        capabilities = require("lsp").common_capabilities(),
+      },
+    },
+  },
   javascript = {
     -- @usage can be prettier or eslint
     formatter = {
@@ -769,7 +785,7 @@ lvim.lang = {
       args = {},
       stdin = false,
     },
-    linters = { "chketx" },
+    linters = { "chktex" },
     lsp = {
       provider = "texlab",
       setup = {

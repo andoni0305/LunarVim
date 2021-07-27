@@ -38,26 +38,28 @@ vim.fn.sign_define(
 --   { noremap = true, silent = true }
 -- )
 
-if lvim.lsp.default_keybinds then
-  vim.cmd "nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>"
-  vim.cmd "nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>"
-  vim.cmd "nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>"
-  vim.cmd "nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>"
-  vim.api.nvim_set_keymap(
-    "n",
-    "gl",
-    '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = "single" })<CR>',
-    { noremap = true, silent = true }
-  )
+function lsp_config.setup_default_bindings()
+  if lvim.lsp.default_keybinds then
+    vim.cmd "nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>"
+    vim.cmd "nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>"
+    vim.cmd "nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>"
+    vim.cmd "nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>"
+    vim.api.nvim_set_keymap(
+      "n",
+      "gl",
+      '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = "single" })<CR>',
+      { noremap = true, silent = true }
+    )
 
-  vim.cmd "nnoremap <silent> gp <cmd>lua require'lsp'.PeekDefinition()<CR>"
-  vim.cmd "nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>"
-  vim.cmd "nnoremap <silent> <C-p> :lua vim.lsp.diagnostic.goto_prev({popup_opts = {border = lvim.lsp.popup_border}})<CR>"
-  vim.cmd "nnoremap <silent> <C-n> :lua vim.lsp.diagnostic.goto_next({popup_opts = {border = lvim.lsp.popup_border}})<CR>"
-  vim.cmd "nnoremap <silent> <tab> <cmd>lua vim.lsp.buf.signature_help()<CR>"
-  -- scroll down hover doc or scroll in definition preview
-  -- scroll up hover doc
-  vim.cmd 'command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()'
+    vim.cmd "nnoremap <silent> gp <cmd>lua require'lsp'.PeekDefinition()<CR>"
+    vim.cmd "nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>"
+    vim.cmd "nnoremap <silent> <C-p> :lua vim.lsp.diagnostic.goto_prev({popup_opts = {border = lvim.lsp.popup_border}})<CR>"
+    vim.cmd "nnoremap <silent> <C-n> :lua vim.lsp.diagnostic.goto_next({popup_opts = {border = lvim.lsp.popup_border}})<CR>"
+    -- vim.cmd "nnoremap <silent> <tab> <cmd>lua vim.lsp.buf.signature_help()<CR>"
+    -- scroll down hover doc or scroll in definition preview
+    -- scroll up hover doc
+    vim.cmd 'command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()'
+  end
 end
 
 -- Set Default Prefix.
@@ -227,51 +229,6 @@ function lsp_config.common_capabilities()
     },
   }
   return capabilities
-end
-
-function lsp_config.tsserver_on_attach(client, _)
-  -- lsp_config.common_on_attach(client, bufnr)
-  client.resolved_capabilities.document_formatting = false
-
-  local ts_utils = require "nvim-lsp-ts-utils"
-
-  -- defaults
-  ts_utils.setup {
-    debug = false,
-    disable_commands = false,
-    enable_import_on_completion = false,
-    import_all_timeout = 5000, -- ms
-
-    -- eslint
-    eslint_enable_code_actions = true,
-    eslint_enable_disable_comments = true,
-    -- eslint_bin = lvim.lang.tsserver.linter,
-    eslint_config_fallback = nil,
-    eslint_enable_diagnostics = true,
-
-    -- formatting
-    enable_formatting = lvim.lang.tsserver.autoformat,
-    formatter = lvim.lang.tsserver.formatter.exe,
-    formatter_config_fallback = nil,
-
-    -- parentheses completion
-    complete_parens = false,
-    signature_help_in_parens = false,
-
-    -- update imports on file move
-    update_imports_on_move = false,
-    require_confirmation_on_move = false,
-    watch_dir = nil,
-  }
-
-  -- required to fix code action ranges
-  ts_utils.setup_client(client)
-
-  -- TODO: keymap these?
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>", {silent = true})
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "qq", ":TSLspFixCurrent<CR>", {silent = true})
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", ":TSLspRenameFile<CR>", {silent = true})
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", {silent = true})
 end
 
 require("core.autocmds").define_augroups {
