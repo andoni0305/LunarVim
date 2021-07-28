@@ -1,4 +1,5 @@
--- TODO: figure out why this don't work
+local lsp_config = {}
+
 vim.fn.sign_define(
   "LspDiagnosticsSignError",
   { texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError" }
@@ -37,43 +38,47 @@ vim.fn.sign_define(
 --   { noremap = true, silent = true }
 -- )
 
-if O.lsp.default_keybinds then
-  vim.cmd "nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>"
-  vim.cmd "nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>"
-  vim.cmd "nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>"
-  vim.cmd "nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>"
-  vim.api.nvim_set_keymap(
-    "n",
-    "gl",
-    '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = "single" })<CR>',
-    { noremap = true, silent = true }
-  )
+function lsp_config.setup_default_bindings()
+  if lvim.lsp.default_keybinds then
+    vim.cmd "nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>"
+    vim.cmd "nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>"
+    vim.cmd "nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>"
+    vim.cmd "nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>"
+    vim.api.nvim_set_keymap(
+      "n",
+      "gl",
+      '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = "single" })<CR>',
+      { noremap = true, silent = true }
+    )
 
-  vim.cmd "nnoremap <silent> gp <cmd>lua require'lsp'.PeekDefinition()<CR>"
-  vim.cmd "nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>"
-  vim.cmd "nnoremap <silent> <C-p> :lua vim.lsp.diagnostic.goto_prev({popup_opts = {border = O.lsp.popup_border}})<CR>"
-  vim.cmd "nnoremap <silent> <C-n> :lua vim.lsp.diagnostic.goto_next({popup_opts = {border = O.lsp.popup_border}})<CR>"
-  vim.cmd "nnoremap <silent> <tab> <cmd>lua vim.lsp.buf.signature_help()<CR>"
-  -- scroll down hover doc or scroll in definition preview
-  -- scroll up hover doc
-  vim.cmd 'command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()'
+    vim.cmd "nnoremap <silent> gp <cmd>lua require'lsp'.PeekDefinition()<CR>"
+    vim.cmd "nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>"
+    vim.cmd "nnoremap <silent> <C-p> :lua vim.lsp.diagnostic.goto_prev({popup_opts = {border = lvim.lsp.popup_border}})<CR>"
+    vim.cmd "nnoremap <silent> <C-n> :lua vim.lsp.diagnostic.goto_next({popup_opts = {border = lvim.lsp.popup_border}})<CR>"
+    -- vim.cmd "nnoremap <silent> <tab> <cmd>lua vim.lsp.buf.signature_help()<CR>"
+    -- scroll down hover doc or scroll in definition preview
+    -- scroll up hover doc
+    vim.cmd 'command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()'
+  end
 end
 
 -- Set Default Prefix.
 -- Note: You can set a prefix per lsp server in the lv-globals.lua file
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = O.lsp.diagnostics.virtual_text,
-  signs = O.lsp.diagnostics.signs,
-  underline = O.lsp.document_highlight,
-})
+function lsp_config.setup_handlers()
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = lvim.lsp.diagnostics.virtual_text,
+    signs = lvim.lsp.diagnostics.signs,
+    underline = lvim.lsp.document_highlight,
+  })
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = O.lsp.popup_border,
-})
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = lvim.lsp.popup_border,
+  })
 
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = O.lsp.popup_border,
-})
+  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    border = lvim.lsp.popup_border,
+  })
+end
 
 -- symbols for autocomplete
 vim.lsp.protocol.CompletionItemKind = {
@@ -112,7 +117,7 @@ autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100) ]]
 -- autocmd FileType java nnoremap ca <Cmd>lua require('jdtls').code_action()<CR>
 
 local function lsp_highlight_document(client)
-  if O.lsp.document_highlight == false then
+  if lvim.lsp.document_highlight == false then
     return -- we don't need further
   end
   -- Set autocommands conditional on server_capabilities
@@ -132,7 +137,6 @@ local function lsp_highlight_document(client)
     )
   end
 end
-local lsp_config = {}
 
 -- Taken from https://www.reddit.com/r/neovim/comments/gyb077/nvimlsp_peek_defination_javascript_ttserver/
 function lsp_config.preview_location(location, context, before_context)
@@ -156,7 +160,7 @@ function lsp_config.preview_location(location, context, before_context)
     false
   )
   local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-  return vim.lsp.util.open_floating_preview(contents, filetype, { border = O.lsp.popup_border })
+  return vim.lsp.util.open_floating_preview(contents, filetype, { border = lvim.lsp.popup_border })
 end
 
 function lsp_config.preview_location_callback(_, method, result)
@@ -200,65 +204,101 @@ function lsp_config.PeekImplementation()
 end
 
 function lsp_config.common_on_attach(client, bufnr)
-  if O.lsp.on_attach_callback then
-    O.lsp.on_attach_callback(client, bufnr)
+  if lvim.lsp.on_attach_callback then
+    lvim.lsp.on_attach_callback(client, bufnr)
   end
   lsp_highlight_document(client)
 end
 
-function lsp_config.tsserver_on_attach(client, _)
-  -- lsp_config.common_on_attach(client, bufnr)
+local function no_formatter_on_attach(client, bufnr)
+  if lvim.lsp.on_attach_callback then
+    lvim.lsp.on_attach_callback(client, bufnr)
+  end
+  lsp_highlight_document(client)
   client.resolved_capabilities.document_formatting = false
-
-  local ts_utils = require "nvim-lsp-ts-utils"
-
-  -- defaults
-  ts_utils.setup {
-    debug = false,
-    disable_commands = false,
-    enable_import_on_completion = false,
-    import_all_timeout = 5000, -- ms
-
-    -- eslint
-    eslint_enable_code_actions = true,
-    eslint_enable_disable_comments = true,
-    -- eslint_bin = O.lang.tsserver.linter,
-    eslint_config_fallback = nil,
-    eslint_enable_diagnostics = true,
-
-    -- formatting
-    enable_formatting = O.lang.tsserver.autoformat,
-    formatter = O.lang.tsserver.formatter.exe,
-    formatter_config_fallback = nil,
-
-    -- parentheses completion
-    complete_parens = false,
-    signature_help_in_parens = false,
-
-    -- update imports on file move
-    update_imports_on_move = false,
-    require_confirmation_on_move = false,
-    watch_dir = nil,
-  }
-
-  -- required to fix code action ranges
-  ts_utils.setup_client(client)
-
-  -- TODO: keymap these?
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>", {silent = true})
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "qq", ":TSLspFixCurrent<CR>", {silent = true})
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", ":TSLspRenameFile<CR>", {silent = true})
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", {silent = true})
 end
 
-require("lv-utils").define_augroups {
+function lsp_config.common_capabilities()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  capabilities.textDocument.completion.completionItem.resolveSupport = {
+    properties = {
+      "documentation",
+      "detail",
+      "additionalTextEdits",
+    },
+  }
+  return capabilities
+end
+
+require("core.autocmds").define_augroups {
   _general_lsp = {
     { "FileType", "lspinfo", "nnoremap <silent> <buffer> q :q<CR>" },
   },
 }
 
--- Use a loop to conveniently both setup defined servers
--- and map buffer local keybindings when the language server attaches
--- local servers = {"pyright", "tsserver"}
--- for _, lsp in ipairs(servers) do nvim_lsp[lsp].setup {on_attach = on_attach} end
+local function is_table(t)
+  return type(t) == "table"
+end
+
+local function is_string(t)
+  return type(t) == "string"
+end
+
+local function has_value(tab, val)
+  for _, value in ipairs(tab) do
+    if value == val then
+      return true
+    end
+  end
+
+  return false
+end
+
+function lsp_config.setup(lang)
+  local lang_server = lvim.lang[lang].lsp
+  local provider = lang_server.provider
+  if require("utils").check_lsp_client_active(provider) then
+    return
+  end
+
+  local overrides = lvim.lsp.override
+
+  if is_table(overrides) then
+    if has_value(overrides, lang) then
+      return
+    end
+  end
+
+  if is_string(overrides) then
+    if overrides == lang then
+      return
+    end
+  end
+  local sources = require("lsp.null-ls").setup(lang)
+
+  for _, source in pairs(sources) do
+    local method = source.method
+    local format_method = "NULL_LS_FORMATTING"
+
+    if is_table(method) then
+      if has_value(method, format_method) then
+        lang_server.setup.on_attach = no_formatter_on_attach
+      end
+    end
+
+    if is_string(method) then
+      if method == format_method then
+        lang_server.setup.on_attach = no_formatter_on_attach
+      end
+    end
+  end
+
+  if provider == "" or provider == nil then
+    return
+  end
+
+  require("lspconfig")[provider].setup(lang_server.setup)
+end
+
 return lsp_config

@@ -124,8 +124,13 @@ cloneconfig() {
 		+PackerSync
 
 	printf "\nCompile Complete\n"
-	rm "$HOME/.config/lvim/lv-config.lua"
-	cp "$HOME/.local/share/lunarvim/lvim/utils/installer/lv-config.example.lua" "$HOME/.config/lvim/lv-config.lua"
+
+	if [ -e "$HOME/.local/share/lunarvim/lvim/init.lua" ]; then
+		echo 'lv-config already present'
+	else
+		cp "$HOME/.local/share/lunarvim/lvim/utils/installer/lv-config.example.lua" "$HOME/.config/lvim/lv-config.lua"
+	fi
+
 }
 
 asktoinstallnode() {
@@ -219,6 +224,15 @@ else
 	cloneconfig "$@"
 	# echo 'export PATH=$HOME/.config/nvim/utils/bin:$PATH' >>~/.zshrc
 	# echo 'export PATH=$HOME/.config/lunarvim/utils/bin:$PATH' >>~/.bashrc
+fi
+
+if [ "$(uname)" != "Darwin" ]; then
+	if [ -e "$HOME/.local/share/applications/lvim.desktop" ]; then
+		echo 'Desktop file already available'
+	else
+		mkdir -p "$HOME/.local/share/applications"
+		cp "$HOME/.local/share/lunarvim/lvim/utils/desktop/lvim.desktop" "$HOME/.local/share/applications/lvim.desktop"
+	fi
 fi
 
 echo "I recommend you also install and activate a font from here: https://github.com/ryanoasis/nerd-fonts"
