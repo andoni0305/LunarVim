@@ -22,7 +22,7 @@ require("settings").load_commands()
 require("core.autocmds").define_augroups(lvim.autocommands)
 
 require "keymappings"
-require("lsp").setup_default_bindings()
+-- require("lsp").setup_default_bindings()
 
 local plugins = require "plugins"
 local plugin_loader = require("plugin-loader").init()
@@ -35,7 +35,7 @@ utils.toggle_autoformat()
 local commands = require "core.commands"
 commands.load(commands.defaults)
 
-require("lsp").setup_handlers()
+require("lsp").config()
 
 local null_status_ok, null_ls = pcall(require, "null-ls")
 if null_status_ok then
