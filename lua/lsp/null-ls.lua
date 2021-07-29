@@ -30,23 +30,6 @@ local function setup_ls(exe, type)
       table.insert(sources, null_ls.builtins[type][exe])
     end
   end
-  table.insert(
-    sources,
-    null_ls.builtins.formatting.prettier.with {
-      filetypes = {
-        "html",
-        "json",
-        "yaml",
-        "markdown",
-        "css",
-        "less",
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-      },
-    }
-  )
 
   null_ls.register { sources = sources }
 end
