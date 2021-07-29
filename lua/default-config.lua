@@ -233,6 +233,25 @@ lvim.lang = {
       },
     },
   },
+  less = {
+    formatter = {
+      exe = "prettier",
+      args = {},
+    },
+    linters = {},
+    lsp = {
+      provider = "cssls",
+      setup = {
+        cmd = {
+          "node",
+          DATA_PATH .. "/lspinstall/css/vscode-css/css-language-features/server/dist/node/cssServerMain.js",
+          "--stdio",
+        },
+        on_attach = common_on_attach,
+        capabilities = common_capabilities,
+      },
+    },
+  },
   d = {
     formatter = {
       exe = "dfmt",
@@ -844,6 +863,7 @@ lvim.lang = {
     filetypes = {
       "html",
       "css",
+      "less",
       "scss",
       "javascript",
       "javascriptreact",
