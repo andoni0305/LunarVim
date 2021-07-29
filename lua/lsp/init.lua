@@ -1,44 +1,20 @@
 local utils = require "utils"
-local lsp_config = {}
+local service = require "lsp.service"
+local lspconfig = require "lspconfig"
+local null_ls = require "lsp.null-ls"
+local M = {}
 
-function lsp_config.config()
+function M.config()
   require("lsp.kind").setup()
   require("lsp.handlers").setup()
   require("lsp.signs").setup()
   require("lsp.keybinds").setup()
 end
 
-local function no_formatter_on_attach(client, bufnr)
-  if lvim.lsp.on_attach_callback then
-    lvim.lsp.on_attach_callback(client, bufnr)
-  end
-  require("lsp.utils").lsp_highlight_document(client)
-  client.resolved_capabilities.document_formatting = false
-end
-
-function lsp_config.common_capabilities()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities.textDocument.completion.completionItem.resolveSupport = {
-    properties = {
-      "documentation",
-      "detail",
-      "additionalTextEdits",
-    },
-  }
-  return capabilities
-end
-
-require("core.autocmds").define_augroups {
-  _general_lsp = {
-    { "FileType", "lspinfo", "nnoremap <silent> <buffer> q :q<CR>" },
-  },
-}
-
-function lsp_config.setup(lang)
+function M.setup(lang)
   local lang_server = lvim.lang[lang].lsp
   local provider = lang_server.provider
-  if require("utils").check_lsp_client_active(provider) then
+  if utils.check_lsp_client_active(provider) then
     return
   end
 
@@ -55,7 +31,7 @@ function lsp_config.setup(lang)
       return
     end
   end
-  local sources = require("lsp.null-ls").setup(lang)
+  local sources = null_ls.setup(lang)
 
   for _, source in pairs(sources) do
     local method = source.method
@@ -63,13 +39,13 @@ function lsp_config.setup(lang)
 
     if utils.is_table(method) then
       if utils.has_value(method, format_method) then
-        lang_server.setup.on_attach = no_formatter_on_attach
+        lang_server.setup.on_attach = service.no_formatter_on_attach
       end
     end
 
     if utils.is_string(method) then
       if method == format_method then
-        lang_server.setup.on_attach = no_formatter_on_attach
+        lang_server.setup.on_attach = service.no_formatter_on_attach
       end
     end
   end
@@ -78,7 +54,7 @@ function lsp_config.setup(lang)
     return
   end
 
-  require("lspconfig")[provider].setup(lang_server.setup)
+  lspconfig[provider].setup(lang_server.setup)
 end
 
-return lsp_config
+return M
