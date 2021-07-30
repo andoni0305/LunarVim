@@ -36,9 +36,9 @@ lvim.autocommands = {
     -- { "VimLeavePre", "*", "set title set titleold=" },
   },
   _filetypechanges = {
-    { "BufWinEnter", ".tf", "setlocal filetype=hcl" },
-    { "BufRead", "*.tf", "setlocal filetype=hcl" },
-    { "BufNewFile", "*.tf", "setlocal filetype=hcl" },
+    { "BufWinEnter", ".tf", "setlocal filetype=terraform" },
+    { "BufRead", "*.tf", "setlocal filetype=terraform" },
+    { "BufNewFile", "*.tf", "setlocal filetype=terraform" },
     { "BufWinEnter", ".zsh", "setlocal filetype=sh" },
     { "BufRead", "*.zsh", "setlocal filetype=sh" },
     { "BufNewFile", "*.zsh", "setlocal filetype=sh" },
@@ -68,6 +68,9 @@ lvim.autocommands = {
   _packer_compile = {
     -- will cause split windows to be resized evenly if main window is resized
     { "BufWritePost", "plugins.lua", "PackerCompile" },
+  },
+  _general_lsp = {
+    { "FileType", "lspinfo", "nnoremap <silent> <buffer> q :q<CR>" },
   },
 
   -- _fterm_lazygit = {
