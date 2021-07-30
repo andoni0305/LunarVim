@@ -219,7 +219,7 @@ lvim.lang = {
       exe = "prettier",
       args = {},
     },
-    linters = {},
+    linters = { "stylelint" },
     lsp = {
       provider = "cssls",
       setup = {
@@ -238,7 +238,7 @@ lvim.lang = {
       exe = "prettier",
       args = {},
     },
-    linters = {},
+    linters = { "stylelint" },
     lsp = {
       provider = "cssls",
       setup = {
