@@ -306,35 +306,8 @@ lvim.lang = {
   less = {
     formatters = {
       {
-        exe = "prettier",
-        args = {},
-      },
-    },
-    linters = {
-      {
-        exe = "stylelint",
-        args = {},
-      },
-    },
-    lsp = {
-      provider = "cssls",
-      setup = {
-        cmd = {
-          "node",
-          DATA_PATH .. "/lspinstall/css/vscode-css/css-language-features/server/dist/node/cssServerMain.js",
-          "--stdio",
-        },
-        on_attach = common_on_attach,
-        on_init = common_on_init,
-        capabilities = common_capabilities,
-      },
-    },
-  },
-  less = {
-    formatters = {
-      {
         -- @usage can be prettier or prettierd
-        exe = "",
+        exe = "prettier",
         args = {},
       },
     },
