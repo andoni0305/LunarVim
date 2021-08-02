@@ -113,7 +113,8 @@ cloneconfig() {
 	esac
 	mkdir -p "$HOME/.config/lvim"
 	sudo cp "$HOME/.local/share/lunarvim/lvim/utils/bin/lvim" "/usr/local/bin"
-	cp "$HOME/.local/share/lunarvim/lvim/utils/installer/lv-config.example-no-ts.lua" "$HOME/.config/lvim/lv-config.lua"
+	sudo chmod a+rx /usr/local/bin/lvim
+	cp "$HOME/.local/share/lunarvim/lvim/utils/installer/config.example-no-ts.lua" "$HOME/.config/lvim/config.lua"
 
 	nvim -u ~/.local/share/lunarvim/lvim/init.lua --cmd "set runtimepath+=~/.local/share/lunarvim/lvim" --headless \
 		+'autocmd User PackerComplete sleep 100m | qall' \
@@ -126,9 +127,9 @@ cloneconfig() {
 	printf "\nCompile Complete\n"
 
 	if [ -e "$HOME/.local/share/lunarvim/lvim/init.lua" ]; then
-		echo 'lv-config already present'
+		echo 'config.lua already present'
 	else
-		cp "$HOME/.local/share/lunarvim/lvim/utils/installer/lv-config.example.lua" "$HOME/.config/lvim/lv-config.lua"
+		cp "$HOME/.local/share/lunarvim/lvim/utils/installer/config.example.lua" "$HOME/.config/lvim/config.lua"
 	fi
 
 }

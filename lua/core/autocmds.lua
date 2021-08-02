@@ -27,7 +27,7 @@ lvim.autocommands = {
       "*",
       "setlocal formatoptions-=c formatoptions-=r formatoptions-=o",
     },
-    { "BufWritePost", "lv-config.lua", "lua require('utils').reload_lv_config()" },
+    { "BufWritePost", USER_CONFIG_PATH, "lua require('utils').reload_lv_config()" },
     {
       "FileType",
       "qf",
@@ -54,9 +54,6 @@ lvim.autocommands = {
   _markdown = {
     { "FileType", "markdown", "setlocal wrap" },
     { "FileType", "markdown", "setlocal spell" },
-  },
-  _tab_bindings = {
-    { "FileType", "*", "lua require'core.compe'.set_tab_keybindings()" },
   },
   _buffer_bindings = {
     { "FileType", "floaterm", "nnoremap <silent> <buffer> q :q<CR>" },

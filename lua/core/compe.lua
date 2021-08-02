@@ -12,7 +12,15 @@ M.config = function()
     max_abbr_width = 100,
     max_kind_width = 100,
     max_menu_width = 100,
-    documentation = true,
+    documentation = {
+      border = "single",
+      winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
+      max_width = 120,
+      min_width = 60,
+      max_height = math.floor(vim.o.lines * 0.3),
+      min_height = 1,
+    },
+    -- documentation = true,
 
     source = {
       path = { kind = "   (Path)" },
@@ -30,8 +38,6 @@ M.config = function()
       emoji = { kind = " ﲃ  (Emoji)", filetypes = { "markdown", "text" } },
       -- for emoji press : (idk if that in compe tho)
     },
-    -- FileTypes in this list won't trigger auto-complete when TAB is pressed.  Hitting TAB will insert a tab character
-    exclude_filetypes = { "md", "markdown", "mdown", "mkd", "mkdn", "mdwn", "text", "txt" },
   }
 end
 
@@ -57,6 +63,12 @@ M.setup = function()
       return false
     end
   end
+
+  local remap = vim.api.nvim_set_keymap
+
+  remap("i", "<Tab>", 'pumvisible() ? "<C-n>" : "<Tab>"', { silent = true, noremap = true, expr = true })
+
+  remap("i", "<S-Tab>", 'pumvisible() ? "<C-p>" : "<S-Tab>"', { silent = true, noremap = true, expr = true })
 
   -- Use (s-)tab to:
   --- move to prev/next item in completion menuone
@@ -90,22 +102,4 @@ M.setup = function()
   vim.api.nvim_set_keymap("i", "<C-d>", "compe#scroll({ 'delta': -4 })", { noremap = true, silent = true, expr = true })
 end
 
-local is_excluded = function(file_type)
-  for _, type in ipairs(lvim.builtin.compe.exclude_filetypes) do
-    if type == file_type then
-      return true
-    end
-  end
-  return false
-end
-
-M.set_tab_keybindings = function()
-  local file_type = vim.fn.expand "%:e"
-  if is_excluded(file_type) == false then
-    vim.api.nvim_buf_set_keymap(0, "i", "<Tab>", "v:lua.tab_complete()", { expr = true })
-    vim.api.nvim_buf_set_keymap(0, "s", "<Tab>", "v:lua.tab_complete()", { expr = true })
-    vim.api.nvim_buf_set_keymap(0, "i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
-    vim.api.nvim_buf_set_keymap(0, "s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
-  end
-end
 return M
