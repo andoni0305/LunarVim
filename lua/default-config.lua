@@ -282,11 +282,14 @@ lvim.lang = {
     formatters = {
       {
         -- @usage can be prettier or prettierd
-        exe = "",
+        exe = "prettier",
         args = {},
       },
     },
-    linters = { "stylelint" },
+    linters = { {
+      exe = "stylelint",
+      args = {},
+    } },
     lsp = {
       provider = "cssls",
       setup = {
@@ -301,11 +304,18 @@ lvim.lang = {
     },
   },
   less = {
-    formatter = {
-      exe = "prettier",
-      args = {},
+    formatters = {
+      {
+        exe = "prettier",
+        args = {},
+      },
     },
-    linters = { "stylelint" },
+    linters = {
+      {
+        exe = "stylelint",
+        args = {},
+      },
+    },
     lsp = {
       provider = "cssls",
       setup = {
@@ -676,11 +686,16 @@ lvim.lang = {
     formatters = {
       {
         -- @usage can be stylua or lua_format
-        exe = "",
+        exe = "stylua",
         args = {},
       },
     },
-    linters = {},
+    linters = {
+      {
+        exe = "luacheck",
+        args = {},
+      },
+    },
     lsp = {
       provider = "sumneko_lua",
       setup = {
@@ -767,7 +782,7 @@ lvim.lang = {
     formatters = {
       {
         -- @usage can be phpcbf
-        exe = "",
+        exe = "phpcbf",
         args = {},
       },
     },
@@ -811,12 +826,17 @@ lvim.lang = {
     -- @usage can be prettier or prettier_d_slim or prettierd
     formatters = {
       {
-        exe = "",
+        exe = "prettier",
         args = {},
       },
     },
     -- @usage can be {"eslint"} or {"eslint_d"}
-    linters = {},
+    linters = {
+      {
+        exe = "eslint_d",
+        args = {},
+      },
+    },
     lsp = {
       provider = "tsserver",
       setup = {
@@ -835,12 +855,17 @@ lvim.lang = {
     formatters = {
       {
         -- @usage can be prettier or prettier_d_slim or prettierd
-        exe = "",
+        exe = "prettier",
         args = {},
       },
     },
     -- @usage can be {"eslint"} or {"eslint_d"}
-    linters = {},
+    linters = {
+      {
+        exe = "eslint_d",
+        args = {},
+      },
+    },
     lsp = {
       provider = "tsserver",
       setup = {
@@ -968,11 +993,16 @@ lvim.lang = {
     formatters = {
       {
         -- @usage can be shfmt
-        exe = "",
+        exe = "shfmt",
         args = {},
       },
     },
-    linters = {},
+    linters = {
+      {
+        exe = "shellcheck",
+        args = {},
+      },
+    },
     lsp = {
       provider = "bashls",
       setup = {
@@ -1086,12 +1116,17 @@ lvim.lang = {
     formatters = {
       {
         -- @usage can be prettier or prettierd or prettier_d_slim
-        exe = "",
+        exe = "prettier",
         args = {},
       },
       -- @usage can be {"eslint"} or {"eslint_d"}
     },
-    linters = {},
+    linters = {
+      {
+        exe = "eslint_d",
+        args = {},
+      },
+    },
     lsp = {
       provider = "tsserver",
       setup = {
@@ -1110,12 +1145,17 @@ lvim.lang = {
     formatters = {
       {
         -- @usage can be prettier or prettierd or prettier_d_slim
-        exe = "",
+        exe = "prettier",
         args = {},
       },
     },
     -- @usage can be {"eslint"} or {"eslint_d"}
-    linters = {},
+    linters = {
+      {
+        exe = "eslint_d",
+        args = {},
+      },
+    },
     lsp = {
       provider = "tsserver",
       setup = {
@@ -1178,7 +1218,7 @@ lvim.lang = {
     formatters = {
       {
         -- @usage can be prettier or prettierd
-        exe = "",
+        exe = "prettier",
         args = {},
       },
     },
