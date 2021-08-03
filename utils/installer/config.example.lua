@@ -15,23 +15,16 @@ lvim.lint_on_save = true
 lvim.colorscheme = "spacegray"
 -- keymappings
 lvim.leader = "space"
--- overwrite the key-mappings provided by LunarVim for any mode, or leave it empty to keep them
+-- overwrite/augment the key-mappings provided by LunarVim for any mode, or leave empty to keep the defaults.
 -- lvim.keys.normal_mode = {
---   Page down/up
---   {'[d', '<PageUp>'},
---   {']d', '<PageDown>'},
+--   -- Page down/up
+--   ["[d"] = { "<PageUp>" },
+--   ["]d"] = { "<PageDown>" },
 --
---   Navigate buffers
---   {'<Tab>', ':bnext<CR>'},
---   {'<S-Tab>', ':bprevious<CR>'},
+--   -- Navigate buffers
+--   ["<Tab>"] = { ":bnext<CR>" },
+--   ["<S-Tab>"] = { ":bprevious<CR>" },
 -- }
--- if you just want to augment the existing ones then use the utility function
--- require("utils").add_keymap_insert_mode({ silent = true }, {
--- { "<C-s>", ":w<cr>" },
--- { "<C-c>", "<ESC>" },
--- })
--- you can also use the native vim way directly
--- vim.api.nvim_set_keymap("i", "<C-Space>", "compe#complete()", { noremap = true, silent = true, expr = true })
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -56,7 +49,20 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
--- python
+-- set a formatter if you want to override the default lsp one (if it exists)
+-- lvim.lang.python.formatters = {
+--   {
+--     exe = "black",
+--     args = {}
+--   }
+-- }
+-- set an additional linter
+-- lvim.lang.python.linters = {
+--   {
+--     exe = "flake8",
+--     args = {}
+--   }
+-- }
 
 -- Additional Plugins
 -- lvim.plugins = {
