@@ -192,14 +192,6 @@ M.config = function()
         name = "Treesitter",
         i = { ":TSConfigInfo<cr>", "Info" },
       },
-      r = {
-        name = "Replace",
-        f = {
-          "<cmd>lua require('spectre').open_file_search()<cr>",
-          "Current File",
-        },
-        p = { "<cmd>lua require('spectre').open()<cr>", "Project" },
-      },
     },
   }
 end
