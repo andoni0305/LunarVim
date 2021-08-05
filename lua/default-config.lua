@@ -3,6 +3,7 @@ DATA_PATH = vim.fn.stdpath "data"
 CACHE_PATH = vim.fn.stdpath "cache"
 TERMINAL = vim.fn.expand "$TERMINAL"
 USER = vim.fn.expand "$USER"
+vim.cmd [[ set spellfile=~/.config/lvim/spell/en.utf-8.add ]]
 
 lvim = {
   leader = "space",
@@ -1267,7 +1268,7 @@ lvim.lang = {
     },
   },
   gdscript = {
-    formatter = {},
+    formatters = {},
     linters = {},
     lsp = {
       provider = "gdscript",
@@ -1277,6 +1278,19 @@ lvim.lang = {
           "localhost",
           "6008",
         },
+        on_attach = common_on_attach,
+        on_init = common_on_init,
+        capabilities = common_capabilities,
+      },
+    },
+  },
+  ps1 = {
+    formatters = {},
+    linters = {},
+    lsp = {
+      provider = "powershell_es",
+      setup = {
+        bundle_path = "",
         on_attach = common_on_attach,
         on_init = common_on_init,
         capabilities = common_capabilities,
