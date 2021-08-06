@@ -158,13 +158,17 @@ M.config = function()
           t = { "<cmd>lua require('lsp.peek').Peek('typeDefinition')<cr>", "Type Definition" },
           i = { "<cmd>lua require('lsp.peek').Peek('implementation')<cr>", "Implementation" },
         },
-        q = { "<cmd>Telescope quickfix<cr>", "Quickfix" },
+        q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
         S = {
           "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
           "Workspace Symbols",
         },
+      },
+      L = {
+        name = "+LunarVim",
+        k = { "<cmd>lua require('keymappings').print()<cr>", "View LunarVim's default keymappings" },
       },
 
       s = {
@@ -187,14 +191,6 @@ M.config = function()
       T = {
         name = "Treesitter",
         i = { ":TSConfigInfo<cr>", "Info" },
-      },
-      r = {
-        name = "Replace",
-        f = {
-          "<cmd>lua require('spectre').open_file_search()<cr>",
-          "Current File",
-        },
-        p = { "<cmd>lua require('spectre').open()<cr>", "Project" },
       },
     },
   }

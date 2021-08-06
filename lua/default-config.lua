@@ -3,6 +3,7 @@ DATA_PATH = vim.fn.stdpath "data"
 CACHE_PATH = vim.fn.stdpath "cache"
 TERMINAL = vim.fn.expand "$TERMINAL"
 USER = vim.fn.expand "$USER"
+vim.cmd [[ set spellfile=~/.config/lvim/spell/en.utf-8.add ]]
 
 lvim = {
   leader = "space",
@@ -85,6 +86,8 @@ lvim = {
     popup_border = "single",
     on_attach_callback = nil,
     on_init_callback = nil,
+    ---@usage query the project directory from the language server and use it to set the CWD
+    smart_cwd = true,
   },
 
   plugins = {
@@ -943,6 +946,19 @@ lvim.lang = {
         on_attach = common_on_attach,
         on_init = common_on_init,
         capabilities = common_capabilities,
+        filetypes = { "ruby" },
+        init_options = {
+          formatting = true,
+        },
+        root_dir = function(fname)
+          local util = require("lspconfig").util
+          return util.root_pattern("Gemfile", ".git")(fname)
+        end,
+        settings = {
+          solargraph = {
+            diagnostics = true,
+          },
+        },
       },
     },
   },
@@ -1252,7 +1268,7 @@ lvim.lang = {
     },
   },
   gdscript = {
-    formatter = {},
+    formatters = {},
     linters = {},
     lsp = {
       provider = "gdscript",
@@ -1268,8 +1284,22 @@ lvim.lang = {
       },
     },
   },
+  ps1 = {
+    formatters = {},
+    linters = {},
+    lsp = {
+      provider = "powershell_es",
+      setup = {
+        bundle_path = "",
+        on_attach = common_on_attach,
+        on_init = common_on_init,
+        capabilities = common_capabilities,
+      },
+    },
+  },
 }
 
+require("keymappings").config()
 require("core.which-key").config()
 require "core.status_colors"
 require("core.gitsigns").config()
@@ -1280,3 +1310,4 @@ require("core.terminal").config()
 require("core.telescope").config()
 require("core.treesitter").config()
 require("core.nvimtree").config()
+require("core.rooter").config()

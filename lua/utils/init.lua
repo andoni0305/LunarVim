@@ -42,15 +42,6 @@ local function r_inspect_settings(structure, limit, separator)
   return limit - 1
 end
 
-function utils.has_value(tab, val)
-  for _, value in ipairs(tab) do
-    if value == val then
-      return true
-    end
-  end
-  return false
-end
-
 function utils.generate_settings()
   -- Opens a file in append mode
   local file = io.open("lv-settings.lua", "w")
@@ -98,6 +89,7 @@ function utils.reload_lv_config()
   plugin_loader:load { plugins, lvim.plugins }
   vim.cmd ":PackerCompile"
   vim.cmd ":PackerInstall"
+  require("keymappings").setup()
   -- vim.cmd ":PackerClean"
 end
 
@@ -109,6 +101,16 @@ function utils.check_lsp_client_active(name)
     end
   end
   return false
+end
+
+function utils.get_active_client_by_ft(filetype)
+  local clients = vim.lsp.get_active_clients()
+  for _, client in pairs(clients) do
+    if client.name == lvim.lang[filetype].lsp.provider then
+      return client
+    end
+  end
+  return nil
 end
 
 --- Extends a list-like table with the unique values of another list-like table.

@@ -125,7 +125,7 @@ cloneconfig() {
 		cp -r "$(pwd)" ~/.local/share/lunarvim/lvim
 		;;
 	*)
-		git clone --branch "$LVBRANCH" https://github.com/ChristianChiarulli/lunarvim.git ~/.local/share/lunarvim/lvim
+		git clone --branch "$LVBRANCH" https://github.com/lunarvim/lunarvim.git ~/.local/share/lunarvim/lvim
 		;;
 	esac
 	mkdir -p "$HOME/.config/lvim"
@@ -156,6 +156,11 @@ asktoinstallnode() {
 	printf "Would you like to install node now (y/n)? "
 	read -r answer
 	[ "$answer" != "${answer#[Yy]}" ] && installnode
+}
+
+asktoinstallgit() {
+	echo "git not found, please install git"
+	exit
 }
 
 asktoinstallpip() {
@@ -226,6 +231,9 @@ esac
 
 # move old lvim directory if it exists
 [ -d "$HOME/.local/share/lunarvim" ] && moveoldlvim
+
+# install node and neovim support
+(command -v git >/dev/null && echo "git installed, moving on...") || asktoinstallgit
 
 # install pip
 (command -v pip3 >/dev/null && echo "pip installed, moving on...") || asktoinstallpip
