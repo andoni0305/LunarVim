@@ -16,7 +16,7 @@ local function r_inspect_settings(structure, limit, separator)
 
   if ts == "table" then
     for k, v in pairs(structure) do
-      -- replace non alpha keys wih ["key"]
+      -- replace non alpha keys with ["key"]
       if tostring(k):match "[^%a_]" then
         k = '["' .. tostring(k) .. '"]'
       end
@@ -113,30 +113,32 @@ function utils.get_active_client_by_ft(filetype)
   return nil
 end
 
---- Extends a list-like table with the unique values of another list-like table.
----
---- NOTE: This mutates dst!
----
---@see |vim.tbl_extend()|
----
---@param dst list which will be modified and appended to.
---@param src list from which values will be inserted.
---@param start Start index on src. defaults to 1
---@param finish Final index on src. defaults to #src
---@returns dst
-function utils.list_extend_unique(dst, src, start, finish)
-  vim.validate {
-    dst = { dst, "t" },
-    src = { src, "t" },
-    start = { start, "n", true },
-    finish = { finish, "n", true },
-  }
-  for i = start or 1, finish or #src do
-    if not vim.tbl_contains(dst, src[i]) then
-      table.insert(dst, src[i])
+-- TODO: consider porting this logic to null-ls instead
+function utils.get_supported_linters_by_filetype(filetype)
+  local null_ls = require "null-ls"
+  local matches = {}
+  for _, provider in pairs(null_ls.builtins.diagnostics) do
+    if vim.tbl_contains(provider.filetypes, filetype) then
+      local provider_name = provider.name
+
+      table.insert(matches, provider_name)
     end
   end
-  return dst
+
+  return matches
+end
+
+function utils.get_supported_formatters_by_filetype(filetype)
+  local null_ls = require "null-ls"
+  local matches = {}
+  for _, provider in pairs(null_ls.builtins.formatting) do
+    if provider.filetypes and vim.tbl_contains(provider.filetypes, filetype) then
+      -- table.insert(matches, { provider.name, ft })
+      table.insert(matches, provider.name)
+    end
+  end
+
+  return matches
 end
 
 function utils.unrequire(m)
