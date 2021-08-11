@@ -1,4 +1,6 @@
 local utils = {}
+local Log = require "core.log"
+local uv = vim.loop
 
 -- recursive Print (structure, limit, separator)
 local function r_inspect_settings(structure, limit, separator)
@@ -68,6 +70,9 @@ function utils.toggle_autoformat()
         },
       },
     }
+    if Log:get_default() then
+      Log:get_default().info "Format on save active"
+    end
   end
 
   if not lvim.format_on_save then
@@ -76,12 +81,16 @@ function utils.toggle_autoformat()
         :autocmd! autoformat
       endif
     ]]
+    if Log:get_default() then
+      Log:get_default().info "Format on save off"
+    end
   end
 end
 
 function utils.reload_lv_config()
   vim.cmd "source ~/.local/share/lunarvim/lvim/lua/settings.lua"
   vim.cmd("source " .. USER_CONFIG_PATH)
+  require("keymappings").setup() -- this should be done before loading the plugins
   vim.cmd "source ~/.local/share/lunarvim/lvim/lua/plugins.lua"
   local plugins = require "plugins"
   local plugin_loader = require("plugin-loader").init()
@@ -89,8 +98,8 @@ function utils.reload_lv_config()
   plugin_loader:load { plugins, lvim.plugins }
   vim.cmd ":PackerCompile"
   vim.cmd ":PackerInstall"
-  require("keymappings").setup()
   -- vim.cmd ":PackerClean"
+  Log:get_default().info "Reloaded configuration"
 end
 
 function utils.check_lsp_client_active(name)
@@ -157,10 +166,12 @@ function utils.gsub_args(args)
   return args
 end
 
-function utils.lvim_log(msg)
-  if lvim.debug then
-    vim.notify(msg, vim.log.levels.DEBUG)
-  end
+--- Checks whether a given path exists and is a file.
+--@param filename (string) path to check
+--@returns (bool)
+function utils.is_file(filename)
+  local stat = uv.fs_stat(filename)
+  return stat and stat.type == "file" or false
 end
 
 return utils

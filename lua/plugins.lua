@@ -18,8 +18,6 @@ return {
 
   { "nvim-lua/popup.nvim" },
   { "nvim-lua/plenary.nvim" },
-  { "tjdevries/astronauta.nvim" },
-
   -- Telescope
   {
     "nvim-telescope/telescope.nvim",
@@ -135,6 +133,8 @@ return {
     config = function()
       local status_ok, nvim_comment = pcall(require, "nvim_comment")
       if not status_ok then
+        local Log = require "core.log"
+        Log:get_default().error "Failed to load nvim-comment"
         return
       end
       nvim_comment.setup()
