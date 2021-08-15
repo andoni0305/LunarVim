@@ -297,10 +297,10 @@ lvim.lang = {
   },
   css = {
     formatters = {
-      -- {
-      --   exe = "prettier",
-      --   args = {},
-      -- },
+      {
+        exe = "prettier",
+        args = {},
+      },
       -- {
       --   exe = "prettierd",
       --   args = {},
@@ -325,10 +325,10 @@ lvim.lang = {
   },
   less = {
     formatters = {
-      -- {
-      --   exe = "prettier",
-      --   args = {},
-      -- },
+      {
+        exe = "prettier",
+        args = {},
+      },
       -- {
       --   exe = "prettierd",
       --   args = {},
@@ -601,10 +601,10 @@ lvim.lang = {
       --   exe = "json_tool",
       --   args = {},
       -- },
-      -- {
-      --   exe = "prettier",
-      --   args = {},
-      -- },
+      {
+        exe = "prettier",
+        args = {},
+      },
       -- {
       --   exe = "prettierd",
       --   args = {},
@@ -694,10 +694,10 @@ lvim.lang = {
   },
   lua = {
     formatters = {
-      -- {
-      --   exe = "stylua",
-      --   args = {},
-      -- },
+      {
+        exe = "stylua",
+        args = {},
+      },
       -- {
       --   exe = "lua_format",
       --   args = {},
@@ -828,10 +828,10 @@ lvim.lang = {
   },
   javascript = {
     formatters = {
-      -- {
-      --   exe = "prettier",
-      --   args = {},
-      -- },
+      {
+        exe = "prettier",
+        args = {},
+      },
       -- {
       --   exe = "prettier_d_slim",
       --   args = {},
@@ -864,10 +864,10 @@ lvim.lang = {
   },
   javascriptreact = {
     formatters = {
-      -- {
-      --   exe = "prettier",
-      --   args = {},
-      -- },
+      {
+        exe = "prettier",
+        args = {},
+      },
       -- {
       --   exe = "prettier_d_slim",
       --   args = {},
@@ -1119,10 +1119,10 @@ lvim.lang = {
   },
   typescript = {
     formatters = {
-      -- {
-      --   exe = "prettier",
-      --   args = {},
-      -- },
+      {
+        exe = "prettier",
+        args = {},
+      },
       -- {
       --   exe = "prettierd",
       --   args = {},
@@ -1154,10 +1154,10 @@ lvim.lang = {
   },
   typescriptreact = {
     formatters = {
-      -- {
-      --   exe = "prettier",
-      --   args = {},
-      -- },
+      {
+        exe = "prettier",
+        args = {},
+      },
       -- {
       --   exe = "prettierd",
       --   args = {},
@@ -1234,10 +1234,10 @@ lvim.lang = {
   },
   yaml = {
     formatters = {
-      -- {
-      --   exe = "prettier",
-      --   args = {},
-      -- },
+      {
+        exe = "prettier",
+        args = {},
+      },
       -- {
       --   exe = "prettierd",
       --   args = {},
