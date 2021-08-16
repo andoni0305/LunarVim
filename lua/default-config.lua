@@ -104,6 +104,9 @@ lvim = {
     on_init_callback = nil,
     ---@usage query the project directory from the language server and use it to set the CWD
     smart_cwd = true,
+    null_ls = {
+      setup = {},
+    },
   },
 
   plugins = {
@@ -287,7 +290,6 @@ lvim.lang = {
       setup = {
         cmd = {
           DATA_PATH .. "/lspinstall/clojure/clojure-lsp",
-          "--stdio",
         },
         on_attach = common_on_attach,
         on_init = common_on_init,
