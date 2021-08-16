@@ -703,6 +703,7 @@ lvim.lang = {
       --   args = {},
       -- },
     },
+    linters = {},
     lsp = {
       provider = "sumneko_lua",
       setup = {
@@ -803,7 +804,7 @@ lvim.lang = {
         settings = {
           intelephense = {
             environment = {
-              phpVersion = "7.4",
+              phpVersion = "8",
             },
           },
         },
