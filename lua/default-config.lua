@@ -1018,10 +1018,16 @@ lvim.lang = {
   },
   sh = {
     formatters = {
-      -- {
-      --   exe = "shfmt",
-      --   args = {},
-      -- },
+      {
+        exe = "shfmt",
+        args = {},
+      },
+    },
+    linters = {
+      {
+        exe = "shellcheck",
+        args = {},
+      },
     },
     lsp = {
       provider = "bashls",
