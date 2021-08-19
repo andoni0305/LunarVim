@@ -1,7 +1,7 @@
 local M = {}
 M.config = function()
   lvim.builtin.compe = {
-    enabled = true,
+    active = true,
     autocomplete = true,
     debug = false,
     min_length = 1,
@@ -42,8 +42,8 @@ M.config = function()
     keymap = {
       values = {
         insert_mode = {
-          ["<Tab>"] = { 'pumvisible() ? "<C-n>" : "<Tab>"', { silent = true, noremap = true, expr = true } },
-          ["<S-Tab>"] = { 'pumvisible() ? "<C-p>" : "<S-Tab>"', { silent = true, noremap = true, expr = true } },
+          -- ["<Tab>"] = { 'pumvisible() ? "<C-n>" : "<Tab>"', { silent = true, noremap = true, expr = true } },
+          -- ["<S-Tab>"] = { 'pumvisible() ? "<C-p>" : "<S-Tab>"', { silent = true, noremap = true, expr = true } },
           ["<C-Space>"] = { "compe#complete()", { silent = true, noremap = true, expr = true } },
           ["<C-e>"] = { "compe#close('<C-e>')", { silent = true, noremap = true, expr = true } },
           ["<C-f>"] = { "compe#scroll({ 'delta': +4 })", { silent = true, noremap = true, expr = true } },
@@ -60,10 +60,7 @@ end
 M.setup = function()
   vim.g.vsnip_snippet_dir = lvim.vsnip_dir
 
-  local status_ok, compe = pcall(require, "compe")
-  if not status_ok then
-    return
-  end
+  local compe = require "compe"
 
   compe.setup(lvim.builtin.compe)
 
@@ -80,18 +77,31 @@ M.setup = function()
     end
   end
 
+  local is_emmet_active = function()
+    local clients = vim.lsp.buf_get_clients()
+
+    for _, client in pairs(clients) do
+      if client.name == "emmet_ls" then
+        return true
+      end
+    end
+    return false
+  end
+
   -- Use (s-)tab to:
   --- move to prev/next item in completion menuone
   --- jump to prev/next snippet's placeholder
   _G.tab_complete = function()
     if vim.fn.pumvisible() == 1 then
       return t "<C-n>"
-    elseif vim.fn.call("vsnip#available", { 1 }) == 1 then
-      return t "<Plug>(vsnip-expand-or-jump)"
+    elseif vim.fn.call("vsnip#jumpable", { 1 }) == 1 then
+      return t "<Plug>(vsnip-jump-next)"
     elseif check_back_space() then
       return t "<Tab>"
-    else
+    elseif is_emmet_active() then
       return vim.fn["compe#complete"]()
+    else
+      return t "<Tab>"
     end
   end
 
@@ -107,6 +117,11 @@ M.setup = function()
 
   local keymap = require "keymappings"
   keymap.load(lvim.builtin.compe.keymap.values, lvim.builtin.compe.keymap.opts)
+
+  vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
+  vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
+  vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
+  vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
 end
 
 return M

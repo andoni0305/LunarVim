@@ -1,4 +1,6 @@
 local utils = {}
+local Log = require "core.log"
+local uv = vim.loop
 
 -- recursive Print (structure, limit, separator)
 local function r_inspect_settings(structure, limit, separator)
@@ -16,7 +18,7 @@ local function r_inspect_settings(structure, limit, separator)
 
   if ts == "table" then
     for k, v in pairs(structure) do
-      -- replace non alpha keys wih ["key"]
+      -- replace non alpha keys with ["key"]
       if tostring(k):match "[^%a_]" then
         k = '["' .. tostring(k) .. '"]'
       end
@@ -68,6 +70,9 @@ function utils.toggle_autoformat()
         },
       },
     }
+    if Log:get_default() then
+      Log:get_default().info "Format on save active"
+    end
   end
 
   if not lvim.format_on_save then
@@ -76,12 +81,16 @@ function utils.toggle_autoformat()
         :autocmd! autoformat
       endif
     ]]
+    if Log:get_default() then
+      Log:get_default().info "Format on save off"
+    end
   end
 end
 
 function utils.reload_lv_config()
   vim.cmd "source ~/.local/share/lunarvim/lvim/lua/settings.lua"
   vim.cmd("source " .. USER_CONFIG_PATH)
+  require("keymappings").setup() -- this should be done before loading the plugins
   vim.cmd "source ~/.local/share/lunarvim/lvim/lua/plugins.lua"
   local plugins = require "plugins"
   local plugin_loader = require("plugin-loader").init()
@@ -89,54 +98,11 @@ function utils.reload_lv_config()
   plugin_loader:load { plugins, lvim.plugins }
   vim.cmd ":PackerCompile"
   vim.cmd ":PackerInstall"
-  require("keymappings").setup()
   -- vim.cmd ":PackerClean"
-end
+  local null_ls = require "lsp.null-ls"
+  null_ls.setup(vim.bo.filetype, { force_reload = true })
 
-function utils.check_lsp_client_active(name)
-  local clients = vim.lsp.get_active_clients()
-  for _, client in pairs(clients) do
-    if client.name == name then
-      return true
-    end
-  end
-  return false
-end
-
-function utils.get_active_client_by_ft(filetype)
-  local clients = vim.lsp.get_active_clients()
-  for _, client in pairs(clients) do
-    if client.name == lvim.lang[filetype].lsp.provider then
-      return client
-    end
-  end
-  return nil
-end
-
---- Extends a list-like table with the unique values of another list-like table.
----
---- NOTE: This mutates dst!
----
---@see |vim.tbl_extend()|
----
---@param dst list which will be modified and appended to.
---@param src list from which values will be inserted.
---@param start Start index on src. defaults to 1
---@param finish Final index on src. defaults to #src
---@returns dst
-function utils.list_extend_unique(dst, src, start, finish)
-  vim.validate {
-    dst = { dst, "t" },
-    src = { src, "t" },
-    start = { start, "n", true },
-    finish = { finish, "n", true },
-  }
-  for i = start or 1, finish or #src do
-    if not vim.tbl_contains(dst, src[i]) then
-      table.insert(dst, src[i])
-    end
-  end
-  return dst
+  Log:get_default().info "Reloaded configuration"
 end
 
 function utils.unrequire(m)
@@ -155,10 +121,12 @@ function utils.gsub_args(args)
   return args
 end
 
-function utils.lvim_log(msg)
-  if lvim.debug then
-    vim.notify(msg, vim.log.levels.DEBUG)
-  end
+--- Checks whether a given path exists and is a file.
+--@param filename (string) path to check
+--@returns (bool)
+function utils.is_file(filename)
+  local stat = uv.fs_stat(filename)
+  return stat and stat.type == "file" or false
 end
 
 return utils

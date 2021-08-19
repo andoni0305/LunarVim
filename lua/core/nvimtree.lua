@@ -1,7 +1,9 @@
 local M = {}
+local Log = require "core.log"
 --
 M.config = function()
   lvim.builtin.nvimtree = {
+    active = true,
     side = "left",
     width = 30,
     show_icons = {
@@ -49,12 +51,19 @@ end
 M.setup = function()
   local status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
   if not status_ok then
+    Log:get_default().error "Failed to load nvim-tree.config"
     return
   end
   local g = vim.g
 
   for opt, val in pairs(lvim.builtin.nvimtree) do
     g["nvim_tree_" .. opt] = val
+  end
+
+  -- Implicitly update nvim-tree when project module is active
+  if lvim.builtin.project.active then
+    vim.g.nvim_tree_update_cwd = 1
+    vim.g.nvim_tree_respect_buf_cwd = 1
   end
 
   local tree_cb = nvim_tree_config.nvim_tree_callback
@@ -64,6 +73,7 @@ M.setup = function()
       { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
       { key = "h", cb = tree_cb "close_node" },
       { key = "v", cb = tree_cb "vsplit" },
+      { key = "q", cb = ":lua require('core.nvimtree').toggle_tree()<cr>" },
     }
   end
 end

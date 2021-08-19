@@ -42,6 +42,10 @@ LVBRANCH=rolling bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunar
 * If you want to keep launching LunarVim with the `nvim` command, add an alias entry to your shell's config file:  `alias nvim=lvim`.  To temporarily revert to the default `nvim` prefix it with a backslash `\nvim`.
 * Many options formerly available in `config.lua` have been renamed.  For details [look here](https://github.com/lunarvim/LunarVim/wiki/Breaking-changes-in-rolling)
 
+### Debugging LunarVim's configuration
+* To turn on debugging add these settings `lvim.log.level = debug` and use `<leader>Ll` to see the options of viewing the logfiles
+* You can also use install [lnav](https://github.com/tstack/lnav) and use it in a floating terminal. Make sure to set `lvim.builtin.terminal.active = true`.
+
 ### Fixing installation problems
 If your installation is stuck on `Ok to remove? [y/N]`, it means there are some leftovers, \
 you can run the script with `--overwrite` but be warned this will remove the following folders:
@@ -187,7 +191,7 @@ To update Neovim use your package manager or [compile from source](https://githu
     - User configurable lang/feature enable/disable
 3. Provide a [simple and easy](https://github.com/LunarVim/LunarVimCommunity) way for users to share their own configuration or use others. 
 4. Hot reload of configurations
-    - Hot install of lsp/treesitter/formatter required upon openning a filetype for the first time
+    - Hot install of lsp/treesitter/formatter required upon opening a filetype for the first time
 5. Provide a stable & maintainable error free configuration layer over neovim 
     - With the help of the community behind it
     - Github workflow testing
