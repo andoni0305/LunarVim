@@ -1,8 +1,10 @@
 local M = {}
+
 M.config = function()
   lvim.builtin.which_key = {
     ---@usage disable which-key completely [not recommeded]
     active = true,
+    on_config_done = nil,
     setup = {
       plugins = {
         marks = true, -- shows a list of your marks on ' and `
@@ -66,7 +68,6 @@ M.config = function()
       ["q"] = { "<cmd>q!<CR>", "Quit" },
       ["/"] = { "<cmd>CommentToggle<CR>", "Comment" },
       ["c"] = { "<cmd>BufferClose!<CR>", "Close Buffer" },
-      ["e"] = { "<cmd>lua require'core.nvimtree'.toggle_tree()<CR>", "Explorer" },
       ["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
       ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
       b = {
@@ -242,6 +243,10 @@ M.setup = function()
 
   which_key.register(mappings, opts)
   which_key.register(vmappings, vopts)
+
+  if lvim.builtin.which_key.on_config_done then
+    lvim.builtin.which_key.on_config_done(which_key)
+  end
 end
 
 return M
