@@ -13,8 +13,11 @@ return {
   branch = {
     "branch",
     icon = " ",
+    -- condition = function()
+    --   return conditions.hide_in_width() and conditions.check_git_workspace()
+    -- end,
     condition = function()
-      return conditions.hide_in_width() and conditions.check_git_workspace()
+      return conditions.hide_in_width()
     end,
   },
   diff = {
