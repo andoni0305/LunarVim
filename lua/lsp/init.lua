@@ -44,7 +44,7 @@ local function add_lsp_buffer_keybindings(bufnr)
     ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
     ["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Goto declaration" },
     ["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", "Goto references" },
-    ["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto implementation" },
+    ["gI"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
     ["gs"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "show signature help" },
     ["gp"] = { "<cmd>lua require'lsp.peek'.Peek('definition')<CR>", "Peek definition" },
     ["gl"] = {
@@ -99,14 +99,14 @@ end
 function M.common_on_init(client, bufnr)
   if lvim.lsp.on_init_callback then
     lvim.lsp.on_init_callback(client, bufnr)
-    Log:get_default().info "Called lsp.on_init_callback"
+    Log:debug "Called lsp.on_init_callback"
     return
   end
 
   local formatters = lvim.lang[vim.bo.filetype].formatters
   if not vim.tbl_isempty(formatters) and formatters[1]["exe"] ~= nil and formatters[1].exe ~= "" then
     client.resolved_capabilities.document_formatting = false
-    Log:get_default().info(
+    Log:debug(
       string.format("Overriding language server [%s] with format provider [%s]", client.name, formatters[1].exe)
     )
   end
@@ -115,7 +115,7 @@ end
 function M.common_on_attach(client, bufnr)
   if lvim.lsp.on_attach_callback then
     lvim.lsp.on_attach_callback(client, bufnr)
-    Log:get_default().info "Called lsp.on_init_callback"
+    Log:debug "Called lsp.on_init_callback"
   end
   lsp_highlight_document(client)
   add_lsp_buffer_keybindings(bufnr)
@@ -138,6 +138,17 @@ function M.setup(lang)
 
   if lsp.provider ~= nil and lsp.provider ~= "" then
     local lspconfig = require "lspconfig"
+
+    if not lsp.setup.on_attach then
+      lsp.setup.on_attach = M.common_on_attach
+    end
+    if not lsp.setup.on_init then
+      lsp.setup.on_init = M.common_on_init
+    end
+    if not lsp.setup.capabilities then
+      lsp.setup.capabilities = M.common_capabilities()
+    end
+
     lspconfig[lsp.provider].setup(lsp.setup)
   end
 end
