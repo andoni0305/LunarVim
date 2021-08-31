@@ -789,7 +789,12 @@ lvim.lang = {
       --   args = {},
       -- },
     },
-    linters = {},
+    linters = {
+      {
+        exe = "eslint_d",
+        args = {},
+      },
+    },
     lsp = {
       provider = "tsserver",
       setup = {
