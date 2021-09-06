@@ -351,7 +351,7 @@ lvim.lang = {
       },
     },
   },
-  docker = {
+  dockerfile = {
     formatters = {},
     linters = {},
     lsp = {
