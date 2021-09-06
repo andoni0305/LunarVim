@@ -60,15 +60,15 @@ EOF
 
   __add_separator "80"
 
-  echo "Would you like to check lunarvim's NodeJS dependencies?"
+  echo "Would you like to install lunarvim's NodeJS dependencies?"
   read -p "[y]es or [n]o (default: no) : " -r answer
   [ "$answer" != "${answer#[Yy]}" ] && install_nodejs_deps
 
-  echo "Would you like to check lunarvim's Python dependencies?"
+  echo "Would you like to install lunarvim's Python dependencies?"
   read -p "[y]es or [n]o (default: no) : " -r answer
   [ "$answer" != "${answer#[Yy]}" ] && install_python_deps
 
-  echo "Would you like to check lunarvim's Rust dependencies?"
+  echo "Would you like to install lunarvim's Rust dependencies?"
   read -p "[y]es or [n]o (default: no) : " -r answer
   [ "$answer" != "${answer#[Yy]}" ] && install_rust_deps
 
@@ -210,11 +210,23 @@ function backup_old_config() {
     # we create an empty folder for subsequent commands \
     # that require an existing directory
     mkdir -p "$dir" "$dir.bak"
+    touch "$dir/ignore"
     if command -v rsync &>/dev/null; then
       rsync --archive -hh --partial --progress --cvs-exclude \
         --modify-window=1 "$dir"/ "$dir.bak"
     else
-      cp -R "$dir/*" "$dir.bak/."
+      OS="$(uname -s)"
+      case "$OS" in
+        Linux)
+          cp -r "$dir/"* "$dir.bak/."
+          ;;
+        Darwin)
+          cp -R "$dir/"* "$dir.bak/."
+          ;;
+        *)
+          echo "OS $OS is not currently supported."
+          ;;
+      esac
     fi
   done
   echo "Backup operation complete"

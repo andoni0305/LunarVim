@@ -19,9 +19,9 @@ local function lsp_highlight_document(client)
   if client.resolved_capabilities.document_highlight then
     vim.api.nvim_exec(
       [[
-      hi LspReferenceRead cterm=bold ctermbg=red guibg=#464646
-      hi LspReferenceText cterm=bold ctermbg=red guibg=#464646
-      hi LspReferenceWrite cterm=bold ctermbg=red guibg=#464646
+      hi LspReferenceRead cterm=bold ctermbg=red guibg=#353d46
+      hi LspReferenceText cterm=bold ctermbg=red guibg=#353d46
+      hi LspReferenceWrite cterm=bold ctermbg=red guibg=#353d46
       augroup lsp_document_highlight
         autocmd! * <buffer>
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
@@ -48,7 +48,7 @@ local function add_lsp_buffer_keybindings(bufnr)
     ["gs"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "show signature help" },
     ["gp"] = { "<cmd>lua require'lsp.peek'.Peek('definition')<CR>", "Peek definition" },
     ["gl"] = {
-      "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = 'single' })<CR>",
+      "<cmd>lua require'lsp.handlers'.show_line_diagnostics()<CR>",
       "Show line diagnostics",
     },
   }
@@ -125,7 +125,7 @@ end
 function M.setup(lang)
   local lsp_utils = require "lsp.utils"
   local lsp = lvim.lang[lang].lsp
-  if lsp_utils.is_client_active(lsp.provider) then
+  if (lsp.active ~= nil and not lsp.active) or lsp_utils.is_client_active(lsp.provider) then
     return
   end
 

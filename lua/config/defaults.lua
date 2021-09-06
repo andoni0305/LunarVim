@@ -8,7 +8,7 @@ vim.cmd [[ set spellfile=~/.config/lvim/spell/en.utf-8.add ]]
 
 lvim = {
   leader = "space",
-  colorscheme = "spacegray",
+  colorscheme = "onedarker",
   line_wrap_cursor_movement = true,
   transparent_window = false,
   format_on_save = true,
@@ -131,6 +131,20 @@ lvim.lang = {
       provider = "beancount",
       setup = {
         cmd = { "beancount-langserver" },
+      },
+    },
+  },
+  bicep = {
+    formatters = {},
+    linters = {},
+    lsp = {
+      provider = "bicep",
+      setup = {
+        cmd = {
+          "dotnet",
+          DATA_PATH .. "/lspinstall/bicep/Bicep.LangServer.dll",
+        },
+        filetypes = { "bicep" },
       },
     },
   },
@@ -337,7 +351,7 @@ lvim.lang = {
       },
     },
   },
-  docker = {
+  dockerfile = {
     formatters = {},
     linters = {},
     lsp = {
@@ -687,6 +701,16 @@ lvim.lang = {
       setup = {},
     },
   },
+  solidity = {
+    formatters = {},
+    linters = {},
+    lsp = {
+      provider = "solang",
+      setup = {
+        cmd = { "solang", "--language-server" },
+      },
+    },
+  },
   sql = {
     formatters = {
       -- {
@@ -789,7 +813,12 @@ lvim.lang = {
       --   args = {},
       -- },
     },
-    linters = {},
+    linters = {
+      {
+        exe = "eslint_d",
+        args = {},
+      },
+    },
     lsp = {
       provider = "tsserver",
       setup = {
@@ -961,16 +990,15 @@ lvim.lang = {
     },
   },
   tailwindcss = {
-    active = false,
-    filetypes = {
-      "html",
-      "css",
-      "less",
-      "scss",
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact",
+    lsp = {
+      active = false,
+      provider = "tailwindcss",
+      setup = {
+        cmd = {
+          DATA_PATH .. "/lspinstall/tailwindcss/node_modules/.bin/tailwindcss-language-server",
+          "--stdio",
+        },
+      },
     },
   },
   terraform = {
@@ -1100,6 +1128,27 @@ lvim.lang = {
       setup = {
         cmd = {
           DATA_PATH .. "/lspinstall/vue/node_modules/.bin/vls",
+        },
+        root_dir = function(fname)
+          local util = require "lspconfig/util"
+          return util.root_pattern "package.json"(fname) or util.root_pattern "vue.config.js"(fname) or vim.fn.getcwd()
+        end,
+        init_options = {
+          config = {
+            vetur = {
+              completion = {
+                autoImport = true,
+                tagCasing = "kebab",
+                useScaffoldSnippets = true,
+              },
+              useWorkspaceDependencies = true,
+              validation = {
+                script = true,
+                style = true,
+                template = true,
+              },
+            },
+          },
         },
       },
     },
