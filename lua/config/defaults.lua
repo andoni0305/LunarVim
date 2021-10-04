@@ -35,327 +35,325 @@ lvim = {
   autocommands = {},
 
   lang = {
-  c = {
-    formatters = {
-      -- {
-      --   exe = "clang_format",
-      --   args = {},
-      -- },
-      -- {
-      --   exe = "uncrustify",
-      --   args = {},
-      -- },
-    },
-    linters = {},
-  },
-  css = {
-    formatters = {
-      {
-        exe = "prettier",
-        args = {},
+    c = {
+      formatters = {
+        -- {
+        --   exe = "clang_format",
+        --   args = {},
+        -- },
+        -- {
+        --   exe = "uncrustify",
+        --   args = {},
+        -- },
       },
-      -- {
-      --   exe = "prettierd",
-      --   args = {},
-      -- },
+      linters = {},
     },
-    linters = { {
-      exe = "stylelint",
-      args = {},
-    } },
-  },
-  less = {
-    formatters = {
-      {
-        exe = "prettier",
-        args = {},
+    css = {
+      formatters = {
+        {
+          exe = "prettier",
+          args = {},
+        },
+        -- {
+        --   exe = "prettierd",
+        --   args = {},
+        -- },
       },
-      -- {
-      --   exe = "prettierd",
-      --   args = {},
-      -- },
-    },
-    linters = {},
-  },
-  dockerfile = {
-    formatters = {},
-    linters = {},
-  },
-  elixir = {
-    formatters = {
-      -- {
-      --   exe = "mix",
-      --   args = {},
-      -- },
-    },
-    linters = {},
-  },
-  go = {
-    formatters = {
-      -- {
-      --   exe = "gofmt",
-      --   args = {},
-      -- },
-      -- {
-      --   exe = "goimports",
-      --   args = {},
-      -- },
-      -- {
-      --   exe = "gofumpt",
-      --   args = {},
-      -- },
-    },
-    linters = {},
-  },
-  graphql = {
-    formatters = {},
-    linters = {},
-  },
-  html = {
-    formatters = {
-      -- {
-      --   exe = "prettier",
-      --   args = {},
-      -- },
-      -- {
-      --   exe = "prettierd",
-      --   args = {},
-      -- },
-    },
-    linters = {},
-  },
-  java = {
-    formatters = {
-      -- {
-      --   exe = "clang_format",
-      --   args = {},
-      -- },
-      -- {
-      --   exe = "uncrustify",
-      --   args = {},
-      -- },
-    },
-    linters = {},
-  },
-  json = {
-    formatters = {
-      -- {
-      --   exe = "json_tool",
-      --   args = {},
-      -- },
-      {
-        exe = "prettier",
+      linters = { {
+        exe = "stylelint",
         args = {},
+      } },
+    },
+    less = {
+      formatters = {
+        {
+          exe = "prettier",
+          args = {},
+        },
+        -- {
+        --   exe = "prettierd",
+        --   args = {},
+        -- },
       },
-      -- {
-      --   exe = "prettierd",
-      --   args = {},
-      -- },
+      linters = {},
     },
-    linters = {},
-  },
-  lua = {
-    formatters = {
-      {
-        exe = "stylua",
-        args = {},
+    dockerfile = {
+      formatters = {},
+      linters = {},
+    },
+    elixir = {
+      formatters = {
+        -- {
+        --   exe = "mix",
+        --   args = {},
+        -- },
       },
-      -- {
-      --   exe = "lua_format",
-      --   args = {},
-      -- },
+      linters = {},
     },
-    linters = {
-      {
-        exe = "luacheck",
-        args = {},
+    go = {
+      formatters = {
+        -- {
+        --   exe = "gofmt",
+        --   args = {},
+        -- },
+        -- {
+        --   exe = "goimports",
+        --   args = {},
+        -- },
+        -- {
+        --   exe = "gofumpt",
+        --   args = {},
+        -- },
       },
+      linters = {},
     },
-  },
-  javascript = {
-    formatters = {
-      {
-        exe = "prettier",
-        args = {},
+    graphql = {
+      formatters = {},
+      linters = {},
+    },
+    html = {
+      formatters = {
+        -- {
+        --   exe = "prettier",
+        --   args = {},
+        -- },
+        -- {
+        --   exe = "prettierd",
+        --   args = {},
+        -- },
       },
-      -- {
-      --   exe = "prettier_d_slim",
-      --   args = {},
-      -- },
-      -- {
-      --   exe = "prettierd",
-      --   args = {},
-      -- },
+      linters = {},
     },
-    -- @usage can be {"eslint"} or {"eslint_d"}
-    linters = {
-      {
-        exe = "eslint_d",
-        args = {},
+    java = {
+      formatters = {
+        -- {
+        --   exe = "clang_format",
+        --   args = {},
+        -- },
+        -- {
+        --   exe = "uncrustify",
+        --   args = {},
+        -- },
+      },
+      linters = {},
+    },
+    json = {
+      formatters = {
+        -- {
+        --   exe = "json_tool",
+        --   args = {},
+        -- },
+        {
+          exe = "prettier",
+          args = {},
+        },
+        -- {
+        --   exe = "prettierd",
+        --   args = {},
+        -- },
+      },
+      linters = {},
+    },
+    lua = {
+      formatters = {
+        {
+          exe = "stylua",
+          args = {},
+        },
+        -- {
+        --   exe = "lua_format",
+        --   args = {},
+        -- },
+      },
+      linters = {
+        {
+          exe = "luacheck",
+          args = {},
+        },
       },
     },
-  },
-  javascriptreact = {
-    formatters = {
-      {
-        exe = "prettier",
-        args = {},
+    javascript = {
+      formatters = {
+        {
+          exe = "prettier",
+          args = {},
+        },
+        -- {
+        --   exe = "prettier_d_slim",
+        --   args = {},
+        -- },
+        -- {
+        --   exe = "prettierd",
+        --   args = {},
+        -- },
       },
-      -- {
-      --   exe = "prettier_d_slim",
-      --   args = {},
-      -- },
-      -- {
-      --   exe = "prettierd",
-      --   args = {},
-      -- },
-    },
-    linters = {
-      {
-        exe = "eslint_d",
-        args = {},
-      },
-    },
-  },
-  python = {
-    formatters = {
-      -- {
-      --   exe = "yapf",
-      --   args = {},
-      -- },
-      -- {
-      --   exe = "isort",
-      --   args = {},
-      -- },
-    },
-    linters = {},
-  },
-  ruby = {
-    formatters = {
-      -- {
-      --   exe = "rufo",
-      --   args = {},
-      -- },
-    },
-    linters = {},
-  },
-  rust = {
-    formatters = {
-      -- {
-      --   exe = "rustfmt",
-      --   args = {},
-      -- },
-    },
-    linters = {},
-  },
-  sh = {
-    formatters = {
-      {
-        exe = "shfmt",
-        args = {},
+      -- @usage can be {"eslint"} or {"eslint_d"}
+      linters = {
+        {
+          exe = "eslint_d",
+          args = {},
+        },
       },
     },
-    linters = {
-      {
-        exe = "shellcheck",
-        args = {},
+    javascriptreact = {
+      formatters = {
+        {
+          exe = "prettier",
+          args = {},
+        },
+        -- {
+        --   exe = "prettier_d_slim",
+        --   args = {},
+        -- },
+        -- {
+        --   exe = "prettierd",
+        --   args = {},
+        -- },
+      },
+      linters = {
+        {
+          exe = "eslint_d",
+          args = {},
+        },
       },
     },
-  },
-  svelte = {
-    formatters = {},
-    linters = {},
-  },
-  tailwindcss = {
-  },
-  terraform = {
-    formatters = {
-      -- {
-      --   exe = "terraform_fmt",
-      --   args = {},
-      -- },
-    },
-    linters = {},
-  },
-  typescript = {
-    formatters = {
-      {
-        exe = "prettier",
-        args = {},
+    python = {
+      formatters = {
+        -- {
+        --   exe = "yapf",
+        --   args = {},
+        -- },
+        -- {
+        --   exe = "isort",
+        --   args = {},
+        -- },
       },
-      -- {
-      --   exe = "prettierd",
-      --   args = {},
-      -- },
-      -- {
-      --   exe = "prettier_d_slim",
-      --   args = {},
-      -- },
+      linters = {},
     },
-    linters = {
-      {
-        exe = "eslint_d",
-        args = {},
+    ruby = {
+      formatters = {
+        -- {
+        --   exe = "rufo",
+        --   args = {},
+        -- },
       },
+      linters = {},
     },
-  },
-  typescriptreact = {
-    formatters = {
-      {
-        exe = "prettier",
-        args = {},
+    rust = {
+      formatters = {
+        -- {
+        --   exe = "rustfmt",
+        --   args = {},
+        -- },
       },
-      -- {
-      --   exe = "prettierd",
-      --   args = {},
-      -- },
-      -- {
-      --   exe = "prettier_d_slim",
-      --   args = {},
-      -- },
+      linters = {},
     },
-    -- @usage can be {"eslint"} or {"eslint_d"}
-    linters = {
-      {
-        exe = "eslint_d",
-        args = {},
+    sh = {
+      -- formatters = {
+      --   {
+      --     exe = "shfmt",
+      --     args = {},
+      --   },
+      -- },
+      linters = {
+        {
+          exe = "shellcheck",
+          args = {},
+        },
       },
     },
-  },
-  vim = {
-    formatters = {},
-    linters = {},
-  },
-  vue = {
-    formatters = {
-      -- {
-      --   exe = "prettier",
-      --   args = {},
-      -- },
-      -- {
-      --   exe = "prettierd",
-      --   args = {},
-      -- },
-      -- {
-      --   exe = "prettier_d_slim",
-      --   args = {},
-      -- },
+    svelte = {
+      formatters = {},
+      linters = {},
     },
-    linters = {},
-  },
-  yaml = {
-    formatters = {
-      {
-        exe = "prettier",
-        args = {},
+    tailwindcss = {},
+    terraform = {
+      formatters = {
+        -- {
+        --   exe = "terraform_fmt",
+        --   args = {},
+        -- },
       },
-      -- {
-      --   exe = "prettierd",
-      --   args = {},
-      -- },
+      linters = {},
     },
-    linters = {},
+    typescript = {
+      formatters = {
+        {
+          exe = "prettier",
+          args = {},
+        },
+        -- {
+        --   exe = "prettierd",
+        --   args = {},
+        -- },
+        -- {
+        --   exe = "prettier_d_slim",
+        --   args = {},
+        -- },
+      },
+      linters = {
+        {
+          exe = "eslint_d",
+          args = {},
+        },
+      },
+    },
+    typescriptreact = {
+      formatters = {
+        {
+          exe = "prettier",
+          args = {},
+        },
+        -- {
+        --   exe = "prettierd",
+        --   args = {},
+        -- },
+        -- {
+        --   exe = "prettier_d_slim",
+        --   args = {},
+        -- },
+      },
+      -- @usage can be {"eslint"} or {"eslint_d"}
+      linters = {
+        {
+          exe = "eslint_d",
+          args = {},
+        },
+      },
+    },
+    vim = {
+      formatters = {},
+      linters = {},
+    },
+    vue = {
+      formatters = {
+        -- {
+        --   exe = "prettier",
+        --   args = {},
+        -- },
+        -- {
+        --   exe = "prettierd",
+        --   args = {},
+        -- },
+        -- {
+        --   exe = "prettier_d_slim",
+        --   args = {},
+        -- },
+      },
+      linters = {},
+    },
+    yaml = {
+      formatters = {
+        {
+          exe = "prettier",
+          args = {},
+        },
+        -- {
+        --   exe = "prettierd",
+        --   args = {},
+        -- },
+      },
+      linters = {},
+    },
   },
 }
-}
-
