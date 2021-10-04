@@ -636,7 +636,12 @@ lvim.lang = {
       --   args = {},
       -- },
     },
-    linters = {},
+    linters = {
+      {
+        exe = "luacheck",
+        args = {},
+      },
+    },
     lsp = {
       provider = "sumneko_lua",
       setup = {
