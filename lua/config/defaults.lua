@@ -35,19 +35,19 @@ lvim = {
   autocommands = {},
 
   lang = {
-    c = {
-      formatters = {
-        -- {
-        --   exe = "clang_format",
-        --   args = {},
-        -- },
-        -- {
-        --   exe = "uncrustify",
-        --   args = {},
-        -- },
-      },
-      linters = {},
-    },
+    -- c = {
+    --   formatters = {
+    --     -- {
+    --     --   exe = "clang_format",
+    --     --   args = {},
+    --     -- },
+    --     -- {
+    --     --   exe = "uncrustify",
+    --     --   args = {},
+    --     -- },
+    --   },
+    --   linters = {},
+    -- },
     css = {
       formatters = {
         {
@@ -77,46 +77,46 @@ lvim = {
       },
       linters = {},
     },
-    dockerfile = {
-      formatters = {},
-      linters = {},
-    },
-    elixir = {
-      formatters = {
-        -- {
-        --   exe = "mix",
-        --   args = {},
-        -- },
-      },
-      linters = {},
-    },
-    go = {
-      formatters = {
-        -- {
-        --   exe = "gofmt",
-        --   args = {},
-        -- },
-        -- {
-        --   exe = "goimports",
-        --   args = {},
-        -- },
-        -- {
-        --   exe = "gofumpt",
-        --   args = {},
-        -- },
-      },
-      linters = {},
-    },
-    graphql = {
-      formatters = {},
-      linters = {},
-    },
+    -- dockerfile = {
+    --   formatters = {},
+    --   linters = {},
+    -- },
+    -- elixir = {
+    --   formatters = {
+    --     -- {
+    --     --   exe = "mix",
+    --     --   args = {},
+    --     -- },
+    --   },
+    --   linters = {},
+    -- },
+    -- go = {
+    --   formatters = {
+    --     -- {
+    --     --   exe = "gofmt",
+    --     --   args = {},
+    --     -- },
+    --     -- {
+    --     --   exe = "goimports",
+    --     --   args = {},
+    --     -- },
+    --     -- {
+    --     --   exe = "gofumpt",
+    --     --   args = {},
+    --     -- },
+    --   },
+    --   linters = {},
+    -- },
+    -- graphql = {
+    --   formatters = {},
+    --   linters = {},
+    -- },
     html = {
       formatters = {
-        -- {
-        --   exe = "prettier",
-        --   args = {},
-        -- },
+        {
+          exe = "prettier",
+          args = {},
+        },
         -- {
         --   exe = "prettierd",
         --   args = {},
@@ -124,19 +124,19 @@ lvim = {
       },
       linters = {},
     },
-    java = {
-      formatters = {
-        -- {
-        --   exe = "clang_format",
-        --   args = {},
-        -- },
-        -- {
-        --   exe = "uncrustify",
-        --   args = {},
-        -- },
-      },
-      linters = {},
-    },
+    -- java = {
+    --   formatters = {
+    --     -- {
+    --     --   exe = "clang_format",
+    --     --   args = {},
+    --     -- },
+    --     -- {
+    --     --   exe = "uncrustify",
+    --     --   args = {},
+    --     -- },
+    --   },
+    --   linters = {},
+    -- },
     json = {
       formatters = {
         -- {
@@ -217,37 +217,37 @@ lvim = {
         },
       },
     },
-    python = {
-      formatters = {
-        -- {
-        --   exe = "yapf",
-        --   args = {},
-        -- },
-        -- {
-        --   exe = "isort",
-        --   args = {},
-        -- },
-      },
-      linters = {},
-    },
-    ruby = {
-      formatters = {
-        -- {
-        --   exe = "rufo",
-        --   args = {},
-        -- },
-      },
-      linters = {},
-    },
-    rust = {
-      formatters = {
-        -- {
-        --   exe = "rustfmt",
-        --   args = {},
-        -- },
-      },
-      linters = {},
-    },
+    -- python = {
+    --   formatters = {
+    --     -- {
+    --     --   exe = "yapf",
+    --     --   args = {},
+    --     -- },
+    --     -- {
+    --     --   exe = "isort",
+    --     --   args = {},
+    --     -- },
+    --   },
+    --   linters = {},
+    -- },
+    -- ruby = {
+    --   formatters = {
+    --     -- {
+    --     --   exe = "rufo",
+    --     --   args = {},
+    --     -- },
+    --   },
+    --   linters = {},
+    -- },
+    -- rust = {
+    --   formatters = {
+    --     -- {
+    --     --   exe = "rustfmt",
+    --     --   args = {},
+    --     -- },
+    --   },
+    --   linters = {},
+    -- },
     sh = {
       -- formatters = {
       --   {
@@ -262,20 +262,20 @@ lvim = {
         },
       },
     },
-    svelte = {
-      formatters = {},
-      linters = {},
-    },
-    tailwindcss = {},
-    terraform = {
-      formatters = {
-        -- {
-        --   exe = "terraform_fmt",
-        --   args = {},
-        -- },
-      },
-      linters = {},
-    },
+    -- svelte = {
+    --   formatters = {},
+    --   linters = {},
+    -- },
+    -- tailwindcss = {},
+    -- terraform = {
+    --   formatters = {
+    --     -- {
+    --     --   exe = "terraform_fmt",
+    --     --   args = {},
+    --     -- },
+    --   },
+    --   linters = {},
+    -- },
     typescript = {
       formatters = {
         {
@@ -321,27 +321,27 @@ lvim = {
         },
       },
     },
-    vim = {
-      formatters = {},
-      linters = {},
-    },
-    vue = {
-      formatters = {
-        -- {
-        --   exe = "prettier",
-        --   args = {},
-        -- },
-        -- {
-        --   exe = "prettierd",
-        --   args = {},
-        -- },
-        -- {
-        --   exe = "prettier_d_slim",
-        --   args = {},
-        -- },
-      },
-      linters = {},
-    },
+    -- vim = {
+    --   formatters = {},
+    --   linters = {},
+    -- },
+    -- vue = {
+    --   formatters = {
+    --     -- {
+    --     --   exe = "prettier",
+    --     --   args = {},
+    --     -- },
+    --     -- {
+    --     --   exe = "prettierd",
+    --     --   args = {},
+    --     -- },
+    --     -- {
+    --     --   exe = "prettier_d_slim",
+    --     --   args = {},
+    --     -- },
+    --   },
+    --   linters = {},
+    -- },
     yaml = {
       formatters = {
         {
@@ -353,7 +353,7 @@ lvim = {
         --   args = {},
         -- },
       },
-      linters = {},
+      -- linters = {},
     },
   },
 }
