@@ -34,7 +34,7 @@ function M.config()
         "--hidden",
       },
       file_ignore_patterns = {},
-      path_display = { shorten = 5 },
+      path_display = {},
       winblend = 0,
       border = {},
       borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
