@@ -53,13 +53,16 @@ M.setup = function()
   }
 
   if package.loaded["cmp"] then
-    require("nvim-autopairs.completion.cmp").setup {
-      map_cr = false,
-      map_complete = lvim.builtin.autopairs.map_complete,
-      map_char = lvim.builtin.autopairs.map_char,
-    }
-    -- we map CR explicitly in cmp.lua but we still need to setup the autopairs CR keymap
-    vim.api.nvim_set_keymap("i", "<CR>", "v:lua.MPairs.autopairs_cr()", { expr = true, noremap = true })
+    local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+    local cmp = require "cmp"
+    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+    -- require("nvim-autopairs.completion.cmp").setup {
+    --   map_cr = false,
+    --   map_complete = lvim.builtin.autopairs.map_complete,
+    --   map_char = lvim.builtin.autopairs.map_char,
+    -- }
+    -- -- we map CR explicitly in cmp.lua but we still need to setup the autopairs CR keymap
+    -- vim.api.nvim_set_keymap("i", "<CR>", "v:lua.MPairs.autopairs_cr()", { expr = true, noremap = true })
   end
 
   require("nvim-treesitter.configs").setup { autopairs = { enable = true } }
