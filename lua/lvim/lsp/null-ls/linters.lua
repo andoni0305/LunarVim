@@ -4,7 +4,13 @@ local null_ls = require "null-ls"
 local services = require "lvim.lsp.null-ls.services"
 local Log = require "lvim.core.log"
 
-local is_registered = require("null-ls.sources").is_registered
+local is_registered = function(name)
+  local query = {
+    name = name,
+    method = require("null-ls").methods.DIAGNOSTICS,
+  }
+  return require("null-ls.sources").is_registered(query)
+end
 
 function M.list_registered_providers(filetype)
   local null_ls_methods = require "null-ls.methods"
@@ -38,8 +44,8 @@ function M.list_configured(linter_configs)
     if not linter then
       Log:error("Not a valid linter: " .. lnt_config.exe)
       errors[lnt_config.exe] = {} -- Add data here when necessary
-    elseif is_registered(lnt_config.exe) then
-      Log:trace "Skipping registering the source more than once"
+      elseif is_registered(lnt_config.exe) then
+        Log:trace "Skipping registering the source more than once"
     else
       local linter_cmd = services.find_command(linter._opts.command)
       if not linter_cmd then
