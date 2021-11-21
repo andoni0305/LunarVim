@@ -44,8 +44,8 @@ function M.list_configured(codeact_configs)
     if not code_action then
       Log:error("Not a valid code action: " .. codeact_config.exe)
       errors[codeact_config.exe] = {} -- Add data here when necessary
-      elseif is_registered(codeact_config.exe) then
-        Log:trace "Skipping registering the source more than once"
+    elseif is_registered(codeact_config.exe) then
+      Log:trace "Skipping registering the source more than once"
     else
       local codeact_cmd = services.find_command(code_action._opts.command)
       if not codeact_cmd then
