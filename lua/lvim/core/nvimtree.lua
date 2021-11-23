@@ -22,7 +22,7 @@ function M.config()
         },
       },
       view = {
-        width = 30,
+        width = 35,
         side = "left",
         auto_resize = true,
         mappings = {
@@ -35,7 +35,7 @@ function M.config()
       folders = 1,
       files = 1,
       folder_arrows = 1,
-      tree_width = 30,
+      tree_width = 35,
     },
     ignore = { ".git", "node_modules", ".cache" },
     quit_on_open = 0,
