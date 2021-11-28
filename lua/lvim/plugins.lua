@@ -87,7 +87,6 @@ return {
       "L3MON4D3/LuaSnip",
       "rafamadriz/friendly-snippets",
     },
-    module = "cmp",
   },
   {
     "rafamadriz/friendly-snippets",
@@ -107,22 +106,18 @@ return {
   {
     "saadparwaiz1/cmp_luasnip",
     commit = commit.cmp_luasnip,
-    after = "cmp",
   },
   {
     "hrsh7th/cmp-buffer",
     commit = commit.cmp_buffer,
-    after = "cmp",
   },
   {
     "hrsh7th/cmp-path",
     commit = commit.cmp_path,
-    after = "cmp",
   },
   {
     "hrsh7th/cmp-nvim-lua",
     commit = commit.cmp_nvim_lua,
-    after = "cmp",
   },
 
   -- Autopairs
