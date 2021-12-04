@@ -28,8 +28,6 @@ function M.config()
       basic = true,
       ---extra mapping
       ---Includes `gco`, `gcO`, `gcA`
-      ---extended mapping
-      ---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
       extra = true,
       ---extended mapping
       ---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
