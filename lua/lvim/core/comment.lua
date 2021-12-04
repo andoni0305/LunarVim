@@ -26,9 +26,14 @@ function M.config()
       ---operator-pending mapping
       ---Includes `gcc`, `gcb`, `gc[count]{motion}` and `gb[count]{motion}`
       basic = true,
+      ---extra mapping
+      ---Includes `gco`, `gcO`, `gcA`
       ---extended mapping
       ---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
-      extra = false,
+      extra = true,
+      ---extended mapping
+      ---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
+      extended = false,
     },
 
     ---LHS of line and block comment toggle mapping in NORMAL/VISUAL mode
