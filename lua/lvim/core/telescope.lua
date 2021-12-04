@@ -151,6 +151,10 @@ function M.setup()
   if lvim.builtin.telescope.extensions and lvim.builtin.telescope.extensions.fzf then
     require("telescope").load_extension "fzf"
   end
+
+  if lvim.builtin.telescope.extensions and lvim.builtin.telescope.extensions.git_worktree then
+    require("telescope").load_extension "git_worktree"
+  end
 end
 
 return M
