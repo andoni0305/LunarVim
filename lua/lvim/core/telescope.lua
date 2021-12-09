@@ -85,30 +85,29 @@ end
 
 function M.code_actions()
   local opts = {
-    winblend = 15,
-    layout_config = {
-      prompt_position = "top",
-      width = 80,
-      height = 12,
-    },
-    borderchars = {
-      prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
-      results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
-      preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-    },
-    border = {},
-    previewer = false,
-    shorten_path = false,
+    -- winblend = 15,
+    -- layout_config = {
+    --   prompt_position = "top",
+    --   width = 80,
+    --   height = 12,
+    -- },
+    -- borderchars = {
+    --   prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
+    --   results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
+    --   preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+    -- },
+    -- border = {},
+    -- previewer = true,
+    -- shorten_path = false,
   }
   local builtin = require "telescope.builtin"
   local themes = require "telescope.themes"
-  builtin.lsp_code_actions(themes.get_dropdown(opts))
+  builtin.lsp_code_actions(themes.get_cursor(opts))
 end
 
 function M.setup()
   local previewers = require "telescope.previewers"
   local sorters = require "telescope.sorters"
-  local actions = require "telescope.actions"
 
   lvim.builtin.telescope = vim.tbl_extend("keep", {
     file_previewer = previewers.vim_buffer_cat.new,
@@ -116,23 +115,6 @@ function M.setup()
     qflist_previewer = previewers.vim_buffer_qflist.new,
     file_sorter = sorters.get_fuzzy_file,
     generic_sorter = sorters.get_generic_fuzzy_sorter,
-    ---@usage Mappings are fully customizable. Many familiar mapping patterns are setup as defaults.
-    mappings = {
-      i = {
-        ["<C-n>"] = actions.move_selection_next,
-        ["<C-p>"] = actions.move_selection_previous,
-        ["<C-c>"] = actions.close,
-        ["<C-j>"] = actions.cycle_history_next,
-        ["<C-k>"] = actions.cycle_history_prev,
-        ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
-        ["<CR>"] = actions.select_default + actions.center,
-      },
-      n = {
-        ["<C-n>"] = actions.move_selection_next,
-        ["<C-p>"] = actions.move_selection_previous,
-        ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
-      },
-    },
   }, lvim.builtin.telescope)
 
   local telescope = require "telescope"
