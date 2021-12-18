@@ -137,6 +137,10 @@ function M.setup()
   if lvim.builtin.telescope.extensions and lvim.builtin.telescope.extensions.git_worktree then
     require("telescope").load_extension "git_worktree"
   end
+
+  if lvim.builtin.telescope.extensions and lvim.builtin.telescope.extensions.neoclip then
+    require("telescope").load_extension "neoclip"
+  end
 end
 
 return M

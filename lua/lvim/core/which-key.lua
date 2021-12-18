@@ -94,7 +94,7 @@ M.config = function()
           "Sort by language",
         },
       },
-      p = {
+      P = {
         name = "Packer",
         c = { "<cmd>PackerCompile<cr>", "Compile" },
         i = { "<cmd>PackerInstall<cr>", "Install" },
