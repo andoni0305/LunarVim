@@ -46,6 +46,8 @@ M.load_options = function()
     spellfile = utils.join_paths(get_config_dir(), "spell", "en.utf-8.add"),
     scrolloff = 8, -- is one of my fav
     sidescrolloff = 8,
+    listchars = "eol:↲,tab:» ,trail:·,extends:<,precedes:>,conceal:┊,nbsp:␣",
+    list = true,
   }
 
   ---  SETTINGS  ---
