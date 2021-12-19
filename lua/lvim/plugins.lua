@@ -4,6 +4,7 @@ local commit = {
   cmp_luasnip = "7bd2612533db6863381193df83f9934b373b21e1",
   cmp_nvim_lsp = "134117299ff9e34adde30a735cd8ca9cf8f3db81",
   cmp_nvim_lua = "d276254e7198ab7d00f117e88e223b4bd8c02d21",
+  cmp_cmdline = "29ca81a6f0f288e6311b3377d9d9684d22eac2ec",
   cmp_path = "d83839ae510d18530c6d36b662a9e806d4dceb73",
   comment = "eb0a84a2ea42858a2bb3cdf5fabe54e7c700555d",
   dapinstall = "dd09e9dd3a6e29f02ac171515b8a089fb82bb425",
@@ -117,6 +118,10 @@ return {
   {
     "hrsh7th/cmp-nvim-lua",
     commit = commit.cmp_nvim_lua,
+  },
+  {
+    "hrsh7th/cmp-cmdline",
+    commit = commit.cmp_cmdline,
   },
 
   -- Autopairs
