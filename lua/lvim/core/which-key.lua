@@ -61,7 +61,7 @@ M.config = function()
     -- NOTE: Prefer using : over <cmd> as the latter avoids going back in normal-mode.
     -- see https://neovim.io/doc/user/map.html#:map-cmd
     vmappings = {
-      ["/"] = { "<ESC><CMD>lua ___comment_gc(vim.fn.visualmode())<CR>", "Comment" },
+      ["/"] = { "<ESC><CMD>lua require('Comment.api').gc(vim.fn.visualmode())<CR>", "Comment" },
     },
     mappings = {
       ["w"] = { "<cmd>w!<CR>", "Save" },
@@ -94,7 +94,7 @@ M.config = function()
           "Sort by language",
         },
       },
-      p = {
+      P = {
         name = "Packer",
         c = { "<cmd>PackerCompile<cr>", "Compile" },
         i = { "<cmd>PackerInstall<cr>", "Install" },
@@ -134,6 +134,11 @@ M.config = function()
         d = {
           "<cmd>Gitsigns diffthis HEAD<cr>",
           "Git Diff",
+        },
+        w = {
+          name = "Worktrees",
+          s = { "<cmd>lua require'telescope'.extensions.git_worktree.git_worktrees()<cr>", "Browse" },
+          c = { "<cmd>lua require'telescope'.extensions.git_worktree.create_git_worktree()<cr>", "Create" },
         },
       },
 
