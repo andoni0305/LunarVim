@@ -4,7 +4,6 @@ local commit = {
   cmp_luasnip = "d6f837f4e8fe48eeae288e638691b91b97d1737f",
   cmp_nvim_lsp = "ebdfc204afb87f15ce3d3d3f5df0b8181443b5ba",
   cmp_path = "4d58224e315426e5ac4c5b218ca86cab85f80c79",
-  cmp_cmdline = "29ca81a6f0f288e6311b3377d9d9684d22eac2ec",
   comment = "90df2f87c0b17193d073d1f72cea2e528e5b162d",
   dapinstall = "568d946a99edb6780912cb39ca68c368516cd853",
   dashboard_nvim = "d82ddae95fd4dc4c3b7bbe87f09b1840fbf20ecb",
@@ -129,7 +128,12 @@ return {
   },
   {
     "hrsh7th/cmp-cmdline",
-    commit = commit.cmp_cmdline,
+  },
+  {
+    "f3fora/cmp-spell",
+  },
+  {
+    "lukas-reineke/cmp-rg",
   },
 
   -- Autopairs

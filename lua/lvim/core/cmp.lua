@@ -241,6 +241,8 @@ M.config = function()
       { name = "emoji" },
       { name = "treesitter" },
       { name = "crates" },
+      { name = "rg" },
+      { name = "spell" },
     },
     mapping = {
       ["<C-k>"] = cmp.mapping.select_prev_item(),
