@@ -206,6 +206,7 @@ M.config = function()
         vsnip = "(Snippet)",
         luasnip = "(Snippet)",
         buffer = "(Buffer)",
+        rg = "(RG)",
       },
       duplicates = {
         buffer = 1,
