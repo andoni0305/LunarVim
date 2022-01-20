@@ -207,6 +207,8 @@ M.config = function()
         luasnip = "(Snippet)",
         buffer = "(Buffer)",
         rg = "(RG)",
+        spell = "(Spell)",
+        -- nuspell = "(NuSpell)",
       },
       duplicates = {
         buffer = 1,
@@ -244,6 +246,7 @@ M.config = function()
       { name = "crates" },
       { name = "rg" },
       { name = "spell" },
+      -- { name = "nuspell" },
     },
     mapping = {
       ["<C-k>"] = cmp.mapping.select_prev_item(),
