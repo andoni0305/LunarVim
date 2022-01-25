@@ -206,6 +206,9 @@ M.config = function()
         vsnip = "(Snippet)",
         luasnip = "(Snippet)",
         buffer = "(Buffer)",
+        rg = "(RG)",
+        spell = "(Spell)",
+        -- nuspell = "(NuSpell)",
       },
       duplicates = {
         buffer = 1,
@@ -241,6 +244,9 @@ M.config = function()
       { name = "emoji" },
       { name = "treesitter" },
       { name = "crates" },
+      { name = "rg" },
+      { name = "spell" },
+      -- { name = "nuspell" },
     },
     mapping = {
       ["<C-k>"] = cmp.mapping.select_prev_item(),
