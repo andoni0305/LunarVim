@@ -96,6 +96,7 @@ return {
     "stylelint_lsp",
     "tailwindcss",
     "tflint",
+    "verible",
     "vuels",
     "zeta_note",
     "zk",
