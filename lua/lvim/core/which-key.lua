@@ -135,13 +135,7 @@ M.config = function()
           "<cmd>Gitsigns diffthis HEAD<cr>",
           "Git Diff",
         },
-        w = {
-          name = "Worktrees",
-          s = { "<cmd>lua require'telescope'.extensions.git_worktree.git_worktrees()<cr>", "Browse" },
-          c = { "<cmd>lua require'telescope'.extensions.git_worktree.create_git_worktree()<cr>", "Create" },
-        },
       },
-
       l = {
         name = "LSP",
         a = { "<cmd>lua require('lvim.core.telescope').code_actions()<cr>", "Code Action" },
