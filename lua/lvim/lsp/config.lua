@@ -23,7 +23,7 @@ return {
       prefix = "",
       format = function(d)
         local t = vim.deepcopy(d)
-        local code = d.code or d.user_data.lsp.code
+        local code = d.code or (d.user_data and d.user_data.lsp.code)
         if code then
           t.message = string.format("%s [%s]", t.message, code):gsub("1. ", "")
         end
@@ -34,7 +34,7 @@ return {
   document_highlight = true,
   code_lens_refresh = true,
   float = {
-    focusable = false,
+    focusable = true,
     style = "minimal",
     border = "rounded",
   },
@@ -46,7 +46,8 @@ return {
       ["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show hover" },
       ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
       ["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Goto declaration" },
-      ["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", "Goto references" },
+      -- ["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", "Goto references" },
+      ["gr"] = { "<cmd>Trouble lsp_references<cr>", "Goto references" },
       ["gI"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
       ["gs"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "show signature help" },
       ["gp"] = { "<cmd>lua require'lvim.lsp.peek'.Peek('definition')<CR>", "Peek definition" },
@@ -78,12 +79,14 @@ return {
     "graphql",
     "jedi_language_server",
     "ltex",
+    "ocamllsp",
     "phpactor",
     "psalm",
     "pylsp",
     "quick_lint_js",
     "remark_ls",
     "rome",
+    "scry",
     "solang",
     "solidity_ls",
     "sorbet",
@@ -94,7 +97,9 @@ return {
     "stylelint_lsp",
     "tailwindcss",
     "tflint",
-    "volar",
+    "verible",
+    "vuels",
+    "zeta_note",
     "zk",
   },
 }
