@@ -84,6 +84,7 @@ return {
     "psalm",
     "pylsp",
     "quick_lint_js",
+    "reason_ls",
     "remark_ls",
     "rome",
     "scry",
