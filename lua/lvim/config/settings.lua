@@ -50,6 +50,7 @@ M.load_default_options = function()
     sidescrolloff = 8, -- minimal number of screen lines to keep left and right of the cursor.
     listchars = "eol:↲,tab:» ,trail:·,extends:<,precedes:>,conceal:┊,nbsp:␣",
     list = true,
+    laststatus = 3,
   }
 
   ---  SETTINGS  ---
