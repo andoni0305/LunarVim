@@ -27,7 +27,6 @@ function plugin_loader.init(opts)
         fetch = "fetch --no-tags --no-recurse-submodules --update-shallow --progress",
       },
     },
-    max_jobs = 10,
     display = {
       open_fn = function()
         return require("packer.util").float { border = "rounded" }
