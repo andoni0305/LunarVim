@@ -322,6 +322,7 @@ function M.setup()
     sources = {
       { name = "buffer" },
     },
+    mapping = cmp.mapping.preset.cmdline {},
   })
 
   -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
@@ -331,6 +332,7 @@ function M.setup()
     }, {
       { name = "cmdline" },
     }),
+    mapping = cmp.mapping.preset.cmdline {},
   })
 end
 
