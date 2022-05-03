@@ -106,10 +106,6 @@ local core_plugins = {
   {
     "f3fora/cmp-spell",
   },
-  -- {
-  --   "f3fora/cmp-nuspell",
-  --   rocks = { "lua-nuspell" },
-  -- },
   {
     "lukas-reineke/cmp-rg",
   },
