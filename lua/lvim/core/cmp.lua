@@ -209,7 +209,7 @@ M.config = function()
         buffer = "(Buffer)",
         rg = "(RG)",
         spell = "(Spell)",
-        -- nuspell = "(NuSpell)",
+        tmux = "(TMUX)",
       },
       duplicates = {
         buffer = 1,
@@ -254,7 +254,7 @@ M.config = function()
       { name = "crates" },
       { name = "rg" },
       { name = "spell" },
-      -- { name = "nuspell" },
+      { name = "tmux" },
     },
     mapping = cmp.mapping.preset.insert {
       ["<C-k>"] = cmp.mapping.select_prev_item(),
