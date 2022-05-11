@@ -142,7 +142,7 @@ function M.format_filter(clients)
     if status_ok and formatting_supported and client.name == "null-ls" then
       return "null-ls"
     else
-      return status_ok and formatting_supported and client.name
+      return status_ok and formatting_supported and client.name ~= "tsserver" and client.name
     end
   end, clients)
 end
