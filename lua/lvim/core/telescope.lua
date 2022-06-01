@@ -55,7 +55,7 @@ function M.config()
           ["<C-j>"] = actions.cycle_history_next,
           ["<C-k>"] = actions.cycle_history_prev,
           ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
-          ["<CR>"] = actions.select_default + actions.center,
+          ["<CR>"] = actions.select_default,
         },
         n = {
           ["<C-n>"] = actions.move_selection_next,
@@ -72,7 +72,7 @@ function M.config()
       set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
       pickers = {
         find_files = {
-          find_command = { "fd", "--type=file", "--hidden", "--smart-case" },
+          hidden = true,
         },
         live_grep = {
           --@usage don't include the filename in the search results
@@ -89,24 +89,6 @@ function M.config()
       },
     },
   })
-end
-
-function M.code_actions()
-  local opts = {
-    winblend = 15,
-    layout_config = {
-      prompt_position = "top",
-      width = 80,
-      height = 12,
-    },
-    borderchars = lvim.builtin.telescope.defaults.borderchars,
-    border = {},
-    previewer = false,
-    shorten_path = false,
-  }
-  local builtin = require "telescope.builtin"
-  local themes = require "telescope.themes"
-  builtin.lsp_code_actions(themes.get_cursor(opts))
 end
 
 function M.setup()
@@ -130,12 +112,20 @@ function M.setup()
     end)
   end
 
+  if lvim.builtin.notify.active then
+    pcall(function()
+      require("telescope").load_extension "notify"
+    end)
+  end
+
   if lvim.builtin.telescope.on_config_done then
     lvim.builtin.telescope.on_config_done(telescope)
   end
 
   if lvim.builtin.telescope.extensions and lvim.builtin.telescope.extensions.fzf then
-    require("telescope").load_extension "fzf"
+    pcall(function()
+      require("telescope").load_extension "fzf"
+    end)
   end
 
   if lvim.builtin.telescope.extensions and lvim.builtin.telescope.extensions.git_worktree then

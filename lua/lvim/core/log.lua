@@ -1,7 +1,5 @@
 local Log = {}
 
-local logfile = string.format("%s/%s.log", get_cache_dir(), "lvim")
-
 Log.levels = {
   TRACE = 1,
   DEBUG = 2,
@@ -12,6 +10,20 @@ Log.levels = {
 vim.tbl_add_reverse_lookup(Log.levels)
 
 local notify_opts = {}
+
+function Log:set_level(level)
+  -- package.loaded["lvim.core.log"] = nil
+  local log_level = Log.levels[level:upper()]
+  local status_ok, logger = pcall(require("structlog").get_logger, "lvim")
+  if status_ok then
+    for _, s in ipairs(logger.sinks) do
+      s.level = log_level
+    end
+  end
+
+  package.loaded["packer.log"] = nil
+  require("packer.log").new { level = lvim.log.level }
+end
 
 function Log:init()
   local status_ok, structlog = pcall(require, "structlog")
@@ -36,11 +48,11 @@ function Log:init()
             { level = structlog.formatters.FormatColorizer.color_level() }
           ),
         }),
-        structlog.sinks.File(log_level, logfile, {
+        structlog.sinks.File(log_level, self:get_path(), {
           processors = {
             structlog.processors.Namer(),
             structlog.processors.StackWriter({ "line", "file" }, { max_parents = 3, stack_level = 2 }),
-            structlog.processors.Timestamper "%H:%M:%S",
+            structlog.processors.Timestamper "%F %H:%M:%S",
           },
           formatter = structlog.formatters.Format( --
             "%s [%-5s] %s: %-30s",
@@ -152,7 +164,7 @@ end
 ---Retrieves the path of the logfile
 ---@return string path of the logfile
 function Log:get_path()
-  return logfile
+  return string.format("%s/%s.log", get_cache_dir(), "lvim")
 end
 
 ---Add a log entry at TRACE level

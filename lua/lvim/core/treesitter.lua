@@ -4,19 +4,21 @@ local Log = require "lvim.core.log"
 M.config = function()
   lvim.builtin.treesitter = {
     on_config_done = nil,
-    ensure_installed = {}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     ignore_install = {},
+    sync_install = true,
     matchup = {
       enable = true, -- mandatory, false will disable the whole extension
       -- disable = { "c", "ruby" },  -- optional, list of language that will be disabled
     },
     highlight = {
       enable = true, -- false will disable the whole extension
-      additional_vim_regex_highlighting = true,
+      additional_vim_regex_highlighting = false,
       disable = { "latex" },
     },
     context_commentstring = {
       enable = true,
+      enable_autocmd = false,
       config = {
         -- Languages that have a single comment style
         typescript = "// %s",
@@ -28,9 +30,7 @@ M.config = function()
         json = "",
       },
     },
-    -- indent = {enable = true, disable = {"python", "html", "javascript"}},
-    -- TODO seems to be broken
-    indent = { enable = true, disable = { "yaml" } },
+    indent = { enable = true, disable = { "yaml", "python" } },
     autotag = { enable = true },
     textobjects = {
       swap = {
