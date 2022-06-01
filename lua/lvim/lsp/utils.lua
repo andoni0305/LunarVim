@@ -141,8 +141,8 @@ function M.format_filter(clients)
     -- give higher prio to null-ls
     if status_ok and formatting_supported and client.name == "null-ls" then
       return "null-ls"
-      -- else
-      --   return status_ok and formatting_supported and client.name ~= "tsserver" and client.name
+      else
+        return status_ok and formatting_supported and client.name ~= "tsserver" and client.name
     end
   end, clients)
 end
